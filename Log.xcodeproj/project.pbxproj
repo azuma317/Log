@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,8 @@
 		F268972425736B3B00D23FBE /* LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268972325736B3B00D23FBE /* LogTests.swift */; };
 		F268972F25736B3B00D23FBE /* LogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268972E25736B3B00D23FBE /* LogUITests.swift */; };
 		F268974025736C0D00D23FBE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F268973F25736C0D00D23FBE /* README.md */; };
+		F26897452573756300D23FBE /* DairyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26897442573756300D23FBE /* DairyLogView.swift */; };
+		F268974F2573785C00D23FBE /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = F268974E2573785C00D23FBE /* DynamicColor */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,7 @@
 		F268972E25736B3B00D23FBE /* LogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUITests.swift; sourceTree = "<group>"; };
 		F268973025736B3B00D23FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F268973F25736C0D00D23FBE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F26897442573756300D23FBE /* DairyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyLogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F268974F2573785C00D23FBE /* DynamicColor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +104,8 @@
 			children = (
 				F268971125736B3900D23FBE /* LogApp.swift */,
 				F268971325736B3900D23FBE /* ContentView.swift */,
+				F26897442573756300D23FBE /* DairyLogView.swift */,
+				F268974C257376E000D23FBE /* Supporting Views */,
 				F268971525736B3B00D23FBE /* Assets.xcassets */,
 				F268971A25736B3B00D23FBE /* Info.plist */,
 				F268971725736B3B00D23FBE /* Preview Content */,
@@ -133,6 +139,13 @@
 			path = LogUITests;
 			sourceTree = "<group>";
 		};
+		F268974C257376E000D23FBE /* Supporting Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Supporting Views";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,6 +162,9 @@
 			dependencies = (
 			);
 			name = Log;
+			packageProductDependencies = (
+				F268974E2573785C00D23FBE /* DynamicColor */,
+			);
 			productName = Log;
 			productReference = F268970E25736B3900D23FBE /* Log.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +236,9 @@
 				Base,
 			);
 			mainGroup = F268970525736B3900D23FBE;
+			packageReferences = (
+				F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */,
+			);
 			productRefGroup = F268970F25736B3900D23FBE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -263,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F26897452573756300D23FBE /* DairyLogView.swift in Sources */,
 				F268971425736B3900D23FBE /* ContentView.swift in Sources */,
 				F268971225736B3900D23FBE /* LogApp.swift in Sources */,
 			);
@@ -584,6 +604,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yannickl/DynamicColor";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F268974E2573785C00D23FBE /* DynamicColor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */;
+			productName = DynamicColor;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F268970625736B3900D23FBE /* Project object */;
 }
