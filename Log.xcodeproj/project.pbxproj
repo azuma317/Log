@@ -16,6 +16,7 @@
 		F268974025736C0D00D23FBE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F268973F25736C0D00D23FBE /* README.md */; };
 		F26897452573756300D23FBE /* DairyLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26897442573756300D23FBE /* DairyLogView.swift */; };
 		F268974F2573785C00D23FBE /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = F268974E2573785C00D23FBE /* DynamicColor */; };
+		F268975425753E7900D23FBE /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268975325753E7900D23FBE /* SummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F268973025736B3B00D23FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F268973F25736C0D00D23FBE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F26897442573756300D23FBE /* DairyLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyLogView.swift; sourceTree = "<group>"; };
+		F268975325753E7900D23FBE /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		F268974C257376E000D23FBE /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				F268975325753E7900D23FBE /* SummaryView.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F26897452573756300D23FBE /* DairyLogView.swift in Sources */,
+				F268975425753E7900D23FBE /* SummaryView.swift in Sources */,
 				F268971425736B3900D23FBE /* ContentView.swift in Sources */,
 				F268971225736B3900D23FBE /* LogApp.swift in Sources */,
 			);
