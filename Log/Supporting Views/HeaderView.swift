@@ -6,15 +6,27 @@
 //
 
 import SwiftUI
+import DynamicColor
 
 struct HeaderView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  var title: String
+
+  var body: some View {
+    HStack {
+      Spacer()
+
+      Text("Dairy Log")
+        .foregroundColor(
+          Color(DynamicColor(hexString: "E84F88"))
+        )
+        .padding(.horizontal)
     }
+  }
 }
 
 struct HeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        HeaderView()
-    }
+  static var previews: some View {
+    HeaderView(title: "Dairy Log")
+      .previewLayout(.fixed(width: 360, height: 24))
+  }
 }
