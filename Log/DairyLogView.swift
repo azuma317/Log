@@ -15,18 +15,8 @@ struct DairyLogView: View {
         .edgesIgnoringSafeArea(.all)
 
       VStack {
-        HStack {
-          Spacer()
-
-          Text("Dairy Log")
-            .foregroundColor(
-              Color(DynamicColor(hexString: "E84F88"))
-            )
-            .padding(.horizontal)
-        }
-
+        HeaderView(title: "Dairy Log")
         SummaryView()
-
         Spacer()
       }
     }

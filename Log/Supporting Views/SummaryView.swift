@@ -10,77 +10,59 @@ import DynamicColor
 
 struct SummaryView: View {
   var body: some View {
-    ZStack {
-      Color(DynamicColor(hexString: "2D2D2D"))
-        .edgesIgnoringSafeArea(.all)
+    HStack(alignment: .center) {
+      Spacer()
 
-      HStack {
-        Spacer()
+      Button(action: {}, label: {
+        VStack {
+          Text("18")
+            .font(.system(size: 24, weight: .bold, design: .default))
+          Text("Task")
+            .font(.system(size: 16, weight: .medium, design: .default))
+            .padding(.vertical, 8)
+        }
+      })
+      .foregroundColor(.white)
 
-        Button(action: {}, label: {
-          ZStack {
-            Color(
-              DynamicColor(hexString: "2D2D2D")
-                .darkened(amount: 0.1)
-            )
+      Spacer()
 
-            VStack {
-              Spacer()
-              Text("13").font(.title)
-              Text("All").padding(.vertical, 8)
-            }
-          }
-        })
-        .frame(width: 80, height: 100, alignment: .center)
-        .foregroundColor(.white)
+      Button(action: {}, label: {
+        VStack {
+          Text("13")
+            .font(.system(size: 24, weight: .bold, design: .default))
+          Text("Event")
+            .font(.system(size: 16, weight: .medium, design: .default))
+            .padding(.vertical, 8)
+        }
+      })
+      .foregroundColor(.white)
 
-        Spacer()
+      Spacer()
 
-        Button(action: {}, label: {
-          ZStack {
-            Color(
-              DynamicColor(hexString: "2D2D2D")
-                .lighter(amount: 0.1)
-            )
+      Button(action: {}, label: {
+        VStack {
+          Text("5")
+            .font(.system(size: 24, weight: .bold, design: .default))
+          Text("Memo")
+            .font(.system(size: 16, weight: .medium, design: .default))
+            .padding(.vertical, 8)
+        }
+      })
+      .foregroundColor(.white)
 
-            VStack {
-              Spacer()
-              Text("13").font(.title)
-              Text("All").padding(.vertical, 8)
-            }
-          }
-        })
-        .frame(width: 80, height: 100, alignment: .center)
-        .foregroundColor(.white)
-
-        Spacer()
-
-        Button(action: {}, label: {
-          ZStack {
-            Color(
-              DynamicColor(hexString: "2D2D2D")
-                .lighter(amount: 0.1)
-            )
-
-            VStack {
-              Spacer()
-              Text("13").font(.title)
-              Text("All").padding(.vertical, 8)
-            }
-          }
-        })
-        .frame(width: 80, height: 100, alignment: .center)
-        .foregroundColor(.white)
-
-        Spacer()
-      }
+      Spacer()
     }
-    .frame(width: nil, height: 120, alignment: .center)
+    .frame(maxWidth: .infinity, alignment: .center)
+    .padding(.all, 16)
+    .background(Color(DynamicColor(hexString: "2D2D2D")))
+    .modifier(CardModifier())
+    .padding(.all, 16)
   }
 }
 
 struct SummaryView_Previews: PreviewProvider {
   static var previews: some View {
     SummaryView()
+      .previewLayout(.fixed(width: 360, height: 150))
   }
 }
