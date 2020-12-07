@@ -19,6 +19,8 @@
 		F268975425753E7900D23FBE /* SummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268975325753E7900D23FBE /* SummaryView.swift */; };
 		F2689759257CB33A00D23FBE /* IndexView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2689758257CB33A00D23FBE /* IndexView.swift */; };
 		F2689762257E047200D23FBE /* UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2689761257E047200D23FBE /* UINavigationController.swift */; };
+		F268976A257E07B300D23FBE /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2689769257E07B300D23FBE /* HeaderView.swift */; };
+		F2689773257E0B9300D23FBE /* CardModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2689772257E0B9300D23FBE /* CardModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,8 @@
 		F268975325753E7900D23FBE /* SummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryView.swift; sourceTree = "<group>"; };
 		F2689758257CB33A00D23FBE /* IndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexView.swift; sourceTree = "<group>"; };
 		F2689761257E047200D23FBE /* UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationController.swift; sourceTree = "<group>"; };
+		F2689769257E07B300D23FBE /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		F2689772257E0B9300D23FBE /* CardModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +117,7 @@
 				F2689758257CB33A00D23FBE /* IndexView.swift */,
 				F26897442573756300D23FBE /* DairyLogView.swift */,
 				F268974C257376E000D23FBE /* Supporting Views */,
+				F2689771257E0B7F00D23FBE /* ViewModifier */,
 				F2689760257E045100D23FBE /* Extension */,
 				F268971525736B3B00D23FBE /* Assets.xcassets */,
 				F268971A25736B3B00D23FBE /* Info.plist */,
@@ -150,6 +155,7 @@
 		F268974C257376E000D23FBE /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				F2689769257E07B300D23FBE /* HeaderView.swift */,
 				F268975325753E7900D23FBE /* SummaryView.swift */,
 			);
 			path = "Supporting Views";
@@ -161,6 +167,14 @@
 				F2689761257E047200D23FBE /* UINavigationController.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		F2689771257E0B7F00D23FBE /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				F2689772257E0B9300D23FBE /* CardModifier.swift */,
+			);
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -305,6 +319,8 @@
 				F2689762257E047200D23FBE /* UINavigationController.swift in Sources */,
 				F2689759257CB33A00D23FBE /* IndexView.swift in Sources */,
 				F268971225736B3900D23FBE /* LogApp.swift in Sources */,
+				F2689773257E0B9300D23FBE /* CardModifier.swift in Sources */,
+				F268976A257E07B300D23FBE /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
