@@ -17,6 +17,12 @@ struct DairyLogView: View {
       VStack {
         HeaderView(title: "Dairy Log")
         SummaryView()
+        List {
+          ForEach(0..<4) { (index: Int) in
+            DairyLogRow(title: "Sample")
+          }
+          .listRowBackground(Color(DynamicColor(hexString: "2D2D2D")))
+        }
         Spacer()
       }
     }
