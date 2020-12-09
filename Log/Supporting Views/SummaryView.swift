@@ -22,7 +22,6 @@ struct SummaryView: View {
             .padding(.vertical, 8)
         }
       })
-      .foregroundColor(.white)
 
       Spacer()
 
@@ -35,7 +34,6 @@ struct SummaryView: View {
             .padding(.vertical, 8)
         }
       })
-      .foregroundColor(.white)
 
       Spacer()
 
@@ -48,7 +46,6 @@ struct SummaryView: View {
             .padding(.vertical, 8)
         }
       })
-      .foregroundColor(.white)
 
       Spacer()
     }
@@ -57,6 +54,7 @@ struct SummaryView: View {
     .background(Color(DynamicColor(hexString: "2D2D2D")))
     .modifier(CardModifier())
     .padding(.all, 16)
+    .foregroundColor(.white)
   }
 }
 
