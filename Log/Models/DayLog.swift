@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 enum LogState: Int, Codable {
   case task
@@ -20,9 +22,9 @@ enum LogSubState: Int, Codable {
   case idea
 }
 
-struct DayLog {
+struct DayLog: Codable, Identifiable {
   // ID
-  var id: String = UUID().uuidString
+  @DocumentID var id: String?
   // UserID
   var userId: String?
   // log の内容
@@ -32,13 +34,22 @@ struct DayLog {
   // LogSubState: 初期値None
   var subState: LogSubState
   // DayLog の日にち
-  var logDate: Date
+  @ServerTimestamp var logDate: Timestamp?
   // DayLog の作成日
-  var createdDate: Date
+  @ServerTimestamp var createdDate: Timestamp?
   // DayLog の更新日
-  var updatedDate: Date
+  @ServerTimestamp var updatedDate: Timestamp?
   // DayLog の完了日
-  var completedDate: Date?
+  @ServerTimestamp var completedDate: Timestamp?
   // DayLog を削除した時間
-  var deletedDate: Date?
+  @ServerTimestamp var deletedDate: Timestamp?
 }
+
+#if DEBUG
+let testDayLogs = [
+  DayLog(userId: "uuid12345", log: "Implement UI", state: .task, subState: .none),
+  DayLog(userId: "uuid23456", log: "Connect to Firebase", state: .task, subState: .none),
+  DayLog(userId: "uuid34567", log: "Sample!!!!!", state: .task, subState: .none),
+  DayLog(userId: "uuid45678", log: "?????????", state: .task, subState: .none),
+]
+#endif
