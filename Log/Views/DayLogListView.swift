@@ -82,7 +82,7 @@ struct DayLogCell: View {
         .resizable()
         .frame(width: 20, height: 20)
         .onTapGesture {
-          self.dayLogCellVM.dayLog.completedDate = Timestamp()
+          self.dayLogCellVM.dayLog.completedAt = Timestamp()
         }
 
       TextField("Enter title", text: $dayLogCellVM.dayLog.log,

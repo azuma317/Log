@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Resolver
+import FirebaseFirestore
 
 class DayLogCellViewModel: ObservableObject, Identifiable {
   @Injected var dayLogRepository: DayLogRepository
@@ -20,14 +21,14 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
   private var cancellables = Set<AnyCancellable>()
 
   static func newDayLog() -> DayLogCellViewModel {
-    DayLogCellViewModel(dayLog: DayLog(log: "", state: LogState.task, subState: LogSubState.none))
+    DayLogCellViewModel(dayLog: DayLog(log: "", state: .task, subState: .none, logDate: Timestamp()))
   }
 
   init(dayLog: DayLog) {
     self.dayLog = dayLog
 
     $dayLog
-      .map { $0.completedDate != nil ? "checkmark.circle.fill" : "circle" }
+      .map { $0.completedAt != nil ? "checkmark.circle.fill" : "circle" }
       .assign(to: \.completionStateIconName, on: self)
       .store(in: &cancellables)
 

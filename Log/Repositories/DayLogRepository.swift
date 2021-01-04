@@ -129,7 +129,7 @@ class FirestoreDayLogRepository: BaseDayLogRepository, DayLogRepository, Observa
     }
     listenerRegistration = db.collection(dayLogsPath)
       .whereField("userId", isEqualTo: self.userId)
-      .order(by: "createdDate")
+      .order(by: "createdAt")
       .addSnapshotListener({ (querySnapshot, error) in
         if let querySnapshot = querySnapshot {
           self.dayLogs = querySnapshot.documents.compactMap({ document -> DayLog? in
@@ -162,7 +162,9 @@ class FirestoreDayLogRepository: BaseDayLogRepository, DayLogRepository, Observa
   func updateDayLog(_ dayLog: DayLog) {
     if let dayLogID = dayLog.id {
       do {
-        try db.collection(dayLogsPath).document(dayLogID).setData(from: dayLog)
+        var updatedDayLog = dayLog
+        updatedDayLog.updatedAt = Timestamp()
+        try db.collection(dayLogsPath).document(dayLogID).setData(from: updatedDayLog)
       } catch {
         fatalError("Unable to encode task: \(error.localizedDescription).")
       }
