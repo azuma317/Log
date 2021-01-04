@@ -56,17 +56,20 @@ class LocalDayLogRepository: BaseDayLogRepository, DayLogRepository, ObservableO
 
   func addDayLog(_ dayLog: DayLog) {
     dayLogs.append(dayLog)
+    saveData()
   }
 
   func removeDayLog(_ dayLog: DayLog) {
     if let index = dayLogs.firstIndex(where: { $0.id == dayLog.id }) {
       dayLogs.remove(at: index)
+      saveData()
     }
   }
 
   func updateDayLog(_ dayLog: DayLog) {
     if let index = dayLogs.firstIndex(where: { $0.id == dayLog.id }) {
       dayLogs[index] = dayLog
+      saveData()
     }
   }
 
@@ -91,7 +94,7 @@ class LocalDayLogRepository: BaseDayLogRepository, DayLogRepository, ObservableO
   }
 }
 
-class FirebaseDayLogRepository: BaseDayLogRepository, DayLogRepository, ObservableObject {
+class FirestoreDayLogRepository: BaseDayLogRepository, DayLogRepository, ObservableObject {
   @Injected var db: Firestore
   @Injected var authenticationService: AuthenticationService
   @LazyInjected var functions: Functions
