@@ -1,5 +1,5 @@
 //
-//  TuringPattern.swift
+//  Zebra.swift
 //  Log
 //
 //  Created by AzumaSato on 2021/01/04.
@@ -7,15 +7,16 @@
 
 import SwiftUI
 
-struct TuringPattern: View {
-
+struct Zebra: View {
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    Text("Zebra")
+      .font(.custom("Marker Felt", size: 32.0))
+      .fontWeight(.bold)
   }
 }
 
-struct TuringPattern_Previews: PreviewProvider {
+struct Zebra_Previews: PreviewProvider {
   static var previews: some View {
-    TuringPattern()
+    Zebra()
   }
 }
