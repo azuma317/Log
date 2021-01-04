@@ -15,12 +15,21 @@
 		F21B0255259EB03E00999C89 /* DayLogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21B0254259EB03E00999C89 /* DayLogRepository.swift */; };
 		F21B025B259EC1B100999C89 /* Disk in Frameworks */ = {isa = PBXBuildFile; productRef = F21B025A259EC1B100999C89 /* Disk */; };
 		F21B0264259ED70100999C89 /* FirebaseFunctions in Frameworks */ = {isa = PBXBuildFile; productRef = F21B0263259ED70100999C89 /* FirebaseFunctions */; };
+		F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */; };
+		F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */; };
+		F22CC09825A2DFEB004DC9F1 /* DayLogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */; };
 		F22EB1E1259F076F003FF8A9 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = F22EB1E0259F076F003FF8A9 /* Resolver */; };
 		F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1E5259F084A003FF8A9 /* AuthenticationService.swift */; };
 		F22EB1EC259F1ED6003FF8A9 /* EnvironmentKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1EB259F1ED6003FF8A9 /* EnvironmentKeys.swift */; };
 		F22EB1F4259F204E003FF8A9 /* Publisher+Assign.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1F3259F204E003FF8A9 /* Publisher+Assign.swift */; };
+		F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */; };
+		F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1FD25A019AC003FF8A9 /* SignInView.swift */; };
+		F22EB20625A19BED003FF8A9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB20525A19BED003FF8A9 /* SettingsView.swift */; };
+		F22EB20B25A19C58003FF8A9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */; };
+		F22EB21925A2BDD4003FF8A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */; };
+		F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */; };
+		F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22A25A2C67B003FF8A9 /* Zebra.swift */; };
 		F268971225736B3900D23FBE /* LogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268971125736B3900D23FBE /* LogApp.swift */; };
-		F268971425736B3900D23FBE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268971325736B3900D23FBE /* ContentView.swift */; };
 		F268971625736B3B00D23FBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971525736B3B00D23FBE /* Assets.xcassets */; };
 		F268971925736B3B00D23FBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971825736B3B00D23FBE /* Preview Assets.xcassets */; };
 		F268972425736B3B00D23FBE /* LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268972325736B3B00D23FBE /* LogTests.swift */; };
@@ -49,12 +58,21 @@
 /* Begin PBXFileReference section */
 		F21B0237259AC0AA00999C89 /* DayLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLog.swift; sourceTree = "<group>"; };
 		F21B0254259EB03E00999C89 /* DayLogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogRepository.swift; sourceTree = "<group>"; };
+		F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogCellViewModel.swift; sourceTree = "<group>"; };
+		F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogListViewModel.swift; sourceTree = "<group>"; };
+		F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogListView.swift; sourceTree = "<group>"; };
 		F22EB1E5259F084A003FF8A9 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		F22EB1EB259F1ED6003FF8A9 /* EnvironmentKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentKeys.swift; sourceTree = "<group>"; };
 		F22EB1F3259F204E003FF8A9 /* Publisher+Assign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Assign.swift"; sourceTree = "<group>"; };
+		F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleButton.swift; sourceTree = "<group>"; };
+		F22EB1FD25A019AC003FF8A9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		F22EB20525A19BED003FF8A9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogApp+Injection.swift"; sourceTree = "<group>"; };
+		F22EB22A25A2C67B003FF8A9 /* Zebra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zebra.swift; sourceTree = "<group>"; };
 		F268970E25736B3900D23FBE /* Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Log.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F268971125736B3900D23FBE /* LogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogApp.swift; sourceTree = "<group>"; };
-		F268971325736B3900D23FBE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F268971525736B3B00D23FBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F268971825736B3B00D23FBE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F268971A25736B3B00D23FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -103,6 +121,11 @@
 		F21B0232259ABF8800999C89 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F22EB22925A2C456003FF8A9 /* AppIcon */,
+				F22EB1FD25A019AC003FF8A9 /* SignInView.swift */,
+				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
+				F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */,
+				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -110,6 +133,9 @@
 		F21B0233259ABF9800999C89 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
+				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
+				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -154,6 +180,23 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		F22EB21D25A2BE72003FF8A9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F268971125736B3900D23FBE /* LogApp.swift */,
+				F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F22EB22925A2C456003FF8A9 /* AppIcon */ = {
+			isa = PBXGroup;
+			children = (
+				F22EB22A25A2C67B003FF8A9 /* Zebra.swift */,
+			);
+			path = AppIcon;
+			sourceTree = "<group>";
+		};
 		F268970525736B3900D23FBE = {
 			isa = PBXGroup;
 			children = (
@@ -179,8 +222,7 @@
 		F268971025736B3900D23FBE /* Log */ = {
 			isa = PBXGroup;
 			children = (
-				F268971125736B3900D23FBE /* LogApp.swift */,
-				F268971325736B3900D23FBE /* ContentView.swift */,
+				F22EB21D25A2BE72003FF8A9 /* App */,
 				F21B0234259ABFA500999C89 /* Models */,
 				F21B0235259ABFB200999C89 /* Repositories */,
 				F21B0236259ABFC000999C89 /* Services */,
@@ -189,6 +231,7 @@
 				F21B0232259ABF8800999C89 /* Views */,
 				F268971525736B3B00D23FBE /* Assets.xcassets */,
 				F268971A25736B3B00D23FBE /* Info.plist */,
+				F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */,
 				F268971725736B3B00D23FBE /* Preview Content */,
 			);
 			path = Log;
@@ -340,6 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F268974025736C0D00D23FBE /* README.md in Resources */,
+				F22EB21925A2BDD4003FF8A9 /* GoogleService-Info.plist in Resources */,
 				F268971925736B3B00D23FBE /* Preview Assets.xcassets in Resources */,
 				F268971625736B3B00D23FBE /* Assets.xcassets in Resources */,
 			);
@@ -366,13 +410,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */,
+				F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */,
+				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F22EB1F4259F204E003FF8A9 /* Publisher+Assign.swift in Sources */,
-				F268971425736B3900D23FBE /* ContentView.swift in Sources */,
+				F22CC09825A2DFEB004DC9F1 /* DayLogListView.swift in Sources */,
 				F21B0255259EB03E00999C89 /* DayLogRepository.swift in Sources */,
+				F22EB20625A19BED003FF8A9 /* SettingsView.swift in Sources */,
 				F268971225736B3900D23FBE /* LogApp.swift in Sources */,
 				F22EB1EC259F1ED6003FF8A9 /* EnvironmentKeys.swift in Sources */,
+				F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */,
+				F22EB20B25A19C58003FF8A9 /* SettingsViewModel.swift in Sources */,
+				F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */,
 				F21B0238259AC0AA00999C89 /* DayLog.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,
+				F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +582,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
 				DEVELOPMENT_ASSET_PATHS = "\"Log/Preview Content\"";
 				DEVELOPMENT_TEAM = CWW3CV2X72;
 				ENABLE_PREVIEWS = YES;
@@ -539,7 +592,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ind.azumax.ReLog;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ind.azumax.Zebra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -552,6 +606,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0.0.0;
 				DEVELOPMENT_ASSET_PATHS = "\"Log/Preview Content\"";
 				DEVELOPMENT_TEAM = CWW3CV2X72;
 				ENABLE_PREVIEWS = YES;
@@ -561,7 +616,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ind.azumax.ReLog;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ind.azumax.Zebra;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

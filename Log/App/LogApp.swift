@@ -6,9 +6,19 @@
 //
 
 import SwiftUI
+import Resolver
+import Firebase
 
 @main
 struct LogApp: App {
+
+  @LazyInjected var authenticationService: AuthenticationService
+
+  init() {
+    FirebaseApp.configure()
+    authenticationService.signIn()
+  }
+
   var body: some Scene {
     WindowGroup {
       ContentView()
