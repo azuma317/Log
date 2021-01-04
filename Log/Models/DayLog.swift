@@ -13,7 +13,6 @@ enum LogState: Int, Codable {
   case task
   case event
   case memo
-  case complete
 }
 
 enum LogSubState: Int, Codable {
@@ -34,22 +33,20 @@ struct DayLog: Codable, Identifiable {
   // LogSubState: 初期値None
   var subState: LogSubState
   // DayLog の日にち
-  @ServerTimestamp var logDate: Timestamp?
+  var logDate: Timestamp
   // DayLog の作成日
-  @ServerTimestamp var createdDate: Timestamp?
+  @ServerTimestamp var createdAt: Timestamp!
   // DayLog の更新日
-  @ServerTimestamp var updatedDate: Timestamp?
+  @ServerTimestamp var updatedAt: Timestamp!
   // DayLog の完了日
-  @ServerTimestamp var completedDate: Timestamp?
-  // DayLog を削除した時間
-  @ServerTimestamp var deletedDate: Timestamp?
+  var completedAt: Timestamp?
 }
 
 #if DEBUG
 let testDayLogs = [
-  DayLog(userId: "uuid12345", log: "Implement UI", state: .task, subState: .none),
-  DayLog(userId: "uuid23456", log: "Connect to Firebase", state: .task, subState: .none),
-  DayLog(userId: "uuid34567", log: "Sample!!!!!", state: .task, subState: .none),
-  DayLog(userId: "uuid45678", log: "?????????", state: .task, subState: .none),
+  DayLog(userId: "uuid12345", log: "Implement UI", state: .task, subState: .none, logDate: Timestamp()),
+  DayLog(userId: "uuid23456", log: "Connect to Firebase", state: .task, subState: .none, logDate: Timestamp()),
+  DayLog(userId: "uuid34567", log: "Sample!!!!!", state: .task, subState: .none, logDate: Timestamp()),
+  DayLog(userId: "uuid45678", log: "?????????", state: .task, subState: .none, logDate: Timestamp()),
 ]
 #endif
