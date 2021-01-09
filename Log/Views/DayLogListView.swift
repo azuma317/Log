@@ -13,6 +13,9 @@ struct DayLogListView: View {
 
   @State var presentAddNewItem = false
   @State var showSettingsScreen = false
+  @State var selectedIndex = 0
+
+  private let pickerItems: [String] = ["Day", "Monthly", "Feature"]
 
   var body: some View {
     NavigationView {
@@ -35,17 +38,22 @@ struct DayLogListView: View {
         }
         .listStyle(PlainListStyle())
 
-        Button(action: { self.presentAddNewItem.toggle() }, label: {
-          HStack {
-            Image(systemName: "plus.circle.fill")
-              .resizable()
-              .frame(width: 20, height: 20)
+        HStack {
+          Spacer()
 
-            Text("New DayLog")
-          }
-        })
-        .padding()
-        .accentColor(Color(UIColor.systemRed))
+          Button(action: { self.presentAddNewItem.toggle() }, label: {
+            HStack {
+              Image(systemName: "plus.circle.fill")
+                .resizable()
+                .frame(width: 48, height: 48)
+            }
+          })
+          .padding(.init(top: 8.0, leading: 0, bottom: 0, trailing: 16.0))
+          .accentColor(Color(UIColor.systemRed))
+        }
+
+        SegmentedPicker(items: pickerItems, selection: $selectedIndex)
+          .padding()
       }
       .navigationBarItems(trailing:
         Button(action: {
