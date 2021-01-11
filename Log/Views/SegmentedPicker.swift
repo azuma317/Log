@@ -56,7 +56,7 @@ struct SegmentedPicker: View {
   private static let TextColor: Color = Color(.secondaryLabel)
   private static let SelectedTextColor: Color = Color(.label)
   private static let TextFont: Font = Font.system(size: 12.0)
-  private static let SegmentCornerRadius: CGFloat = 12.0
+  private static let SegmentCornerRadius: CGFloat = 18.0
   private static let ShadowRadius: CGFloat = 4.0
   private static let SegmentXPadding: CGFloat = 16.0
   private static let SegmentYPadding: CGFloat = 8.0

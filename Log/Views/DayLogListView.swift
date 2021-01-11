@@ -20,7 +20,11 @@ struct DayLogListView: View {
   var body: some View {
     NavigationView {
       VStack(alignment: .leading) {
-        List {
+        Text("2021/01/01")
+          .fontWeight(.semibold)
+          .padding(.leading)
+
+        Form {
           ForEach (dayLogListVM.dayLogCellViewModels) { dayLogCellVM in
             DayLogCell(dayLogCellVM: dayLogCellVM)
           }
@@ -36,7 +40,6 @@ struct DayLogListView: View {
             }
           }
         }
-        .listStyle(PlainListStyle())
 
         HStack {
           Spacer()
@@ -50,7 +53,11 @@ struct DayLogListView: View {
           })
           .padding(.init(top: 8.0, leading: 0, bottom: 0, trailing: 16.0))
           .accentColor(Color(UIColor.systemRed))
+          .sheet(isPresented: self.$presentAddNewItem, content: {
+            SettingsView()
+          })
         }
+        .background(Color.clear)
 
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
           .padding()
@@ -62,7 +69,7 @@ struct DayLogListView: View {
           Image(systemName: "gear")
         })
       )
-      .navigationBarTitle("DayLog")
+      .navigationBarTitle(pickerItems[selectedIndex] + "Log")
       .sheet(isPresented: $showSettingsScreen, content: {
         SettingsView()
       })
@@ -72,7 +79,13 @@ struct DayLogListView: View {
 
 struct DayLogListView_Previews: PreviewProvider {
   static var previews: some View {
-    DayLogListView()
+    Group {
+      DayLogListView()
+        .environment(\.colorScheme, .light)
+
+      DayLogListView()
+        .environment(\.colorScheme, .dark)
+    }
   }
 }
 
@@ -85,22 +98,28 @@ struct DayLogCell: View {
   var onCommit: (Result<DayLog, InputError>) -> Void = { _ in }
 
   var body: some View {
-    HStack {
-      Image(systemName: dayLogCellVM.completionStateIconName)
-        .resizable()
-        .frame(width: 20, height: 20)
-        .onTapGesture {
-          self.dayLogCellVM.dayLog.completedAt = Timestamp()
-        }
+    Section {
+      HStack {
+        Image(systemName: dayLogCellVM.completionStateIconName)
+          .resizable()
+          .frame(width: 20, height: 20)
+          .onTapGesture {
+            let isCompeted = self.dayLogCellVM.dayLog.completedAt != nil
+            self.dayLogCellVM.dayLog.completedAt = isCompeted ? nil : Timestamp()
+          }
 
-      TextField("Enter title", text: $dayLogCellVM.dayLog.log,
-                onCommit: {
-                  if !self.dayLogCellVM.dayLog.log.isEmpty {
-                    self.onCommit(.success(self.dayLogCellVM.dayLog))
-                  } else {
-                    self.onCommit(.failure(.empty))
-                  }
-                }).id(dayLogCellVM.dayLog.id)
+        Divider()
+
+        TextField("Enter title", text: $dayLogCellVM.dayLog.log,
+                  onCommit: {
+                    if !self.dayLogCellVM.dayLog.log.isEmpty {
+                      self.onCommit(.success(self.dayLogCellVM.dayLog))
+                    } else {
+                      self.onCommit(.failure(.empty))
+                    }
+                  }).id(dayLogCellVM.dayLog.id)
+      }
     }
+    .listRowBackground(Color(.secondarySystemBackground))
   }
 }

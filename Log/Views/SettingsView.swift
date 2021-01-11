@@ -16,9 +16,8 @@ struct SettingsView: View {
       VStack {
         Image(systemName: "snow")
           .resizable()
-          .frame(width: 100, height: 100)
+          .frame(width: 80, height: 80)
           .aspectRatio(contentMode: .fit)
-          .padding(.horizontal, 100)
           .padding(.top, 20)
 
         Text("Thanks for using")
@@ -37,6 +36,7 @@ struct SettingsView: View {
               Text("Plain")
             }
           }
+          .listRowBackground(Color(.secondarySystemBackground))
 
           Section {
             HStack {
@@ -50,6 +50,7 @@ struct SettingsView: View {
               }
             }
           }
+          .listRowBackground(Color(.secondarySystemBackground))
 
           AccountSection(settingsViewModel: self.settingsViewModel)
         }
@@ -66,7 +67,13 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    SettingsView()
+    Group {
+      SettingsView()
+        .environment(\.colorScheme, .light)
+
+      SettingsView()
+        .environment(\.colorScheme, .dark)
+    }
   }
 }
 
@@ -78,6 +85,7 @@ struct AccountSection: View {
     Section(footer: footer) {
       button
     }
+    .listRowBackground(Color(.secondarySystemBackground))
   }
 
   var footer: some View {
