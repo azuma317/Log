@@ -17,6 +17,7 @@ struct LogApp: App {
   init() {
     FirebaseApp.configure()
     authenticationService.signIn()
+    UITableView.appearance().backgroundColor = .clear
   }
 
   var body: some Scene {
