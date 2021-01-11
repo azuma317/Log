@@ -30,6 +30,7 @@
 		F22EB21925A2BDD4003FF8A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */; };
 		F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */; };
 		F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22A25A2C67B003FF8A9 /* Zebra.swift */; };
+		F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B8A25AC381700C36011 /* SwiftDateStatic */; };
 		F268971225736B3900D23FBE /* LogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268971125736B3900D23FBE /* LogApp.swift */; };
 		F268971625736B3B00D23FBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971525736B3B00D23FBE /* Assets.xcassets */; };
 		F268971925736B3B00D23FBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971825736B3B00D23FBE /* Preview Assets.xcassets */; };
@@ -94,6 +95,7 @@
 			files = (
 				F21B0243259EAC7300999C89 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				F21B0264259ED70100999C89 /* FirebaseFunctions in Frameworks */,
+				F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */,
 				F22EB1E1259F076F003FF8A9 /* Resolver in Frameworks */,
 				F21B025B259EC1B100999C89 /* Disk in Frameworks */,
 				F21B0241259EAC7300999C89 /* FirebaseAnalytics in Frameworks */,
@@ -291,6 +293,7 @@
 				F21B025A259EC1B100999C89 /* Disk */,
 				F21B0263259ED70100999C89 /* FirebaseFunctions */,
 				F22EB1E0259F076F003FF8A9 /* Resolver */,
+				F2343B8A25AC381700C36011 /* SwiftDateStatic */,
 			);
 			productName = Log;
 			productReference = F268970E25736B3900D23FBE /* Log.app */;
@@ -368,6 +371,7 @@
 				F21B023F259EAC7300999C89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F21B0259259EC1B100999C89 /* XCRemoteSwiftPackageReference "Disk" */,
 				F22EB1DF259F076F003FF8A9 /* XCRemoteSwiftPackageReference "Resolver" */,
+				F2343B8925AC381700C36011 /* XCRemoteSwiftPackageReference "SwiftDate" */,
 			);
 			productRefGroup = F268970F25736B3900D23FBE /* Products */;
 			projectDirPath = "";
@@ -778,6 +782,14 @@
 				minimumVersion = 1.2.1;
 			};
 		};
+		F2343B8925AC381700C36011 /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
+			};
+		};
 		F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yannickl/DynamicColor";
@@ -823,6 +835,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F22EB1DF259F076F003FF8A9 /* XCRemoteSwiftPackageReference "Resolver" */;
 			productName = Resolver;
+		};
+		F2343B8A25AC381700C36011 /* SwiftDateStatic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2343B8925AC381700C36011 /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDateStatic;
 		};
 		F268974E2573785C00D23FBE /* DynamicColor */ = {
 			isa = XCSwiftPackageProductDependency;

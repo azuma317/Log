@@ -7,60 +7,69 @@
 
 import SwiftUI
 import FirebaseFirestore
+import SwiftDate
 
 struct DayLogListView: View {
   @ObservedObject var dayLogListVM = DayLogListViewModel()
 
   @State var presentAddNewItem = false
   @State var showSettingsScreen = false
+  @State var showBottomItems = true
   @State var selectedIndex = 0
 
-  private let pickerItems: [String] = ["Day", "Monthly", "Feature"]
+  private let pickerItems = ["Day", "Monthly", "Feature"]
 
   var body: some View {
     NavigationView {
       VStack(alignment: .leading) {
-        Text("2021/01/01")
+        Text(Date().in(region: .current).toString(.date(.medium)))
           .fontWeight(.semibold)
           .padding(.leading)
 
-        Form {
-          ForEach (dayLogListVM.dayLogCellViewModels) { dayLogCellVM in
-            DayLogCell(dayLogCellVM: dayLogCellVM)
-          }
-          .onDelete(perform: { indexSet in
-            self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
-          })
-          if presentAddNewItem {
-            DayLogCell(dayLogCellVM: DayLogCellViewModel.newDayLog()) { result in
-              if case .success(let dayLog) = result {
-                self.dayLogListVM.addDayLog(dayLog: dayLog)
+        ZStack {
+          Form {
+            ForEach (dayLogListVM.dayLogCellViewModels) { dayLogCellVM in
+              DayLogCell(dayLogCellVM: dayLogCellVM)
+            }
+            .onDelete(perform: { indexSet in
+              self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
+            })
+            if presentAddNewItem {
+              DayLogCell(dayLogCellVM: DayLogCellViewModel.newDayLog()) { result in
+                if case .success(let dayLog) = result {
+                  self.dayLogListVM.addDayLog(dayLog: dayLog)
+                }
+                self.presentAddNewItem.toggle()
               }
-              self.presentAddNewItem.toggle()
             }
           }
-        }
 
-        HStack {
-          Spacer()
+          VStack {
+            Spacer()
 
-          Button(action: { self.presentAddNewItem.toggle() }, label: {
             HStack {
-              Image(systemName: "plus.circle.fill")
-                .resizable()
-                .frame(width: 48, height: 48)
-            }
-          })
-          .padding(.init(top: 8.0, leading: 0, bottom: 0, trailing: 16.0))
-          .accentColor(Color(UIColor.systemRed))
-          .sheet(isPresented: self.$presentAddNewItem, content: {
-            SettingsView()
-          })
-        }
-        .background(Color.clear)
+              Spacer()
 
-        SegmentedPicker(items: pickerItems, selection: $selectedIndex)
-          .padding()
+              Button(action: { self.presentAddNewItem.toggle() }, label: {
+                HStack {
+                  Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .frame(width: 48, height: 48)
+                }
+              })
+              .accentColor(Color(UIColor.systemRed))
+              .sheet(isPresented: self.$presentAddNewItem, content: {
+                SettingsView()
+              })
+            }
+          }
+          .padding(.init(top: 0, leading: 0, bottom: 8.0, trailing: 16.0))
+        }
+
+        if showBottomItems {
+          SegmentedPicker(items: pickerItems, selection: $selectedIndex)
+            .padding(.horizontal)
+        }
       }
       .navigationBarItems(trailing:
         Button(action: {
@@ -72,6 +81,12 @@ struct DayLogListView: View {
       .navigationBarTitle(pickerItems[selectedIndex] + "Log")
       .sheet(isPresented: $showSettingsScreen, content: {
         SettingsView()
+      })
+      .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification), perform: { _ in
+        self.showBottomItems.toggle()
+      })
+      .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification), perform: { _ in
+        self.showBottomItems.toggle()
       })
     }
   }
