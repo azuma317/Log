@@ -31,6 +31,7 @@
 		F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */; };
 		F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22A25A2C67B003FF8A9 /* Zebra.swift */; };
 		F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B8A25AC381700C36011 /* SwiftDateStatic */; };
+		F2343B9125ADE6F700C36011 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B9025ADE6F700C36011 /* Hero */; };
 		F268971225736B3900D23FBE /* LogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268971125736B3900D23FBE /* LogApp.swift */; };
 		F268971625736B3B00D23FBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971525736B3B00D23FBE /* Assets.xcassets */; };
 		F268971925736B3B00D23FBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971825736B3B00D23FBE /* Preview Assets.xcassets */; };
@@ -101,6 +102,7 @@
 				F21B0241259EAC7300999C89 /* FirebaseAnalytics in Frameworks */,
 				F268974F2573785C00D23FBE /* DynamicColor in Frameworks */,
 				F21B0247259EAC7300999C89 /* FirebaseFirestore in Frameworks */,
+				F2343B9125ADE6F700C36011 /* Hero in Frameworks */,
 				F21B0245259EAC7300999C89 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +296,7 @@
 				F21B0263259ED70100999C89 /* FirebaseFunctions */,
 				F22EB1E0259F076F003FF8A9 /* Resolver */,
 				F2343B8A25AC381700C36011 /* SwiftDateStatic */,
+				F2343B9025ADE6F700C36011 /* Hero */,
 			);
 			productName = Log;
 			productReference = F268970E25736B3900D23FBE /* Log.app */;
@@ -372,6 +375,7 @@
 				F21B0259259EC1B100999C89 /* XCRemoteSwiftPackageReference "Disk" */,
 				F22EB1DF259F076F003FF8A9 /* XCRemoteSwiftPackageReference "Resolver" */,
 				F2343B8925AC381700C36011 /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				F2343B8F25ADE6F700C36011 /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = F268970F25736B3900D23FBE /* Products */;
 			projectDirPath = "";
@@ -790,6 +794,14 @@
 				minimumVersion = 6.3.1;
 			};
 		};
+		F2343B8F25ADE6F700C36011 /* XCRemoteSwiftPackageReference "Hero" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:HeroTransitions/Hero.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 		F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/yannickl/DynamicColor";
@@ -840,6 +852,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F2343B8925AC381700C36011 /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDateStatic;
+		};
+		F2343B9025ADE6F700C36011 /* Hero */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F2343B8F25ADE6F700C36011 /* XCRemoteSwiftPackageReference "Hero" */;
+			productName = Hero;
 		};
 		F268974E2573785C00D23FBE /* DynamicColor */ = {
 			isa = XCSwiftPackageProductDependency;
