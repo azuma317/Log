@@ -28,20 +28,43 @@ struct DayLogListView: View {
 
         ZStack {
           Form {
-            ForEach (dayLogListVM.dayLogCellViewModels) { dayLogCellVM in
-              DayLogCell(dayLogCellVM: dayLogCellVM)
-            }
-            .onDelete(perform: { indexSet in
-              self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
-            })
-            if presentAddNewItem {
-              DayLogCell(dayLogCellVM: DayLogCellViewModel.newDayLog()) { result in
-                if case .success(let dayLog) = result {
-                  self.dayLogListVM.addDayLog(dayLog: dayLog)
+            Section(header: Text("Task")) {
+              ForEach (dayLogListVM.dayLogCellViewModels) { dayLogCellVM in
+                DayLogCell(dayLogCellVM: dayLogCellVM)
+              }
+              .onDelete(perform: { indexSet in
+                self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
+              })
+              if presentAddNewItem {
+                DayLogCell(dayLogCellVM: DayLogCellViewModel.newDayLog()) { result in
+                  if case .success(let dayLog) = result {
+                    self.dayLogListVM.addDayLog(dayLog: dayLog)
+                  }
+                  self.presentAddNewItem.toggle()
                 }
-                self.presentAddNewItem.toggle()
               }
             }
+            .listRowBackground(Color(.secondarySystemBackground))
+
+            Section(header: Text("Event")) {
+              ForEach (dayLogListVM.dayLogCellViewModels) { dayLogCellVM in
+                DayLogCell(dayLogCellVM: dayLogCellVM)
+              }
+              .onDelete(perform: { indexSet in
+                self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
+              })
+            }
+            .listRowBackground(Color(.secondarySystemBackground))
+
+            Section(header: Text("Memo")) {
+              ForEach (dayLogListVM.dayLogCellViewModels) { dayLogCellVM in
+                DayLogCell(dayLogCellVM: dayLogCellVM)
+              }
+              .onDelete(perform: { indexSet in
+                self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
+              })
+            }
+            .listRowBackground(Color(.secondarySystemBackground))
           }
 
           VStack {
@@ -133,6 +156,5 @@ struct DayLogCell: View {
                   }
                 }).id(dayLogCellVM.dayLog.id)
     }
-    .padding()
   }
 }
