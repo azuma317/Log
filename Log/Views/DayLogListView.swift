@@ -17,14 +17,14 @@ struct DayLogListView: View {
   @State var showBottomItems = true
   @State var selectedIndex = 0
 
-  private let pickerItems = ["Day", "Monthly", "Feature"]
+  private let pickerItems = ["Day", "Monthly", "Future"]
 
   var body: some View {
     NavigationView {
       VStack(alignment: .leading) {
         Text(Date().in(region: .current).toString(.date(.medium)))
           .fontWeight(.semibold)
-          .padding(.leading)
+          .padding([.leading, .bottom])
 
         ZStack {
           Form {
@@ -113,28 +113,26 @@ struct DayLogCell: View {
   var onCommit: (Result<DayLog, InputError>) -> Void = { _ in }
 
   var body: some View {
-    Section {
-      HStack {
-        Image(systemName: dayLogCellVM.completionStateIconName)
-          .resizable()
-          .frame(width: 20, height: 20)
-          .onTapGesture {
-            let isCompeted = self.dayLogCellVM.dayLog.completedAt != nil
-            self.dayLogCellVM.dayLog.completedAt = isCompeted ? nil : Timestamp()
-          }
+    HStack {
+      Image(systemName: dayLogCellVM.completionStateIconName)
+        .resizable()
+        .frame(width: 20, height: 20)
+        .onTapGesture {
+          let isCompeted = self.dayLogCellVM.dayLog.completedAt != nil
+          self.dayLogCellVM.dayLog.completedAt = isCompeted ? nil : Timestamp()
+        }
 
-        Divider()
+      Divider()
 
-        TextField("Enter title", text: $dayLogCellVM.dayLog.log,
-                  onCommit: {
-                    if !self.dayLogCellVM.dayLog.log.isEmpty {
-                      self.onCommit(.success(self.dayLogCellVM.dayLog))
-                    } else {
-                      self.onCommit(.failure(.empty))
-                    }
-                  }).id(dayLogCellVM.dayLog.id)
-      }
+      TextField("Enter title", text: $dayLogCellVM.dayLog.log,
+                onCommit: {
+                  if !self.dayLogCellVM.dayLog.log.isEmpty {
+                    self.onCommit(.success(self.dayLogCellVM.dayLog))
+                  } else {
+                    self.onCommit(.failure(.empty))
+                  }
+                }).id(dayLogCellVM.dayLog.id)
     }
-    .listRowBackground(Color(.secondarySystemBackground))
+    .padding()
   }
 }
