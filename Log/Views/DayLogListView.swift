@@ -137,13 +137,11 @@ struct DayLogCell: View {
 
   var body: some View {
     HStack {
-      Image(systemName: dayLogCellVM.completionStateIconName)
-        .resizable()
+      Image(systemName: dayLogCellVM.subLogStateIconName)
         .frame(width: 20, height: 20)
-        .onTapGesture {
-          let isCompeted = self.dayLogCellVM.dayLog.completedAt != nil
-          self.dayLogCellVM.dayLog.completedAt = isCompeted ? nil : Timestamp()
-        }
+
+      Image(systemName: dayLogCellVM.logStateIconName)
+        .frame(width: 20, height: 20)
 
       Divider()
 

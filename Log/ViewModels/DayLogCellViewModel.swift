@@ -14,7 +14,8 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
   @Injected var dayLogRepository: DayLogRepository
 
   @Published var dayLog: DayLog
-  @Published var completionStateIconName = ""
+  @Published var logStateIconName = ""
+  @Published var subLogStateIconName = ""
 
   var id: String = ""
 
@@ -28,8 +29,34 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
     self.dayLog = dayLog
 
     $dayLog
-      .map { $0.completedAt != nil ? "checkmark.circle.fill" : "circle" }
-      .assign(to: \.completionStateIconName, on: self)
+      .map {
+        switch $0.state {
+        case .task:
+          if $0.completedAt != nil {
+            return "xmark"
+          }
+          return "circle.fill"
+        case .event:
+          return "circle"
+        case .memo:
+          return "minus"
+        }
+      }
+      .assign(to: \.logStateIconName, on: self)
+      .store(in: &cancellables)
+
+    $dayLog
+      .map {
+        switch $0.subState {
+        case .none:
+          return ""
+        case .priority:
+          return "star.fill"
+        case .idea:
+          return "exclamationmark"
+        }
+      }
+      .assign(to: \.subLogStateIconName, on: self)
       .store(in: &cancellables)
 
     $dayLog
