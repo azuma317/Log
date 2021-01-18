@@ -5,17 +5,18 @@
 //  Created by AzumaSato on 2021/01/04.
 //
 
-import Foundation
+import UIKit
 import Combine
 import Resolver
 import FirebaseFirestore
 
-class DayLogCellViewModel: ObservableObject, Identifiable {
+class DayLogCellViewModel: ObservableObject, Identifiable, Equatable {
   @Injected var dayLogRepository: DayLogRepository
 
   @Published var dayLog: DayLog
   @Published var logStateIconName = ""
   @Published var subLogStateIconName = ""
+  @Published var offset: CGFloat = 0
 
   var id: String = ""
 
@@ -71,6 +72,10 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
         self?.dayLogRepository.updateDayLog(dayLog)
       }
       .store(in: &cancellables)
+  }
+
+  static func == (lhs: DayLogCellViewModel, rhs: DayLogCellViewModel) -> Bool {
+    return lhs.dayLog.id == rhs.dayLog.id
   }
 
 }
