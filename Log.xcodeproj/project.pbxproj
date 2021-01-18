@@ -32,6 +32,7 @@
 		F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22A25A2C67B003FF8A9 /* Zebra.swift */; };
 		F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B8A25AC381700C36011 /* SwiftDateStatic */; };
 		F2343B9125ADE6F700C36011 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B9025ADE6F700C36011 /* Hero */; };
+		F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2343B9525B59D3D00C36011 /* LogListView.swift */; };
 		F268971225736B3900D23FBE /* LogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268971125736B3900D23FBE /* LogApp.swift */; };
 		F268971625736B3B00D23FBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971525736B3B00D23FBE /* Assets.xcassets */; };
 		F268971925736B3B00D23FBE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F268971825736B3B00D23FBE /* Preview Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogApp+Injection.swift"; sourceTree = "<group>"; };
 		F22EB22A25A2C67B003FF8A9 /* Zebra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zebra.swift; sourceTree = "<group>"; };
+		F2343B9525B59D3D00C36011 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
 		F268970E25736B3900D23FBE /* Log.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Log.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F268971125736B3900D23FBE /* LogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogApp.swift; sourceTree = "<group>"; };
 		F268971525736B3B00D23FBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				F22EB22925A2C456003FF8A9 /* AppIcon */,
 				F22EB1FD25A019AC003FF8A9 /* SignInView.swift */,
 				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
+				F2343B9525B59D3D00C36011 /* LogListView.swift */,
 				F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */,
 				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
 				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
@@ -425,6 +428,7 @@
 				F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */,
 				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F22EB1F4259F204E003FF8A9 /* Publisher+Assign.swift in Sources */,
+				F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */,
 				F22CC09825A2DFEB004DC9F1 /* DayLogListView.swift in Sources */,
 				F21B0255259EB03E00999C89 /* DayLogRepository.swift in Sources */,
 				F22EB20625A19BED003FF8A9 /* SettingsView.swift in Sources */,
