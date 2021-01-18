@@ -77,10 +77,12 @@ struct DayLogListView: View {
                 HStack {
                   Image(systemName: "plus.circle.fill")
                     .resizable()
-                    .frame(width: 48, height: 48)
+                    .frame(width: 48.0, height: 48.0)
+                    .background(Color(.secondarySystemBackground))
                 }
               })
               .accentColor(Color(UIColor.systemRed))
+              .cornerRadius(24.0)
               .sheet(isPresented: self.$presentAddNewItem, content: {
                 SettingsView()
               })
@@ -153,6 +155,11 @@ struct DayLogCell: View {
                     self.onCommit(.failure(.empty))
                   }
                 }).id(dayLogCellVM.dayLog.id)
+
+      Spacer()
+
+      Image(systemName: "list.dash")
+        .frame(width: 20, height: 20)
     }
   }
 }
