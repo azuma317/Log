@@ -22,7 +22,7 @@ struct LogApp: App {
 
   var body: some Scene {
     WindowGroup {
-      DayLogListView()
+      LogListView()
     }
   }
 }
