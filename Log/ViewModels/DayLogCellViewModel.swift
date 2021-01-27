@@ -10,7 +10,7 @@ import Combine
 import Resolver
 import FirebaseFirestore
 
-class DayLogCellViewModel: ObservableObject, Identifiable, Equatable {
+class DayLogCellViewModel: ObservableObject, Identifiable {
   @Injected var dayLogRepository: DayLogRepository
 
   @Published var dayLog: DayLog
@@ -72,10 +72,6 @@ class DayLogCellViewModel: ObservableObject, Identifiable, Equatable {
         self?.dayLogRepository.updateDayLog(dayLog)
       }
       .store(in: &cancellables)
-  }
-
-  static func == (lhs: DayLogCellViewModel, rhs: DayLogCellViewModel) -> Bool {
-    return lhs.dayLog.id == rhs.dayLog.id
   }
 
 }

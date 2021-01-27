@@ -25,15 +25,19 @@ class DayLogListViewModel: ObservableObject {
     .store(in: &cancellables)
   }
 
+  func addDayLog(dayLog: DayLog) {
+    dayLogRepository.addDayLog(dayLog)
+  }
+
+  func removeDayLog(dayLog: DayLog) {
+    dayLogRepository.removeDayLog(dayLog)
+  }
+
   func removeDayLogs(atOffsets indexSet: IndexSet) {
     // remove from repo
     let viewModels = indexSet.lazy.map { self.dayLogCellViewModels[$0] }
     viewModels.forEach { dayLogCellViewModel in
-      dayLogRepository.removeDayLog(dayLogCellViewModel.dayLog)
+      removeDayLog(dayLog: dayLogCellViewModel.dayLog)
     }
-  }
-
-  func addDayLog(dayLog: DayLog) {
-    dayLogRepository.addDayLog(dayLog)
   }
 }

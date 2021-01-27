@@ -14,8 +14,6 @@ struct DayLogListView: View {
 
   @Binding var presentAddNewItem: Bool
 
-  @GestureState var isDragging = false
-
   var body: some View {
     let taskDayLogViewModels = dayLogListVM.dayLogCellViewModels
       .filter { $0.dayLog.state == .task }
@@ -33,45 +31,27 @@ struct DayLogListView: View {
       }
       .padding(.top)
 
-      ForEach(taskDayLogViewModels.indices) { index in
+      ForEach(taskDayLogViewModels.indices, id: \.self) { index in
         ZStack {
-          Color(.blue)
-            .cornerRadius(10)
-
-          Color(.red)
-            .cornerRadius(10)
-            .padding(.trailing, 64)
-
           HStack {
             Spacer()
 
-            Button(action: {}) {
+            Button(action: {
+              dayLogListVM.removeDayLog(dayLog: taskDayLogViewModels[index].dayLog)
+            }) {
               Image(systemName: "trash")
                 .font(.title)
                 .foregroundColor(Color(.secondaryLabel))
                 .frame(width: 64)
             }
+
           }
 
           DayLogCell(dayLogCellVM: taskDayLogViewModels[index])
-            .offset(x: dayLogListVM.dayLogCellViewModels[index].offset)
-            .gesture(
-              DragGesture()
-                .updating($isDragging, body: { (value, state, _) in
-                  state = true
-                  onChanged(value: value, index: index)
-                })
-                .onEnded({ value in
-                  onEnded(value: value, index: index)
-                })
-            )
         }
         .padding(.horizontal)
         .padding(.top, 8.0)
       }
-      .onDelete(perform: { indexSet in
-        self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
-      })
       if presentAddNewItem {
         DayLogCell(dayLogCellVM: DayLogCellViewModel.newDayLog()) { result in
           if case .success(let dayLog) = result {
@@ -79,6 +59,8 @@ struct DayLogListView: View {
           }
           self.presentAddNewItem.toggle()
         }
+        .padding(.horizontal)
+        .padding(.top, 8.0)
       }
 
       HStack {
@@ -89,23 +71,27 @@ struct DayLogListView: View {
       }
       .padding(.top)
 
-      ForEach(eventDayLogViewModels.indices) { index in
+      ForEach(eventDayLogViewModels.indices, id: \.self) { index in
         ZStack {
-          Color(.blue)
-            .cornerRadius(10)
+          HStack {
+            Spacer()
 
-          Color(.red)
-            .cornerRadius(10)
-            .padding(.trailing, 40)
+            Button(action: {
+              dayLogListVM.removeDayLog(dayLog: eventDayLogViewModels[index].dayLog)
+            }) {
+              Image(systemName: "trash")
+                .font(.title)
+                .foregroundColor(Color(.secondaryLabel))
+                .frame(width: 64)
+            }
+
+          }
 
           DayLogCell(dayLogCellVM: eventDayLogViewModels[index])
         }
         .padding(.horizontal)
         .padding(.top, 8.0)
       }
-      .onDelete(perform: { indexSet in
-        self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
-      })
 
       HStack {
         Text("Memo")
@@ -115,38 +101,26 @@ struct DayLogListView: View {
       }
       .padding(.top)
 
-      ForEach(memoDayLogViewModels.indices) { index in
+      ForEach(memoDayLogViewModels.indices, id: \.self) { index in
         ZStack {
-          Color(.blue)
-            .cornerRadius(10)
+          HStack {
+            Spacer()
 
-          Color(.red)
-            .cornerRadius(10)
-            .padding(.trailing, 40)
+            Button(action: {
+              dayLogListVM.removeDayLog(dayLog: memoDayLogViewModels[index].dayLog)
+            }) {
+              Image(systemName: "trash")
+                .font(.title)
+                .foregroundColor(Color(.secondaryLabel))
+                .frame(width: 64)
+            }
+
+          }
 
           DayLogCell(dayLogCellVM: memoDayLogViewModels[index])
         }
         .padding(.horizontal)
         .padding(.top, 8.0)
-      }
-      .onDelete(perform: { indexSet in
-        self.dayLogListVM.removeDayLogs(atOffsets: indexSet)
-      })
-    }
-  }
-
-  private func onChanged(value: DragGesture.Value, index: Int) {
-    if value.translation.width < 0 && isDragging {
-      dayLogListVM.dayLogCellViewModels[index].$offset = value.translation.width
-    }
-  }
-
-  private func onEnded(value: DragGesture.Value, index: Int) {
-    withAnimation {
-      if value.translation.width <= -100 {
-        dayLogListVM.dayLogCellViewModels[index].offset = -130
-      } else {
-        dayLogListVM.dayLogCellViewModels[index].offset = 0
       }
     }
   }
@@ -168,15 +142,17 @@ struct DayLogCell: View {
   @ObservedObject var dayLogCellVM: DayLogCellViewModel
   var onCommit: (Result<DayLog, InputError>) -> Void = { _ in }
 
+  @GestureState var isDragging = false
+
   var body: some View {
     HStack {
       if dayLogCellVM.subLogStateIconName != "" {
         Image(systemName: dayLogCellVM.subLogStateIconName)
           .frame(width: 20, height: 20)
+      } else {
+        Image(systemName: dayLogCellVM.logStateIconName)
+          .frame(width: 20, height: 20)
       }
-
-      Image(systemName: dayLogCellVM.logStateIconName)
-        .frame(width: 20, height: 20)
 
       Divider()
 
@@ -194,5 +170,36 @@ struct DayLogCell: View {
     .cornerRadius(10)
     .shadow(color: Color.black.opacity(0.2), radius: 4, x: 4, y: 4)
     .shadow(color: Color.black.opacity(0.2), radius: 4, x: -4, y: -4)
+    .offset(x: dayLogCellVM.offset)
+    .gesture(
+      DragGesture()
+        .updating($isDragging, body: { (value, state, _) in
+          state = true
+          onChanged(value: value, viewModel: dayLogCellVM)
+        })
+        .onEnded({ value in
+          onEnded(value: value, viewModel: dayLogCellVM)
+        })
+    )
+  }
+
+  private func onChanged(value: DragGesture.Value, viewModel: DayLogCellViewModel) {
+    if value.translation.width < 0 && isDragging {
+      if value.translation.width > -128 {
+        viewModel.offset = value.translation.width
+      } else {
+        viewModel.offset = -128 - (log(-127-value.translation.width) * 4)
+      }
+    }
+  }
+
+  private func onEnded(value: DragGesture.Value, viewModel: DayLogCellViewModel) {
+    withAnimation {
+      if value.translation.width <= -80 {
+        viewModel.offset = -128
+      } else {
+        viewModel.offset = 0
+      }
+    }
   }
 }
