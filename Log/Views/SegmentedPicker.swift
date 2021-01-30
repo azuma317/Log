@@ -142,5 +142,6 @@ struct SegmentedPicker_Previews: PreviewProvider {
   static var previews: some View {
     SegmentedPicker(items: ["M", "T", "W", "T", "F"], selection: .constant(2))
       .padding()
+      .previewLayout(PreviewLayout.sizeThatFits)
   }
 }
