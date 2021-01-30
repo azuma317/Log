@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct AddTaskView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @Binding var text: String
+
+  var body: some View {
+    NavigationView {
+      ScrollView {
+        SetDetailCell(text: $text)
+          .padding(.horizontal)
+
+        Divider()
+
+        SetDateCell()
+          .padding(.horizontal)
+
+        Spacer()
+
+        Divider()
+      }
     }
+  }
 }
 
 struct AddTaskView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddTaskView()
-    }
+  static var previews: some View {
+    AddTaskView(text: .constant("Sample"))
+  }
 }
