@@ -9,10 +9,32 @@ import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-enum LogState: Int, Codable {
+enum LogState: Int, Codable, CaseIterable, CustomStringConvertible {
   case task
   case event
   case memo
+
+  var description: String {
+    switch self {
+    case .task:
+      return "Task"
+    case .event:
+      return "Event"
+    case .memo:
+      return "Memo"
+    }
+  }
+
+  var imageName: String {
+    switch self {
+    case .task:
+      return "flag.circle.fill"
+    case .event:
+      return "calendar.circle.fill"
+    case .memo:
+      return "number.circle.fill"
+    }
+  }
 }
 
 enum LogSubState: Int, Codable {
