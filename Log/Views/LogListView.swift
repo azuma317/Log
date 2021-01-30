@@ -13,7 +13,6 @@ struct LogListView: View {
 
   @State var presentAddNewItem = false
   @State var showSettingsScreen = false
-  @State var showBottomItems = true
   @State var selectedIndex = 0
 
   private let pickerItems = ["Day", "Monthly", "Future"]
@@ -28,7 +27,7 @@ struct LogListView: View {
         ZStack {
           switch pickerItems[selectedIndex] {
           case "Day":
-            DayLogListView(presentAddNewItem: $presentAddNewItem)
+            DayLogListView()
           case "Monthly":
             EmptyView()
           case "Future":
@@ -37,39 +36,16 @@ struct LogListView: View {
             EmptyView()
           }
 
-          VStack {
-            Spacer()
-
-            HStack {
-              Spacer()
-
-              Button(action: { self.presentAddNewItem.toggle() }, label: {
-                HStack {
-                  Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 48.0, height: 48.0)
-                    .background(Color(.secondarySystemBackground))
-                }
-              })
-              .accentColor(Color(UIColor.systemRed))
-              .cornerRadius(24.0)
-              .sheet(isPresented: self.$presentAddNewItem, content: {
-                SettingsView()
-              })
-            }
+          FloatingButton() { state in
+            print(state)
           }
-          .padding(.init(top: 0, leading: 0, bottom: 8.0, trailing: 16.0))
         }
 
-        if showBottomItems {
-          SegmentedPicker(items: pickerItems, selection: $selectedIndex)
-            .padding(.horizontal)
-        }
+        SegmentedPicker(items: pickerItems, selection: $selectedIndex)
+          .padding(.horizontal)
       }
       .navigationBarItems(trailing:
-        Button(action: {
-          self.showSettingsScreen.toggle()
-        }, label: {
+        Button(action: { self.showSettingsScreen.toggle() }, label: {
           Image(systemName: "gear")
         })
       )
@@ -77,11 +53,8 @@ struct LogListView: View {
       .sheet(isPresented: $showSettingsScreen, content: {
         SettingsView()
       })
-      .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardWillShowNotification), perform: { _ in
-        self.showBottomItems.toggle()
-      })
-      .onReceive(NotificationCenter.default.publisher(for: UIResponder.keyboardDidHideNotification), perform: { _ in
-        self.showBottomItems.toggle()
+      .sheet(isPresented: self.$presentAddNewItem, content: {
+        AddTaskView(text: .constant(""))
       })
     }
   }
