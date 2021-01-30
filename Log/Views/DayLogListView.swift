@@ -12,8 +12,6 @@ import SwiftDate
 struct DayLogListView: View {
   @ObservedObject var dayLogListVM = DayLogListViewModel()
 
-  @Binding var presentAddNewItem: Bool
-
   var body: some View {
     let taskDayLogViewModels = dayLogListVM.dayLogCellViewModels
       .filter { $0.dayLog.state == .task }
@@ -48,16 +46,6 @@ struct DayLogListView: View {
           }
 
           DayLogCell(dayLogCellVM: taskDayLogViewModels[index])
-        }
-        .padding(.horizontal)
-        .padding(.top, 8.0)
-      }
-      if presentAddNewItem {
-        DayLogCell(dayLogCellVM: DayLogCellViewModel.newDayLog()) { result in
-          if case .success(let dayLog) = result {
-            self.dayLogListVM.addDayLog(dayLog: dayLog)
-          }
-          self.presentAddNewItem.toggle()
         }
         .padding(.horizontal)
         .padding(.top, 8.0)
@@ -129,10 +117,10 @@ struct DayLogListView: View {
 struct DayLogListView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
-      DayLogListView(presentAddNewItem: .constant(false))
+      DayLogListView()
         .environment(\.colorScheme, .light)
 
-      DayLogListView(presentAddNewItem: .constant(false))
+      DayLogListView()
         .environment(\.colorScheme, .dark)
     }
   }
@@ -185,18 +173,18 @@ struct DayLogCell: View {
 
   private func onChanged(value: DragGesture.Value, viewModel: DayLogCellViewModel) {
     if value.translation.width < 0 && isDragging {
-      if value.translation.width > -128 {
+      if value.translation.width > -64 {
         viewModel.offset = value.translation.width
       } else {
-        viewModel.offset = -128 - (log(-127-value.translation.width) * 4)
+        viewModel.offset = -64 - (log(-63-value.translation.width) * 4)
       }
     }
   }
 
   private func onEnded(value: DragGesture.Value, viewModel: DayLogCellViewModel) {
     withAnimation {
-      if value.translation.width <= -80 {
-        viewModel.offset = -128
+      if value.translation.width <= -56 {
+        viewModel.offset = -64
       } else {
         viewModel.offset = 0
       }
