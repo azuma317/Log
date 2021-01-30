@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct SetDetailCell: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @Binding var text: String
+
+  var body: some View {
+    HStack(alignment: .top) {
+      Image(systemName: "text.justifyleft")
+        .frame(width: 16.0, height: 16.0)
+        .padding(8.0)
+
+      TextView(text: $text)
     }
+  }
 }
 
 struct SetDetailCell_Previews: PreviewProvider {
-    static var previews: some View {
-        SetDetailCell()
-    }
+  static var previews: some View {
+    SetDetailCell(text: .constant(""))
+      .padding()
+      .previewLayout(PreviewLayout.sizeThatFits)
+  }
 }
