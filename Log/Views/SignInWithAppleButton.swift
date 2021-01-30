@@ -39,5 +39,8 @@ fileprivate struct SignInWithAppleButtonInternal: UIViewRepresentable {
 struct SignInWithAppleButton_Previews: PreviewProvider {
   static var previews: some View {
     SignInWithAppleButton()
+      .frame(width: 280, height: 45)
+      .padding()
+      .previewLayout(PreviewLayout.sizeThatFits)
   }
 }
