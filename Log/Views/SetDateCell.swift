@@ -16,14 +16,17 @@ struct SetDateCell: View {
 
   var body: some View {
     VStack {
-      HStack(alignment: .top) {
+      HStack(alignment: .top, spacing: 0) {
         Image(systemName: "clock")
           .frame(width: 16.0, height: 16.0)
-          .padding(8.0)
+          .padding(.vertical, 8.0)
+          .padding(.trailing, 16.0)
 
         VStack {
           Toggle(isOn: self.$isAllDay) {
             Text("All Day")
+              .font(.system(size: 18.0))
+              .foregroundColor(Color(.label))
           }
           .toggleStyle(SwitchToggleStyle())
 
@@ -34,6 +37,7 @@ struct SetDateCell: View {
               }
             }, label: {
               Text(date.in(region: .current).toString(.date(.medium)))
+                .foregroundColor(Color(.label))
             })
 
             Spacer()
@@ -45,6 +49,7 @@ struct SetDateCell: View {
                 }
               }, label: {
                 Text(date.in(region: .current).toString(.time(.short)))
+                  .foregroundColor(Color(.label))
               })
             }
           }
@@ -72,13 +77,19 @@ struct SetDateCell: View {
         .transition(.opacity)
       }
     }
+    .padding()
+    .background(Color(.systemBackground))
   }
 }
 
 struct SetDateCell_Previews: PreviewProvider {
   static var previews: some View {
     SetDateCell()
-      .padding()
       .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .light)
+
+    SetDateCell()
+      .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .dark)
   }
 }
