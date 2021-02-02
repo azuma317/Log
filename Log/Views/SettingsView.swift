@@ -59,6 +59,7 @@ struct SettingsView: View {
           self.presentationMode.wrappedValue.dismiss()
         }, label: {
           Text("Done")
+            .foregroundColor(Color(.systemBlue))
         }))
       }
     }
