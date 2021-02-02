@@ -37,7 +37,7 @@ struct LogListView: View {
           }
 
           FloatingButton() { state in
-            print(state)
+            self.presentAddNewItem.toggle()
           }
         }
 
@@ -52,9 +52,6 @@ struct LogListView: View {
       .navigationBarTitle(pickerItems[selectedIndex] + "Log")
       .sheet(isPresented: $showSettingsScreen, content: {
         SettingsView()
-      })
-      .sheet(isPresented: self.$presentAddNewItem, content: {
-        AddTaskView(text: .constant(""))
       })
     }
   }

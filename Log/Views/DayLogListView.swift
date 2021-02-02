@@ -111,6 +111,7 @@ struct DayLogListView: View {
         .padding(.top, 8.0)
       }
     }
+    .background(Color(.systemBackground))
   }
 }
 
@@ -118,9 +119,11 @@ struct DayLogListView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       DayLogListView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
       DayLogListView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }
   }
