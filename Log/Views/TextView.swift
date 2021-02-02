@@ -20,6 +20,8 @@ struct TextView: UIViewRepresentable {
     textView.isScrollEnabled = false
     textView.isEditable = true
     textView.isUserInteractionEnabled = true
+    textView.font = UIFont.systemFont(ofSize: 18)
+    textView.backgroundColor = .clear
     return textView
   }
 
