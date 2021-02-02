@@ -11,26 +11,54 @@ struct AddTaskView: View {
   @Binding var text: String
 
   var body: some View {
-    NavigationView {
+    VStack {
+      HStack {
+        Button("Close") {
+          print("Close")
+        }
+        .padding()
+        .foregroundColor(Color(.secondaryLabel))
+
+        Spacer()
+
+        Button("Save") {
+          print("Save")
+        }
+        .padding()
+        .foregroundColor(Color(.systemBlue))
+      }
+
+      TextField("Title", text: $text)
+        .font(.title)
+        .padding()
+        .padding(.leading, 32.0)
+
       ScrollView {
+        Divider()
+
         SetDetailCell(text: $text)
-          .padding(.horizontal)
 
         Divider()
 
         SetDateCell()
-          .padding(.horizontal)
 
         Spacer()
 
         Divider()
       }
     }
+    .background(Color(.systemBackground))
   }
 }
 
 struct AddTaskView_Previews: PreviewProvider {
   static var previews: some View {
-    AddTaskView(text: .constant("Sample"))
+    AddTaskView(text: .constant("New Task"))
+      .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .light)
+
+    AddTaskView(text: .constant("New Task"))
+      .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .dark)
   }
 }
