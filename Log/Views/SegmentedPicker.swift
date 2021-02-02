@@ -143,5 +143,11 @@ struct SegmentedPicker_Previews: PreviewProvider {
     SegmentedPicker(items: ["M", "T", "W", "T", "F"], selection: .constant(2))
       .padding()
       .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .light)
+
+    SegmentedPicker(items: ["M", "T", "W", "T", "F"], selection: .constant(2))
+      .padding()
+      .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .dark)
   }
 }
