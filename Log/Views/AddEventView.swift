@@ -8,13 +8,62 @@
 import SwiftUI
 
 struct AddEventView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @Binding var text: String
+
+  var body: some View {
+    VStack {
+      HStack {
+        Button("Close") {
+          print("Close")
+        }
+        .padding()
+        .foregroundColor(Color(.secondaryLabel))
+
+        Spacer()
+
+        Button("Save") {
+          print("Save")
+        }
+        .padding()
+        .foregroundColor(Color(.systemBlue))
+      }
+
+      TextField("Title", text: $text)
+        .font(.title)
+        .padding()
+        .padding(.leading, 32.0)
+
+      ScrollView {
+        Divider()
+
+        SetDateCell()
+          .padding(.vertical)
+
+        Divider()
+
+        SetNotificationCell()
+          .padding(.vertical)
+
+        Divider()
+
+        SetDetailCell(text: $text)
+          .padding(.vertical)
+
+        Divider()
+      }
     }
+    .background(Color(.systemBackground))
+  }
 }
 
 struct AddEventView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddEventView()
-    }
+  static var previews: some View {
+    AddEventView(text: .constant("New Event"))
+      .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .light)
+
+    AddEventView(text: .constant("New Event"))
+      .previewLayout(PreviewLayout.sizeThatFits)
+      .environment(\.colorScheme, .dark)
+  }
 }
