@@ -104,6 +104,7 @@ struct SegmentedPicker: View {
     .clipShape(
       RoundedRectangle(cornerRadius: SegmentedPicker.SegmentCornerRadius)
     )
+    .padding(.horizontal)
   }
 
   private func computeActiveSegmentHorizontalOffset() -> CGFloat {
@@ -141,12 +142,14 @@ struct SegmentedPicker: View {
 struct SegmentedPicker_Previews: PreviewProvider {
   static var previews: some View {
     SegmentedPicker(items: ["M", "T", "W", "T", "F"], selection: .constant(2))
-      .padding()
+      .padding(.vertical)
+      .background(Color(.systemBackground))
       .previewLayout(PreviewLayout.sizeThatFits)
       .environment(\.colorScheme, .light)
 
     SegmentedPicker(items: ["M", "T", "W", "T", "F"], selection: .constant(2))
-      .padding()
+      .padding(.vertical)
+      .background(Color(.systemBackground))
       .previewLayout(PreviewLayout.sizeThatFits)
       .environment(\.colorScheme, .dark)
   }

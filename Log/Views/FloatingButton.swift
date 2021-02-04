@@ -44,6 +44,7 @@ struct FloatingButton: View {
           if showButtons {
             ForEach(LogState.allCases, id: \.self) { state in
               Button(action: {
+                self.showButtons.toggle()
                 onSelect(state)
               }, label: {
                 HStack {
