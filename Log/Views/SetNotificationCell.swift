@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct SetRepeatCell: View {
+struct SetNotificationCell: View {
   var body: some View {
     HStack(spacing: 0) {
-      Image(systemName: "arrow.clockwise")
+      Image(systemName: "bell")
         .frame(width: 16.0, height: 16.0)
         .padding(.vertical, 8.0)
         .padding(.trailing, 16.0)
 
-      Text("Sample")
+      Text("Notification")
 
       Spacer()
     }
@@ -24,13 +24,13 @@ struct SetRepeatCell: View {
   }
 }
 
-struct SetRepeatCell_Previews: PreviewProvider {
+struct SetNotificationCell_Previews: PreviewProvider {
   static var previews: some View {
-    SetRepeatCell()
+    SetNotificationCell()
       .previewLayout(PreviewLayout.sizeThatFits)
       .environment(\.colorScheme, .light)
 
-    SetRepeatCell()
+    SetNotificationCell()
       .previewLayout(PreviewLayout.sizeThatFits)
       .environment(\.colorScheme, .dark)
   }

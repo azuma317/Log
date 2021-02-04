@@ -77,7 +77,7 @@ struct SetDateCell: View {
         .transition(.opacity)
       }
     }
-    .padding()
+    .padding(.horizontal)
     .background(Color(.systemBackground))
   }
 }

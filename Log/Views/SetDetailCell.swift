@@ -20,12 +20,18 @@ struct SetDetailCell: View {
       TextView(text: $text)
     }
     .padding(.horizontal)
+    .background(Color(.systemBackground))
   }
 }
 
 struct SetDetailCell_Previews: PreviewProvider {
   static var previews: some View {
     SetDetailCell(text: .constant("Sample"))
-      .previewLayout(PreviewLayout.sizeThatFits)
+      .previewLayout(PreviewLayout.fixed(width: 320, height: 160))
+      .environment(\.colorScheme, .light)
+
+    SetDetailCell(text: .constant("Sample"))
+      .previewLayout(PreviewLayout.fixed(width: 320, height: 160))
+      .environment(\.colorScheme, .dark)
   }
 }
