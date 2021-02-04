@@ -15,7 +15,7 @@ struct SetNotificationCell: View {
         .padding(.vertical, 8.0)
         .padding(.trailing, 16.0)
 
-      Text("Notification")
+      Text("Add a notification")
 
       Spacer()
     }

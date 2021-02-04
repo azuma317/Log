@@ -36,13 +36,14 @@ struct LogListView: View {
             EmptyView()
           }
 
-          FloatingButton() { state in
-            self.presentAddNewItem.toggle()
+          NavigationLink(destination: AddTaskView(text: .constant("")), isActive: self.$presentAddNewItem) {
+            FloatingButton() { state in
+              self.presentAddNewItem.toggle()
+            }
           }
         }
 
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
-          .padding(.horizontal)
       }
       .navigationBarItems(trailing:
         Button(action: { self.showSettingsScreen.toggle() }, label: {

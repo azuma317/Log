@@ -41,8 +41,10 @@ struct AddTaskView: View {
         Divider()
 
         SetDateCell()
+          .padding(.vertical)
 
-        Spacer()
+        SetNotificationCell()
+          .padding(.bottom)
 
         Divider()
       }
