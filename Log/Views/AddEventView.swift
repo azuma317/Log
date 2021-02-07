@@ -9,12 +9,18 @@ import SwiftUI
 
 struct AddEventView: View {
   @Binding var text: String
+  @Binding var description: String
+  @Binding var presentAddEvent: Bool
+
+  @State var loadContent = false
 
   var body: some View {
     VStack {
       HStack {
         Button("Close") {
-          print("Close")
+          withAnimation(.spring()) {
+            presentAddEvent.toggle()
+          }
         }
         .padding()
         .foregroundColor(Color(.secondaryLabel))
@@ -39,31 +45,45 @@ struct AddEventView: View {
         SetDateCell()
           .padding(.vertical)
 
-        Divider()
-
         SetNotificationCell()
-          .padding(.vertical)
+          .padding(.bottom)
 
         Divider()
 
-        SetDetailCell(text: $text)
-          .padding(.vertical)
+        SetDetailCell(text: $description)
 
         Divider()
       }
+      .frame(height: loadContent ? nil : 0)
+      .opacity(loadContent ? 1 : 0)
+
+      Spacer(minLength: 0)
     }
     .background(Color(.systemBackground))
+    .onAppear {
+      withAnimation(Animation.spring().delay(0.45)) {
+        loadContent.toggle()
+      }
+    }
   }
 }
 
 struct AddEventView_Previews: PreviewProvider {
   static var previews: some View {
-    AddEventView(text: .constant("New Event"))
-      .previewLayout(PreviewLayout.sizeThatFits)
-      .environment(\.colorScheme, .light)
+    AddEventView(
+      text: .constant("New Event"),
+      description: .constant("Add description"),
+      presentAddEvent: .constant(true)
+    )
+    .previewLayout(PreviewLayout.sizeThatFits)
+    .environment(\.colorScheme, .light)
 
-    AddEventView(text: .constant("New Event"))
-      .previewLayout(PreviewLayout.sizeThatFits)
-      .environment(\.colorScheme, .dark)
+    AddEventView(
+      text: .constant("New Event"),
+      description: .constant("Add description"),
+      presentAddEvent: .constant(true)
+    )
+    .previewLayout(PreviewLayout.sizeThatFits)
+    .environment(\.colorScheme, .dark)
   }
 }

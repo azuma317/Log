@@ -9,12 +9,18 @@ import SwiftUI
 
 struct AddTaskView: View {
   @Binding var text: String
+  @Binding var description: String
+  @Binding var presentAddTask: Bool
+
+  @State var loadContent = false
 
   var body: some View {
     VStack {
       HStack {
         Button("Close") {
-          print("Close")
+          withAnimation(.spring()) {
+            presentAddTask.toggle()
+          }
         }
         .padding()
         .foregroundColor(Color(.secondaryLabel))
@@ -36,7 +42,7 @@ struct AddTaskView: View {
       ScrollView {
         Divider()
 
-        SetDetailCell(text: $text)
+        SetDetailCell(text: $description)
 
         Divider()
 
@@ -48,19 +54,36 @@ struct AddTaskView: View {
 
         Divider()
       }
+      .frame(height: loadContent ? nil : 0)
+      .opacity(loadContent ? 1 : 0)
+
+      Spacer(minLength: 0)
     }
     .background(Color(.systemBackground))
+    .onAppear {
+      withAnimation(Animation.spring().delay(0.45)) {
+        loadContent.toggle()
+      }
+    }
   }
 }
 
 struct AddTaskView_Previews: PreviewProvider {
   static var previews: some View {
-    AddTaskView(text: .constant("New Task"))
-      .previewLayout(PreviewLayout.sizeThatFits)
-      .environment(\.colorScheme, .light)
+    AddTaskView(
+      text: .constant("New Task"),
+      description: .constant("Add description"),
+      presentAddTask: .constant(true)
+    )
+    .previewLayout(PreviewLayout.sizeThatFits)
+    .environment(\.colorScheme, .light)
 
-    AddTaskView(text: .constant("New Task"))
-      .previewLayout(PreviewLayout.sizeThatFits)
-      .environment(\.colorScheme, .dark)
+    AddTaskView(
+      text: .constant("New Task"),
+      description: .constant("Add description"),
+      presentAddTask: .constant(true)
+    )
+    .previewLayout(PreviewLayout.sizeThatFits)
+    .environment(\.colorScheme, .dark)
   }
 }

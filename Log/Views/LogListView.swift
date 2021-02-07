@@ -11,18 +11,37 @@ import SwiftDate
 
 struct LogListView: View {
 
-  @State var presentAddNewItem = false
+  @State var presentAddTask = false
+  @State var presentAddEvent = false
   @State var showSettingsScreen = false
   @State var selectedIndex = 0
 
   private let pickerItems = ["Day", "Monthly", "Future"]
 
   var body: some View {
-    NavigationView {
+    ZStack {
+      Color(.systemBackground)
+        .edgesIgnoringSafeArea(.all)
+
       VStack(alignment: .leading) {
-        Text(Date().in(region: .current).toString(.date(.medium)))
-          .fontWeight(.semibold)
-          .padding([.leading, .bottom])
+        HStack {
+          VStack {
+            Text(pickerItems[selectedIndex] + "Log")
+              .font(.title)
+              .fontWeight(.bold)
+              .padding([.top, .leading])
+            Text(Date().in(region: .current).toString(.date(.medium)))
+              .fontWeight(.semibold)
+              .padding([.leading, .bottom])
+          }
+
+          Spacer()
+
+          Button(action: { self.showSettingsScreen.toggle() }, label: {
+            Image(systemName: "gear")
+          })
+          .padding(.trailing)
+        }
 
         ZStack {
           switch pickerItems[selectedIndex] {
@@ -36,24 +55,33 @@ struct LogListView: View {
             EmptyView()
           }
 
-          NavigationLink(destination: AddTaskView(text: .constant("")), isActive: self.$presentAddNewItem) {
-            FloatingButton() { state in
-              self.presentAddNewItem.toggle()
+          FloatingButton() { state in
+            withAnimation {
+              switch state {
+              case .task:
+                self.presentAddTask.toggle()
+              case .event:
+                self.presentAddEvent.toggle()
+              case .memo:
+                break
+              }
             }
           }
         }
 
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
       }
-      .navigationBarItems(trailing:
-        Button(action: { self.showSettingsScreen.toggle() }, label: {
-          Image(systemName: "gear")
-        })
-      )
-      .navigationBarTitle(pickerItems[selectedIndex] + "Log")
-      .sheet(isPresented: $showSettingsScreen, content: {
-        SettingsView()
-      })
+      .opacity(presentAddTask && presentAddEvent ? 0 : 1)
+
+      if presentAddTask {
+        AddTaskView(text: .constant(""), description: .constant("Add description"), presentAddTask: $presentAddTask)
+      }
+      if presentAddEvent {
+        AddEventView(text: .constant(""), description: .constant("Add description"), presentAddEvent: $presentAddEvent)
+      }
+    }
+    .sheet(isPresented: $showSettingsScreen) {
+      SettingsView()
     }
   }
 }
