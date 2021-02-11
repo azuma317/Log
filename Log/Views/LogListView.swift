@@ -15,6 +15,8 @@ struct LogListView: View {
   @State var presentAddEvent = false
   @State var showSettingsScreen = false
   @State var selectedIndex = 0
+  @State var updateDayLog: DayLog?
+  @Namespace var animation
 
   private let pickerItems = ["Day", "Monthly", "Future"]
 
@@ -30,6 +32,7 @@ struct LogListView: View {
               .font(.title)
               .fontWeight(.bold)
               .padding([.top, .leading])
+
             Text(Date().in(region: .current).toString(.date(.medium)))
               .fontWeight(.semibold)
               .padding([.leading, .bottom])
@@ -46,7 +49,17 @@ struct LogListView: View {
         ZStack {
           switch pickerItems[selectedIndex] {
           case "Day":
-            DayLogListView()
+            DayLogListView(animation: animation) { (dayLog) in
+              self.updateDayLog = dayLog
+              switch dayLog.state {
+              case .task:
+                self.presentAddTask.toggle()
+              case .event:
+                self.presentAddEvent.toggle()
+              case .memo:
+                break
+              }
+            }
           case "Monthly":
             EmptyView()
           case "Future":
@@ -74,10 +87,19 @@ struct LogListView: View {
       .opacity(presentAddTask && presentAddEvent ? 0 : 1)
 
       if presentAddTask {
-        AddTaskView(text: .constant(""), description: .constant("Add description"), presentAddTask: $presentAddTask)
+        AddTaskView(
+          animation: animation,
+          dayLogCellVM: (updateDayLog != nil) ? DayLogCellViewModel(dayLog: updateDayLog!) : DayLogCellViewModel.newDayLog(),
+          presentAddTask: $presentAddTask
+        )
       }
       if presentAddEvent {
-        AddEventView(text: .constant(""), description: .constant("Add description"), presentAddEvent: $presentAddEvent)
+        AddEventView(
+          text: .constant(""),
+          description: .constant("Add description"),
+          presentAddEvent: $presentAddEvent,
+          animation: animation
+        )
       }
     }
     .sheet(isPresented: $showSettingsScreen) {

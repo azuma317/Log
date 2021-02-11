@@ -65,13 +65,13 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
       .assign(to: \.id, on: self)
       .store(in: &cancellables)
 
-    $dayLog
-      .dropFirst()
-      .debounce(for: 0.8, scheduler: RunLoop.main)
-      .sink { [weak self] dayLog in
-        self?.dayLogRepository.updateDayLog(dayLog)
-      }
-      .store(in: &cancellables)
+//    $dayLog
+//      .dropFirst()
+//      .debounce(for: 0.8, scheduler: RunLoop.main)
+//      .sink { [weak self] dayLog in
+//        self?.dayLogRepository.updateDayLog(dayLog)
+//      }
+//      .store(in: &cancellables)
   }
 
 }

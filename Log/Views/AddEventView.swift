@@ -13,6 +13,7 @@ struct AddEventView: View {
   @Binding var presentAddEvent: Bool
 
   @State var loadContent = false
+  var animation: Namespace.ID
 
   var body: some View {
     VStack {
@@ -38,6 +39,7 @@ struct AddEventView: View {
         .font(.title)
         .padding()
         .padding(.leading, 32.0)
+        .matchedGeometryEffect(id: "title", in: animation)
 
       ScrollView {
         Divider()
@@ -69,11 +71,12 @@ struct AddEventView: View {
 }
 
 struct AddEventView_Previews: PreviewProvider {
+  @Namespace static var animation
   static var previews: some View {
     AddEventView(
       text: .constant("New Event"),
       description: .constant("Add description"),
-      presentAddEvent: .constant(true)
+      presentAddEvent: .constant(true), animation: animation
     )
     .previewLayout(PreviewLayout.sizeThatFits)
     .environment(\.colorScheme, .light)
@@ -81,7 +84,7 @@ struct AddEventView_Previews: PreviewProvider {
     AddEventView(
       text: .constant("New Event"),
       description: .constant("Add description"),
-      presentAddEvent: .constant(true)
+      presentAddEvent: .constant(true), animation: animation
     )
     .previewLayout(PreviewLayout.sizeThatFits)
     .environment(\.colorScheme, .dark)

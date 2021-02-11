@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct AddTaskView: View {
-  @Binding var text: String
-  @Binding var description: String
+  var animation: Namespace.ID
+
+  @ObservedObject var dayLogCellVM: DayLogCellViewModel
   @Binding var presentAddTask: Bool
 
   @State var loadContent = false
@@ -34,15 +35,16 @@ struct AddTaskView: View {
         .foregroundColor(Color(.systemBlue))
       }
 
-      TextField("Title", text: $text)
+      TextField("Title", text: $dayLogCellVM.dayLog.log)
         .font(.title)
         .padding()
         .padding(.leading, 32.0)
+        .matchedGeometryEffect(id: "text_\(dayLogCellVM.dayLog.id ?? "")", in: animation)
 
       ScrollView {
         Divider()
 
-        SetDetailCell(text: $description)
+        SetDetailCell(text: $dayLogCellVM.dayLog.description)
 
         Divider()
 
@@ -69,18 +71,19 @@ struct AddTaskView: View {
 }
 
 struct AddTaskView_Previews: PreviewProvider {
+  @Namespace static var animation
   static var previews: some View {
     AddTaskView(
-      text: .constant("New Task"),
-      description: .constant("Add description"),
+      animation: animation,
+      dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[0]),
       presentAddTask: .constant(true)
     )
     .previewLayout(PreviewLayout.sizeThatFits)
     .environment(\.colorScheme, .light)
 
     AddTaskView(
-      text: .constant("New Task"),
-      description: .constant("Add description"),
+      animation: animation,
+      dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[1]),
       presentAddTask: .constant(true)
     )
     .previewLayout(PreviewLayout.sizeThatFits)
