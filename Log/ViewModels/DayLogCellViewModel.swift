@@ -16,14 +16,13 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
   @Published var dayLog: DayLog
   @Published var logStateIconName = ""
   @Published var subLogStateIconName = ""
-  @Published var offset: CGFloat = 0
 
   var id: String = ""
 
   private var cancellables = Set<AnyCancellable>()
 
-  static func newDayLog() -> DayLogCellViewModel {
-    DayLogCellViewModel(dayLog: DayLog(log: "", state: .task, subState: .none, logDate: Timestamp()))
+  static func newDayLog(state: LogState) -> DayLogCellViewModel {
+    DayLogCellViewModel(dayLog: DayLog(log: "", state: state, subState: .none, logDate: Timestamp()))
   }
 
   init(dayLog: DayLog) {

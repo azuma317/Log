@@ -11,70 +11,67 @@ struct DayLogCell: View {
   var animation: Namespace.ID
 
   @ObservedObject var dayLogCellVM: DayLogCellViewModel
+  @State var isTapping = false
   @GestureState var isDragging = false
 
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
-    HStack {
-      if dayLogCellVM.subLogStateIconName != "" {
-        Image(systemName: dayLogCellVM.subLogStateIconName)
-          .frame(width: 20, height: 20)
-      } else {
-        Image(systemName: dayLogCellVM.logStateIconName)
-          .frame(width: 20, height: 20)
+    VStack(alignment: .leading) {
+      HStack {
+        if dayLogCellVM.subLogStateIconName != "" {
+          Image(systemName: dayLogCellVM.subLogStateIconName)
+            .frame(width: 20, height: 20)
+        } else {
+          Image(systemName: dayLogCellVM.logStateIconName)
+            .frame(width: 20, height: 20)
+        }
+
+        Divider()
+
+        Text(dayLogCellVM.dayLog.log)
+          .font(.headline)
+          .id(dayLogCellVM.dayLog.id)
+
+        Spacer()
+
+        if dayLogCellVM.dayLog.description != "" {
+          Image(systemName: "text.justifyleft")
+            .frame(width: 20, height: 20)
+        }
       }
 
-      Divider()
-
-      Text(dayLogCellVM.dayLog.log)
-        .id(dayLogCellVM.dayLog.id)
-
-      Spacer()
+      if isTapping && dayLogCellVM.dayLog.description != "" {
+        Text(dayLogCellVM.dayLog.description)
+          .font(.subheadline)
+          .padding(.top)
+      }
     }
     .padding()
     .background(Color(.secondarySystemBackground))
     .cornerRadius(10)
     .shadow(color: Color.black.opacity(0.2), radius: 4, x: 4, y: 4)
     .shadow(color: Color.black.opacity(0.2), radius: 4, x: -4, y: -4)
-    .offset(x: dayLogCellVM.offset)
-    .gesture(
-      DragGesture()
-        .updating($isDragging, body: { (value, state, _) in
-          state = true
-          onChanged(value: value, viewModel: dayLogCellVM)
-        })
-        .onEnded({ value in
-          onEnded(value: value, viewModel: dayLogCellVM)
-        })
-    )
+    .onTapGesture {
+      withAnimation {
+        self.isTapping.toggle()
+      }
+    }
     .contextMenu(menuItems: {
       Button(action: {
         onEdit(dayLogCellVM.dayLog)
       }, label: {
-          Text("Update Item")
+        Text("Edit")
+        Image(systemName: "pencil")
+      })
+
+      Button(action: {
+        dayLogCellVM.dayLogRepository.removeDayLog(dayLogCellVM.dayLog)
+      }, label: {
+        Text("Delete")
+        Image(systemName: "trash")
       })
     })
-  }
-
-  private func onChanged(value: DragGesture.Value, viewModel: DayLogCellViewModel) {
-    if value.translation.width < 0 && isDragging {
-      if value.translation.width > -64 {
-        viewModel.offset = value.translation.width
-      } else {
-        viewModel.offset = -64 - (log(-63-value.translation.width) * 4)
-      }
-    }
-  }
-
-  private func onEnded(value: DragGesture.Value, viewModel: DayLogCellViewModel) {
-    withAnimation {
-      if value.translation.width <= -56 {
-        viewModel.offset = -64
-      } else {
-        viewModel.offset = 0
-      }
-    }
   }
 }
 
