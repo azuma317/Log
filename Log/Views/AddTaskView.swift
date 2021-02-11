@@ -29,7 +29,11 @@ struct AddTaskView: View {
         Spacer()
 
         Button("Save") {
-          dayLogCellVM.dayLogRepository.updateDayLog(dayLogCellVM.dayLog)
+          if dayLogCellVM.dayLog.id == nil {
+            dayLogCellVM.dayLogRepository.addDayLog(dayLogCellVM.dayLog)
+          } else {
+            dayLogCellVM.dayLogRepository.updateDayLog(dayLogCellVM.dayLog)
+          }
           withAnimation {
             presentAddTask.toggle()
           }

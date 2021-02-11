@@ -13,6 +13,7 @@ struct LogListView: View {
 
   @State var presentAddTask = false
   @State var presentAddEvent = false
+  @State var presentAddMemo = false
   @State var showSettingsScreen = false
   @State var selectedIndex = 0
   @State var updateDayLog: DayLog?
@@ -57,7 +58,7 @@ struct LogListView: View {
               case .event:
                 self.presentAddEvent.toggle()
               case .memo:
-                break
+                self.presentAddMemo.toggle()
               }
             }
           case "Monthly":
@@ -76,7 +77,7 @@ struct LogListView: View {
               case .event:
                 self.presentAddEvent.toggle()
               case .memo:
-                break
+                self.presentAddMemo.toggle()
               }
             }
           }
@@ -84,7 +85,7 @@ struct LogListView: View {
 
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
       }
-      .opacity(presentAddTask && presentAddEvent ? 0 : 1)
+//      .opacity(presentAddTask && presentAddEvent ? 0 : 1)
 
       if presentAddTask {
         AddTaskView(
@@ -92,17 +93,22 @@ struct LogListView: View {
           dayLogCellVM:
             (updateDayLog != nil) ?
             DayLogCellViewModel(dayLog: updateDayLog!) :
-            DayLogCellViewModel.newDayLog(),
+            DayLogCellViewModel.newDayLog(state: .task),
           presentAddTask: $presentAddTask
         )
       }
       if presentAddEvent {
         AddEventView(
-          text: .constant(""),
-          description: .constant("Add description"),
-          presentAddEvent: $presentAddEvent,
-          animation: animation
+          animation: animation,
+          dayLogCellVM:
+            (updateDayLog != nil) ?
+            DayLogCellViewModel(dayLog: updateDayLog!) :
+            DayLogCellViewModel.newDayLog(state: .event),
+          presentAddEvent: $presentAddEvent
         )
+      }
+      if presentAddMemo {
+        AddMemoView()
       }
     }
     .sheet(isPresented: $showSettingsScreen) {

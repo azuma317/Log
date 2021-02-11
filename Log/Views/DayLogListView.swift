@@ -34,24 +34,8 @@ struct DayLogListView: View {
       .padding(.top)
 
       ForEach(taskDayLogViewModels.indices, id: \.self) { index in
-        ZStack {
-          HStack {
-            Spacer()
-
-            Button(action: {
-              dayLogListVM.removeDayLog(dayLog: taskDayLogViewModels[index].dayLog)
-            }) {
-              Image(systemName: "trash")
-                .font(.title)
-                .foregroundColor(Color(.secondaryLabel))
-                .frame(width: 64)
-            }
-
-          }
-
-          DayLogCell(animation: animation, dayLogCellVM: taskDayLogViewModels[index]) { dayLog in
-            onEdit(dayLog)
-          }
+        DayLogCell(animation: animation, dayLogCellVM: taskDayLogViewModels[index]) { dayLog in
+          onEdit(dayLog)
         }
         .padding(.horizontal)
         .padding(.top, 8.0)
@@ -66,22 +50,8 @@ struct DayLogListView: View {
       .padding(.top)
 
       ForEach(eventDayLogViewModels.indices, id: \.self) { index in
-        ZStack {
-          HStack {
-            Spacer()
-
-            Button(action: {
-              dayLogListVM.removeDayLog(dayLog: eventDayLogViewModels[index].dayLog)
-            }) {
-              Image(systemName: "trash")
-                .font(.title)
-                .foregroundColor(Color(.secondaryLabel))
-                .frame(width: 64)
-            }
-
-          }
-
-          DayLogCell(animation: animation, dayLogCellVM: eventDayLogViewModels[index])
+        DayLogCell(animation: animation, dayLogCellVM: eventDayLogViewModels[index]) { dayLog in
+          onEdit(dayLog)
         }
         .padding(.horizontal)
         .padding(.top, 8.0)
@@ -96,22 +66,8 @@ struct DayLogListView: View {
       .padding(.top)
 
       ForEach(memoDayLogViewModels.indices, id: \.self) { index in
-        ZStack {
-          HStack {
-            Spacer()
-
-            Button(action: {
-              dayLogListVM.removeDayLog(dayLog: memoDayLogViewModels[index].dayLog)
-            }) {
-              Image(systemName: "trash")
-                .font(.title)
-                .foregroundColor(Color(.secondaryLabel))
-                .frame(width: 64)
-            }
-
-          }
-
-          DayLogCell(animation: animation, dayLogCellVM: memoDayLogViewModels[index])
+        DayLogCell(animation: animation, dayLogCellVM: memoDayLogViewModels[index]) { dayLog in
+          onEdit(dayLog)
         }
         .padding(.horizontal)
         .padding(.top, 8.0)

@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct AddEventView: View {
-  @Binding var text: String
-  @Binding var description: String
+  var animation: Namespace.ID
+
+  @ObservedObject var dayLogCellVM: DayLogCellViewModel
   @Binding var presentAddEvent: Bool
 
   @State var loadContent = false
-  var animation: Namespace.ID
 
   var body: some View {
     VStack {
@@ -29,13 +29,20 @@ struct AddEventView: View {
         Spacer()
 
         Button("Save") {
-          print("Save")
+          if dayLogCellVM.dayLog.id == nil {
+            dayLogCellVM.dayLogRepository.addDayLog(dayLogCellVM.dayLog)
+          } else {
+            dayLogCellVM.dayLogRepository.updateDayLog(dayLogCellVM.dayLog)
+          }
+          withAnimation {
+            presentAddEvent.toggle()
+          }
         }
         .padding()
         .foregroundColor(Color(.systemBlue))
       }
 
-      TextField("Title", text: $text)
+      TextField("Title", text: $dayLogCellVM.dayLog.log)
         .font(.title)
         .padding()
         .padding(.leading, 32.0)
@@ -52,7 +59,7 @@ struct AddEventView: View {
 
         Divider()
 
-        SetDetailCell(text: $description)
+        SetDetailCell(text: $dayLogCellVM.dayLog.description)
 
         Divider()
       }
@@ -74,17 +81,17 @@ struct AddEventView_Previews: PreviewProvider {
   @Namespace static var animation
   static var previews: some View {
     AddEventView(
-      text: .constant("New Event"),
-      description: .constant("Add description"),
-      presentAddEvent: .constant(true), animation: animation
+      animation: animation,
+      dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[0]),
+      presentAddEvent: .constant(true)
     )
     .previewLayout(PreviewLayout.sizeThatFits)
     .environment(\.colorScheme, .light)
 
     AddEventView(
-      text: .constant("New Event"),
-      description: .constant("Add description"),
-      presentAddEvent: .constant(true), animation: animation
+      animation: animation,
+      dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[1]),
+      presentAddEvent: .constant(true)
     )
     .previewLayout(PreviewLayout.sizeThatFits)
     .environment(\.colorScheme, .dark)
