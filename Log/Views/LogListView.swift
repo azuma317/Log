@@ -89,7 +89,10 @@ struct LogListView: View {
       if presentAddTask {
         AddTaskView(
           animation: animation,
-          dayLogCellVM: (updateDayLog != nil) ? DayLogCellViewModel(dayLog: updateDayLog!) : DayLogCellViewModel.newDayLog(),
+          dayLogCellVM:
+            (updateDayLog != nil) ?
+            DayLogCellViewModel(dayLog: updateDayLog!) :
+            DayLogCellViewModel.newDayLog(),
           presentAddTask: $presentAddTask
         )
       }

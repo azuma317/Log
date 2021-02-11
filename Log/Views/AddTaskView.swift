@@ -19,7 +19,7 @@ struct AddTaskView: View {
     VStack {
       HStack {
         Button("Close") {
-          withAnimation(.spring()) {
+          withAnimation {
             presentAddTask.toggle()
           }
         }
@@ -29,7 +29,10 @@ struct AddTaskView: View {
         Spacer()
 
         Button("Save") {
-          print("Save")
+          dayLogCellVM.dayLogRepository.updateDayLog(dayLogCellVM.dayLog)
+          withAnimation {
+            presentAddTask.toggle()
+          }
         }
         .padding()
         .foregroundColor(Color(.systemBlue))
@@ -39,7 +42,6 @@ struct AddTaskView: View {
         .font(.title)
         .padding()
         .padding(.leading, 32.0)
-        .matchedGeometryEffect(id: "text_\(dayLogCellVM.dayLog.id ?? "")", in: animation)
 
       ScrollView {
         Divider()

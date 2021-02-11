@@ -146,20 +146,13 @@
 			isa = PBXGroup;
 			children = (
 				F22EB22925A2C456003FF8A9 /* AppIcon */,
+				F29AC41D25D4FA7B00012379 /* Components */,
 				F22EB1FD25A019AC003FF8A9 /* SignInView.swift */,
-				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
 				F2343B9525B59D3D00C36011 /* LogListView.swift */,
 				F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */,
-				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
 				F24E172025C50AE50090439B /* AddTaskView.swift */,
 				F29AC40D25CC236500012379 /* AddEventView.swift */,
-				F24E173325C50E580090439B /* SetDateCell.swift */,
-				F24E173825C51CD50090439B /* SetDetailCell.swift */,
-				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
-				F24E173D25C523340090439B /* TextView.swift */,
-				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
-				F29AC3FA25C5303D00012379 /* FloatingButton.swift */,
-				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
+				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +288,21 @@
 				F268973025736B3B00D23FBE /* Info.plist */,
 			);
 			path = LogUITests;
+			sourceTree = "<group>";
+		};
+		F29AC41D25D4FA7B00012379 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F24E173D25C523340090439B /* TextView.swift */,
+				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
+				F24E173325C50E580090439B /* SetDateCell.swift */,
+				F24E173825C51CD50090439B /* SetDetailCell.swift */,
+				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
+				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
+				F29AC3FA25C5303D00012379 /* FloatingButton.swift */,
+				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -27,9 +27,10 @@ struct DayLogCell: View {
 
       Divider()
 
-      TextField("Enter title", text: $dayLogCellVM.dayLog.log)
+      Text(dayLogCellVM.dayLog.log)
         .id(dayLogCellVM.dayLog.id)
-        .matchedGeometryEffect(id: "text_\(dayLogCellVM.dayLog.id ?? "")", in: animation)
+
+      Spacer()
     }
     .padding()
     .background(Color(.secondarySystemBackground))
