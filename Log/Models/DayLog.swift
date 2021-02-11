@@ -50,6 +50,8 @@ struct DayLog: Codable, Identifiable {
   var userId: String?
   // log の内容
   var log: String
+  // 詳細説明
+  var description: String = ""
   // LogState: 初期値Task
   var state: LogState
   // LogSubState: 初期値None
