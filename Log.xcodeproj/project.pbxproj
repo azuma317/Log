@@ -47,6 +47,7 @@
 		F29AC3FB25C5303D00012379 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC3FA25C5303D00012379 /* FloatingButton.swift */; };
 		F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */; };
 		F29AC40E25CC236500012379 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40D25CC236500012379 /* AddEventView.swift */; };
+		F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC41825D2D6FF00012379 /* DayLogCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		F29AC3FA25C5303D00012379 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationCell.swift; sourceTree = "<group>"; };
 		F29AC40D25CC236500012379 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		F29AC41825D2D6FF00012379 /* DayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				F24E173D25C523340090439B /* TextView.swift */,
 				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
 				F29AC3FA25C5303D00012379 /* FloatingButton.swift */,
+				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				F24E173425C50E580090439B /* SetDateCell.swift in Sources */,
 				F22EB1EC259F1ED6003FF8A9 /* EnvironmentKeys.swift in Sources */,
 				F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */,
+				F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */,
 				F24E173925C51CD50090439B /* SetDetailCell.swift in Sources */,
 				F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */,
 				F22CC0C125A75161004DC9F1 /* SegmentedPicker.swift in Sources */,
