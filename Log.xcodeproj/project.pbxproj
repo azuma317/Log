@@ -46,7 +46,6 @@
 		F268972F25736B3B00D23FBE /* LogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268972E25736B3B00D23FBE /* LogUITests.swift */; };
 		F268974025736C0D00D23FBE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F268973F25736C0D00D23FBE /* README.md */; };
 		F268974F2573785C00D23FBE /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = F268974E2573785C00D23FBE /* DynamicColor */; };
-		F29AC3FB25C5303D00012379 /* FloatingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC3FA25C5303D00012379 /* FloatingButton.swift */; };
 		F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */; };
 		F29AC40E25CC236500012379 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40D25CC236500012379 /* AddEventView.swift */; };
 		F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC41825D2D6FF00012379 /* DayLogCell.swift */; };
@@ -105,7 +104,6 @@
 		F268972E25736B3B00D23FBE /* LogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogUITests.swift; sourceTree = "<group>"; };
 		F268973025736B3B00D23FBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F268973F25736C0D00D23FBE /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		F29AC3FA25C5303D00012379 /* FloatingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButton.swift; sourceTree = "<group>"; };
 		F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationCell.swift; sourceTree = "<group>"; };
 		F29AC40D25CC236500012379 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		F29AC41825D2D6FF00012379 /* DayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogCell.swift; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 				F24E173825C51CD50090439B /* SetDetailCell.swift */,
 				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
 				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
-				F29AC3FA25C5303D00012379 /* FloatingButton.swift */,
 				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
 			);
 			path = Components;
@@ -488,7 +485,6 @@
 				F21B0238259AC0AA00999C89 /* DayLog.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,
 				F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */,
-				F29AC3FB25C5303D00012379 /* FloatingButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
