@@ -11,6 +11,7 @@ import SwiftDate
 
 struct LogListView: View {
 
+  @State var presentSelectLog = false
   @State var presentAddTask = false
   @State var presentAddEvent = false
   @State var presentAddMemo = false
@@ -69,24 +70,50 @@ struct LogListView: View {
             EmptyView()
           }
 
-          FloatingButton() { state in
-            self.updateDayLog = nil
-            withAnimation {
-              switch state {
-              case .task:
-                self.presentAddTask.toggle()
-              case .event:
-                self.presentAddEvent.toggle()
-              case .memo:
-                self.presentAddMemo.toggle()
-              }
+          HStack {
+            Spacer()
+
+            VStack {
+              Spacer()
+
+              Button(action: {
+                withAnimation {
+                  self.presentSelectLog.toggle()
+                }
+              }, label: {
+                HStack {
+                  Image(systemName: "plus.circle.fill")
+                    .resizable()
+                    .frame(width: 56.0, height: 56.0)
+                    .background(Color(.secondarySystemBackground))
+                }
+              })
+              .accentColor(Color(UIColor.systemRed))
+              .cornerRadius(28.0)
             }
           }
+          .padding(.init(top: 0, leading: 0, bottom: 8.0, trailing: 16.0))
         }
 
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
       }
-//      .opacity(presentAddTask && presentAddEvent ? 0 : 1)
+      .opacity(presentAddTask && presentAddEvent ? 0 : 1)
+
+      if presentSelectLog {
+        SelectLogView(presentSelectLog: $presentSelectLog) { state in
+          self.updateDayLog = nil
+          withAnimation {
+            switch state {
+            case .task:
+              self.presentAddTask.toggle()
+            case .event:
+              self.presentAddEvent.toggle()
+            case .memo:
+              self.presentAddMemo.toggle()
+            }
+          }
+        }
+      }
 
       if presentAddTask {
         AddTaskView(
