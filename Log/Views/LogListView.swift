@@ -20,7 +20,7 @@ struct LogListView: View {
   @State var updateDayLog: DayLog?
   @Namespace var animation
 
-  private let pickerItems = ["Day", "Monthly", "Future"]
+  private let pickerItems = ["Day", "Monthly"]
 
   var body: some View {
     ZStack {
@@ -63,8 +63,6 @@ struct LogListView: View {
               }
             }
           case "Monthly":
-            EmptyView()
-          case "Future":
             EmptyView()
           default:
             EmptyView()
@@ -136,7 +134,14 @@ struct LogListView: View {
         )
       }
       if presentAddMemo {
-        AddMemoView()
+        AddMemoView(
+          animation: animation,
+          dayLogCellVM:
+            (updateDayLog != nil) ?
+            DayLogCellViewModel(dayLog: updateDayLog!) :
+            DayLogCellViewModel.newDayLog(state: .memo),
+          presentAddMemo: $presentAddMemo
+        )
       }
     }
     .sheet(isPresented: $showSettingsScreen) {

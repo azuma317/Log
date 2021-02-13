@@ -8,13 +8,35 @@
 import SwiftUI
 
 struct AddMemoView: View {
+  var animation: Namespace.ID
+
+  @ObservedObject var dayLogCellVM: DayLogCellViewModel
+  @Binding var presentAddMemo: Bool
+
+  @State var loadContent = false
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, World!")
     }
 }
 
 struct AddMemoView_Previews: PreviewProvider {
-    static var previews: some View {
-        AddMemoView()
-    }
+  @Namespace static var animation
+  static var previews: some View {
+    AddMemoView(
+      animation: animation,
+      dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[1]),
+      presentAddMemo: .constant(true)
+    )
+    .previewLayout(PreviewLayout.sizeThatFits)
+    .environment(\.colorScheme, .light)
+
+    AddMemoView(
+      animation: animation,
+      dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[1]),
+      presentAddMemo: .constant(true)
+    )
+    .previewLayout(PreviewLayout.sizeThatFits)
+    .environment(\.colorScheme, .dark)
+  }
 }
