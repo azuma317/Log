@@ -36,14 +36,21 @@ struct DayLogCell: View {
         Spacer()
 
         if dayLogCellVM.dayLog.description != "" {
-          Image(systemName: "text.justifyleft")
-            .frame(width: 20, height: 20)
+          if isTapping {
+            Image(systemName: "chevron.up")
+              .frame(width: 20, height: 20)
+          } else {
+            Image(systemName: "chevron.down")
+              .frame(width: 20, height: 20)
+          }
         }
       }
 
       if isTapping && dayLogCellVM.dayLog.description != "" {
         Text(dayLogCellVM.dayLog.description)
+          .lineLimit(nil)
           .font(.subheadline)
+          .fixedSize(horizontal: false, vertical: true)
           .padding(.top)
       }
     }
