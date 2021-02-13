@@ -14,19 +14,6 @@ struct SettingsView: View {
   var body: some View {
     NavigationView {
       VStack {
-        Image(systemName: "snow")
-          .resizable()
-          .frame(width: 80, height: 80)
-          .aspectRatio(contentMode: .fit)
-          .padding(.top, 20)
-
-        Text("Thanks for using")
-          .font(.title)
-
-        Text("Zebra")
-          .font(.title)
-          .fontWeight(.semibold)
-
         Form {
           Section {
             HStack {
@@ -36,7 +23,6 @@ struct SettingsView: View {
               Text("Plain")
             }
           }
-          .listRowBackground(Color(.secondarySystemBackground))
 
           Section {
             HStack {
@@ -50,7 +36,6 @@ struct SettingsView: View {
               }
             }
           }
-          .listRowBackground(Color(.secondarySystemBackground))
 
           AccountSection(settingsViewModel: self.settingsViewModel)
         }
@@ -86,7 +71,6 @@ struct AccountSection: View {
     Section(footer: footer) {
       button
     }
-    .listRowBackground(Color(.secondarySystemBackground))
   }
 
   var footer: some View {

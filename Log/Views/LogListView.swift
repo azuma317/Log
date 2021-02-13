@@ -70,6 +70,7 @@ struct LogListView: View {
           }
 
           FloatingButton() { state in
+            self.updateDayLog = nil
             withAnimation {
               switch state {
               case .task:
