@@ -17,29 +17,12 @@ struct AddEventView: View {
 
   var body: some View {
     VStack {
-      HStack {
-        Button("Close") {
-          withAnimation(.spring()) {
-            presentAddEvent.toggle()
-          }
+      AddLogHeader(presentToggle: $presentAddEvent) {
+        if dayLogCellVM.dayLog.id == nil {
+          dayLogCellVM.dayLogRepository.addDayLog(dayLogCellVM.dayLog)
+        } else {
+          dayLogCellVM.dayLogRepository.updateDayLog(dayLogCellVM.dayLog)
         }
-        .padding()
-        .foregroundColor(Color(.secondaryLabel))
-
-        Spacer()
-
-        Button("Save") {
-          if dayLogCellVM.dayLog.id == nil {
-            dayLogCellVM.dayLogRepository.addDayLog(dayLogCellVM.dayLog)
-          } else {
-            dayLogCellVM.dayLogRepository.updateDayLog(dayLogCellVM.dayLog)
-          }
-          withAnimation {
-            presentAddEvent.toggle()
-          }
-        }
-        .padding()
-        .foregroundColor(Color(.systemBlue))
       }
 
       TextField("Title", text: $dayLogCellVM.dayLog.log)

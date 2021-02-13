@@ -15,9 +15,18 @@ struct AddMemoView: View {
 
   @State var loadContent = false
 
-    var body: some View {
-        Text("Hello, World!")
+  var body: some View {
+    VStack {
+      AddLogHeader(presentToggle: $presentAddMemo) {
+        if dayLogCellVM.dayLog.id == nil {
+          dayLogCellVM.dayLogRepository.addDayLog(dayLogCellVM.dayLog)
+        } else {
+          dayLogCellVM.dayLogRepository.updateDayLog(dayLogCellVM.dayLog)
+        }
+      }
     }
+    .background(Color(.systemBackground))
+  }
 }
 
 struct AddMemoView_Previews: PreviewProvider {
