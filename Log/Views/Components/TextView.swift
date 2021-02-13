@@ -7,50 +7,35 @@
 
 import SwiftUI
 
-struct TextView: UIViewRepresentable {
+struct TextView: View {
+  private let placeholder: String
   @Binding var text: String
 
-  func makeCoordinator() -> Coordinator {
-    Coordinator(self)
+  init(_ placeholder: String, text: Binding<String>) {
+    self.placeholder = placeholder
+    self._text = text
   }
 
-  func makeUIView(context: Context) -> UITextView {
-    let textView = UITextView()
-    textView.delegate = context.coordinator
-    textView.isScrollEnabled = false
-    textView.isEditable = true
-    textView.isUserInteractionEnabled = true
-    textView.font = UIFont.systemFont(ofSize: 18)
-    textView.backgroundColor = .clear
-    return textView
-  }
+  var body: some View {
+    ZStack {
+      TextEditor(text: $text)
+        .background(
+          HStack(alignment: .top) {
+            text.allSatisfy({ $0.isWhitespace }) ? Text(placeholder) : Text("")
+            Spacer()
+          }
+          .foregroundColor(Color.primary.opacity(0.25))
+          .padding(EdgeInsets(top: 0, leading: 4, bottom: 8, trailing: 0))
+        )
 
-  func updateUIView(_ textView: UITextView, context: Context) {
-    textView.text = text
-  }
-}
-
-extension TextView {
-  final class Coordinator: NSObject, UITextViewDelegate {
-    private var textView: TextView
-
-    init(_ textView: TextView) {
-      self.textView = textView
-    }
-
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-      return true
-    }
-
-    func textViewDidChange(_ textView: UITextView) {
-      self.textView.text = textView.text
+      Text(text).opacity(0).padding(.all, 8)
     }
   }
 }
 
 struct TextView_Previews: PreviewProvider {
   static var previews: some View {
-    TextView(text: .constant("Sample"))
+    TextView("Sample", text: .constant(""))
       .padding()
       .previewLayout(PreviewLayout.sizeThatFits)
   }

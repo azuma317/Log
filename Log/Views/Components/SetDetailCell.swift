@@ -17,7 +17,7 @@ struct SetDetailCell: View {
         .padding(.vertical, 12.0)
         .padding(.trailing, 16.0)
 
-      TextView(text: $text)
+      TextView("Type here", text: $text)
     }
     .padding(.horizontal)
     .background(Color(.systemBackground))
