@@ -117,7 +117,8 @@ struct SegmentedPicker: View {
     }
     let isSelected = self.selection == index
 
-    return Text(self.items[index])
+    return VStack {
+      Text(self.items[index])
       .foregroundColor(
         isSelected
           ? SegmentedPicker.SelectedTextColor
@@ -128,8 +129,10 @@ struct SegmentedPicker: View {
       .padding(.horizontal, SegmentedPicker.SegmentXPadding)
       .frame(minWidth: 0, maxWidth: .infinity)
       .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
-      .onTapGesture { self.onItemTap(index: index) }
-      .eraseToAnyView()
+    }
+    .contentShape(Rectangle())
+    .onTapGesture { self.onItemTap(index: index) }
+    .eraseToAnyView()
   }
 
   private func onItemTap(index: Int) {
