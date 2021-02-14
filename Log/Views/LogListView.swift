@@ -16,7 +16,7 @@ struct LogListView: View {
   @State var presentAddEvent = false
   @State var presentAddMemo = false
   @State var showSettingsScreen = false
-  @State var selectedIndex = 0
+  @State var selectedIndex = 1
   @State var updateDayLog: DayLog?
   @Namespace var animation
 
@@ -63,7 +63,7 @@ struct LogListView: View {
               }
             }
           case "Monthly":
-            EmptyView()
+            MonthlyLogListView()
           default:
             EmptyView()
           }

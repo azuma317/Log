@@ -14,7 +14,7 @@ struct SelectLogView: View {
 
   var body: some View {
     ZStack {
-      Color(.systemGray)
+      Color(.black)
         .opacity(0.5)
         .frame(width: UIScreen.main.bounds.width)
         .ignoresSafeArea()
@@ -38,7 +38,7 @@ struct SelectLogView: View {
       VStack {
         Spacer()
 
-        HStack(spacing: 16) {
+        HStack {
           ForEach(LogState.allCases, id: \.self) { state in
             Button(action: {
               self.presentSelectLog.toggle()
@@ -47,7 +47,7 @@ struct SelectLogView: View {
               VStack(alignment: .center) {
                 Image(systemName: state.imageName)
                   .resizable()
-                  .frame(width: 36.0, height: 36.0)
+                  .frame(width: 24.0, height: 24.0)
                   .padding()
 
                 Text(state.description)
@@ -55,10 +55,12 @@ struct SelectLogView: View {
               .foregroundColor(Color(.label))
             })
           }
+          .padding()
+          .background(Color(.systemBackground))
+          .cornerRadius(10)
         }
         .padding()
-        .frame(width: UIScreen.main.bounds.width * 0.8)
-        .background(Color(.systemBackground))
+        .background(Color(.tertiarySystemBackground))
         .cornerRadius(10)
         .padding()
       }
