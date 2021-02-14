@@ -63,14 +63,13 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
       .compactMap { $0.id }
       .assign(to: \.id, on: self)
       .store(in: &cancellables)
-
-//    $dayLog
-//      .dropFirst()
-//      .debounce(for: 0.8, scheduler: RunLoop.main)
-//      .sink { [weak self] dayLog in
-//        self?.dayLogRepository.updateDayLog(dayLog)
-//      }
-//      .store(in: &cancellables)
   }
 
+  func addDayLog(dayLog: DayLog) {
+    dayLogRepository.addDayLog(dayLog)
+  }
+
+  func removeDayLog(dayLog: DayLog) {
+    dayLogRepository.removeDayLog(dayLog)
+  }
 }

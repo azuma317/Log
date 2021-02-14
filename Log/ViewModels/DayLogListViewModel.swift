@@ -13,20 +13,48 @@ import SwiftDate
 
 class DayLogListViewModel: ObservableObject {
   @Published var dayLogRepository: DayLogRepository = Resolver.resolve()
-  @Published var dayLogCellViewModels = [DayLogCellViewModel]()
+  @Published var taskDayLogCellViewModels = [DayLogCellViewModel]()
+  @Published var eventDayLogCellViewModels = [DayLogCellViewModel]()
+  @Published var memoDayLogCellViewModels = [DayLogCellViewModel]()
 
   private var cancellables = Set<AnyCancellable>()
 
   init() {
-    dayLogRepository.$dayLogs.map { dayLogs in
-      dayLogs.filter { dayLog in
-        return dayLog.logDate.dateValue() >= Date().dateAt(.startOfDay) && dayLog.logDate.dateValue() < (Date().dateAt(.tomorrowAtStart))
-      }.map { dayLog in
-        DayLogCellViewModel(dayLog: dayLog)
+    dayLogRepository.$dayLogs
+      .map { dayLogs in
+        dayLogs.filter { dayLog in
+          dayLog.state == .task
+        }
+        .map { dayLog in
+          DayLogCellViewModel(dayLog: dayLog)
+        }
       }
-    }
-    .assign(to: \.dayLogCellViewModels, on: self)
-    .store(in: &cancellables)
+      .assign(to: \.taskDayLogCellViewModels, on: self)
+      .store(in: &cancellables)
+
+    dayLogRepository.$dayLogs
+      .map { dayLogs in
+        dayLogs.filter { dayLog in
+          dayLog.state == .event
+        }
+        .map { dayLog in
+          DayLogCellViewModel(dayLog: dayLog)
+        }
+      }
+      .assign(to: \.eventDayLogCellViewModels, on: self)
+      .store(in: &cancellables)
+
+    dayLogRepository.$dayLogs
+      .map { dayLogs in
+        dayLogs.filter { dayLog in
+          dayLog.state == .memo
+        }
+        .map { dayLog in
+          DayLogCellViewModel(dayLog: dayLog)
+        }
+      }
+      .assign(to: \.memoDayLogCellViewModels, on: self)
+      .store(in: &cancellables)
   }
 
   func addDayLog(dayLog: DayLog) {
@@ -35,13 +63,5 @@ class DayLogListViewModel: ObservableObject {
 
   func removeDayLog(dayLog: DayLog) {
     dayLogRepository.removeDayLog(dayLog)
-  }
-
-  func removeDayLogs(atOffsets indexSet: IndexSet) {
-    // remove from repo
-    let viewModels = indexSet.lazy.map { self.dayLogCellViewModels[$0] }
-    viewModels.forEach { dayLogCellViewModel in
-      removeDayLog(dayLog: dayLogCellViewModel.dayLog)
-    }
   }
 }

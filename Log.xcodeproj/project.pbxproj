@@ -171,9 +171,9 @@
 		F21B0233259ABF9800999C89 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
 				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
 				F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */,
+				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
 				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;

@@ -17,13 +17,6 @@ struct DayLogListView: View {
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
-    let taskDayLogViewModels = dayLogListVM.dayLogCellViewModels
-      .filter { $0.dayLog.state == .task }
-    let eventDayLogViewModels = dayLogListVM.dayLogCellViewModels
-      .filter { $0.dayLog.state == .event }
-    let memoDayLogViewModels = dayLogListVM.dayLogCellViewModels
-      .filter { $0.dayLog.state == .memo }
-
     ScrollView {
       HStack {
         Text("Task")
@@ -33,8 +26,8 @@ struct DayLogListView: View {
       }
       .padding(.top)
 
-      ForEach(taskDayLogViewModels.indices, id: \.self) { index in
-        DayLogCell(animation: animation, dayLogCellVM: taskDayLogViewModels[index]) { dayLog in
+      ForEach(dayLogListVM.taskDayLogCellViewModels.indices, id: \.self) { index in
+        DayLogCell(animation: animation, dayLogCellVM: dayLogListVM.taskDayLogCellViewModels[index]) { dayLog in
           onEdit(dayLog)
         }
         .padding(.horizontal)
@@ -49,8 +42,8 @@ struct DayLogListView: View {
       }
       .padding(.top)
 
-      ForEach(eventDayLogViewModels.indices, id: \.self) { index in
-        DayLogCell(animation: animation, dayLogCellVM: eventDayLogViewModels[index]) { dayLog in
+      ForEach(dayLogListVM.eventDayLogCellViewModels.indices, id: \.self) { index in
+        DayLogCell(animation: animation, dayLogCellVM: dayLogListVM.eventDayLogCellViewModels[index]) { dayLog in
           onEdit(dayLog)
         }
         .padding(.horizontal)
@@ -65,8 +58,8 @@ struct DayLogListView: View {
       }
       .padding(.top)
 
-      ForEach(memoDayLogViewModels.indices, id: \.self) { index in
-        DayLogCell(animation: animation, dayLogCellVM: memoDayLogViewModels[index]) { dayLog in
+      ForEach(dayLogListVM.memoDayLogCellViewModels.indices, id: \.self) { index in
+        DayLogCell(animation: animation, dayLogCellVM: dayLogListVM.memoDayLogCellViewModels[index]) { dayLog in
           onEdit(dayLog)
         }
         .padding(.horizontal)

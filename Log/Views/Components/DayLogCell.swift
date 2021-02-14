@@ -73,7 +73,7 @@ struct DayLogCell: View {
       })
 
       Button(action: {
-        dayLogCellVM.dayLogRepository.removeDayLog(dayLogCellVM.dayLog)
+        dayLogCellVM.removeDayLog(dayLog: dayLogCellVM.dayLog)
       }, label: {
         Text("Delete")
         Image(systemName: "trash")

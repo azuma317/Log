@@ -63,7 +63,17 @@ struct LogListView: View {
               }
             }
           case "Monthly":
-            MonthlyLogListView()
+            MonthlyLogListView(animation: animation) { (dayLog) in
+              self.updateDayLog = dayLog
+              switch dayLog.state {
+              case .task:
+                self.presentAddTask.toggle()
+              case .event:
+                self.presentAddEvent.toggle()
+              case .memo:
+                self.presentAddMemo.toggle()
+              }
+            }
           default:
             EmptyView()
           }
