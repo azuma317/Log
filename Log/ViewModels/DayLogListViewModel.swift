@@ -8,6 +8,8 @@
 import Foundation
 import Combine
 import Resolver
+import FirebaseFirestore
+import SwiftDate
 
 class DayLogListViewModel: ObservableObject {
   @Published var dayLogRepository: DayLogRepository = Resolver.resolve()
@@ -17,7 +19,9 @@ class DayLogListViewModel: ObservableObject {
 
   init() {
     dayLogRepository.$dayLogs.map { dayLogs in
-      dayLogs.map { dayLog in
+      dayLogs.filter { dayLog in
+        return dayLog.logDate.dateValue() >= Date().dateAt(.startOfDay) && dayLog.logDate.dateValue() < (Date().dateAt(.tomorrowAtStart))
+      }.map { dayLog in
         DayLogCellViewModel(dayLog: dayLog)
       }
     }
