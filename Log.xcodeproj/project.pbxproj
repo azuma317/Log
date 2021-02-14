@@ -18,6 +18,8 @@
 		F21C4FAE25D501B700C3CBFA /* AddMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FAD25D501B700C3CBFA /* AddMemoView.swift */; };
 		F21C4FB625D781C700C3CBFA /* SelectLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FB525D781C700C3CBFA /* SelectLogView.swift */; };
 		F21C4FC125D791A300C3CBFA /* AddLogHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */; };
+		F21C4FCB25D7A87C00C3CBFA /* MonthlyLogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FCA25D7A87C00C3CBFA /* MonthlyLogListView.swift */; };
+		F21C4FD625D7A96400C3CBFA /* MonthlyLogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */; };
 		F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */; };
 		F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */; };
 		F22CC09825A2DFEB004DC9F1 /* DayLogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */; };
@@ -75,6 +77,8 @@
 		F21C4FAD25D501B700C3CBFA /* AddMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoView.swift; sourceTree = "<group>"; };
 		F21C4FB525D781C700C3CBFA /* SelectLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectLogView.swift; sourceTree = "<group>"; };
 		F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogHeader.swift; sourceTree = "<group>"; };
+		F21C4FCA25D7A87C00C3CBFA /* MonthlyLogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyLogListView.swift; sourceTree = "<group>"; };
+		F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyLogListViewModel.swift; sourceTree = "<group>"; };
 		F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogCellViewModel.swift; sourceTree = "<group>"; };
 		F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogListViewModel.swift; sourceTree = "<group>"; };
 		F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogListView.swift; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				F22EB1FD25A019AC003FF8A9 /* SignInView.swift */,
 				F2343B9525B59D3D00C36011 /* LogListView.swift */,
 				F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */,
+				F21C4FCA25D7A87C00C3CBFA /* MonthlyLogListView.swift */,
 				F21C4FB525D781C700C3CBFA /* SelectLogView.swift */,
 				F24E172025C50AE50090439B /* AddTaskView.swift */,
 				F29AC40D25CC236500012379 /* AddEventView.swift */,
@@ -168,6 +173,7 @@
 			children = (
 				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
 				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
+				F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */,
 				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -484,7 +490,9 @@
 				F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */,
 				F21C4FAE25D501B700C3CBFA /* AddMemoView.swift in Sources */,
 				F21C4FC125D791A300C3CBFA /* AddLogHeader.swift in Sources */,
+				F21C4FD625D7A96400C3CBFA /* MonthlyLogListViewModel.swift in Sources */,
 				F21C4FB625D781C700C3CBFA /* SelectLogView.swift in Sources */,
+				F21C4FCB25D7A87C00C3CBFA /* MonthlyLogListView.swift in Sources */,
 				F29AC40E25CC236500012379 /* AddEventView.swift in Sources */,
 				F21B0238259AC0AA00999C89 /* DayLog.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,
