@@ -28,6 +28,28 @@ enum LogState: Int, Codable, CaseIterable, CustomStringConvertible {
   var imageName: String {
     switch self {
     case .task:
+      return "flag"
+    case .event:
+      return "calendar"
+    case .memo:
+      return "number"
+    }
+  }
+
+  var circleImageName: String {
+    switch self {
+    case .task:
+      return "flag.circle"
+    case .event:
+      return "calendar.circle"
+    case .memo:
+      return "number.circle"
+    }
+  }
+
+  var circleFillImageName: String {
+    switch self {
+    case .task:
       return "flag.circle.fill"
     case .event:
       return "calendar.circle.fill"
