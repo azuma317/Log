@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct MonthlyLogCell: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+  var body: some View {
+    Text("Hello, World!")
+  }
 }
 
 struct MonthlyLogCell_Previews: PreviewProvider {
-    static var previews: some View {
-        MonthlyLogCell()
-    }
+  static var previews: some View {
+    MonthlyLogCell()
+  }
 }

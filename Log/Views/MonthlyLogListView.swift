@@ -10,7 +10,7 @@ import SwiftUI
 struct MonthlyLogListView: View {
   var animation: Namespace.ID
 
-  @ObservedObject var dayLogListVM = DayLogListViewModel()
+  @ObservedObject var monthlyLogListVM = MonthlyLogListViewModel()
 
   var onEdit: (DayLog) -> Void = { _ in }
 
