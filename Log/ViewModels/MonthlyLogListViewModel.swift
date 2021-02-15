@@ -8,21 +8,26 @@
 import Foundation
 import Combine
 import Resolver
+import SwiftDate
 
 class MonthlyLogListViewModel: ObservableObject {
   @Published var dayLogRepository: DayLogRepository = Resolver.resolve()
-  @Published var dayLogCellViewModels = [DayLogCellViewModel]()
+  @Published var monthlyLogCellViewModels = [MonthlyLogCellViewModel]()
 
   private var cancellables = Set<AnyCancellable>()
 
   init() {
-    dayLogRepository.$dayLogs.map { dayLogs in
-      dayLogs.map { dayLog in
-        DayLogCellViewModel(dayLog: dayLog)
+    dayLogRepository.$dayLogs
+      .map { dayLogs in
+        Dictionary(grouping: dayLogs) { (dayLog) -> String in
+          dayLog.logDate.dateValue().in(region: .current).toFormat("yyyy-MM-dd")
+        }
+        .map {
+          MonthlyLogCellViewModel(dayLogs: $0)
+        }
       }
-    }
-    .assign(to: \.dayLogCellViewModels, on: self)
-    .store(in: &cancellables)
+      .assign(to: \.monthlyLogCellViewModels, on: self)
+      .store(in: &cancellables)
   }
 
   func addDayLog(dayLog: DayLog) {
