@@ -20,6 +20,8 @@
 		F21C4FC125D791A300C3CBFA /* AddLogHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */; };
 		F21C4FCB25D7A87C00C3CBFA /* MonthlyLogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FCA25D7A87C00C3CBFA /* MonthlyLogListView.swift */; };
 		F21C4FD625D7A96400C3CBFA /* MonthlyLogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */; };
+		F21C4FE125DAACB800C3CBFA /* MonthlyLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */; };
+		F21C4FE925DAC87400C3CBFA /* MonthlyLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21C4FE825DAC87400C3CBFA /* MonthlyLogCell.swift */; };
 		F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */; };
 		F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */; };
 		F22CC09825A2DFEB004DC9F1 /* DayLogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */; };
@@ -79,6 +81,8 @@
 		F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddLogHeader.swift; sourceTree = "<group>"; };
 		F21C4FCA25D7A87C00C3CBFA /* MonthlyLogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyLogListView.swift; sourceTree = "<group>"; };
 		F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyLogListViewModel.swift; sourceTree = "<group>"; };
+		F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyLogCellViewModel.swift; sourceTree = "<group>"; };
+		F21C4FE825DAC87400C3CBFA /* MonthlyLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyLogCell.swift; sourceTree = "<group>"; };
 		F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogCellViewModel.swift; sourceTree = "<group>"; };
 		F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogListViewModel.swift; sourceTree = "<group>"; };
 		F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogListView.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
 				F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */,
 				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
+				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
 				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
@@ -312,6 +317,7 @@
 				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
 				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
 				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
+				F21C4FE825DAC87400C3CBFA /* MonthlyLogCell.swift */,
 				F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */,
 			);
 			path = Components;
@@ -469,6 +475,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */,
+				F21C4FE125DAACB800C3CBFA /* MonthlyLogCellViewModel.swift in Sources */,
 				F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */,
 				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F24E173E25C523340090439B /* TextView.swift in Sources */,
@@ -495,6 +502,7 @@
 				F21C4FCB25D7A87C00C3CBFA /* MonthlyLogListView.swift in Sources */,
 				F29AC40E25CC236500012379 /* AddEventView.swift in Sources */,
 				F21B0238259AC0AA00999C89 /* DayLog.swift in Sources */,
+				F21C4FE925DAC87400C3CBFA /* MonthlyLogCell.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,
 				F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */,
 			);
