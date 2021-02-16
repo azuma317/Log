@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct DayLogCell: View {
-  var animation: Namespace.ID
 
   @ObservedObject var dayLogCellVM: DayLogCellViewModel
   @State var isTapping = false

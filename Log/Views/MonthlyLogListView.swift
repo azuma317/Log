@@ -15,7 +15,11 @@ struct MonthlyLogListView: View {
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
-    Text("Hello, World!")
+    ScrollView {
+      ForEach(monthlyLogListVM.monthlyLogCellViewModels) { monthlyLogCellVM in
+        MonthlyLogCell(monthlyLogCellVM: monthlyLogCellVM)
+      }
+    }
   }
 }
 

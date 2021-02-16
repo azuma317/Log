@@ -27,7 +27,7 @@ struct DayLogListView: View {
       .padding(.top)
 
       ForEach(dayLogListVM.taskDayLogCellViewModels.indices, id: \.self) { index in
-        DayLogCell(animation: animation, dayLogCellVM: dayLogListVM.taskDayLogCellViewModels[index]) { dayLog in
+        DayLogCell(dayLogCellVM: dayLogListVM.taskDayLogCellViewModels[index]) { dayLog in
           onEdit(dayLog)
         }
         .padding(.horizontal)
@@ -43,7 +43,7 @@ struct DayLogListView: View {
       .padding(.top)
 
       ForEach(dayLogListVM.eventDayLogCellViewModels.indices, id: \.self) { index in
-        DayLogCell(animation: animation, dayLogCellVM: dayLogListVM.eventDayLogCellViewModels[index]) { dayLog in
+        DayLogCell(dayLogCellVM: dayLogListVM.eventDayLogCellViewModels[index]) { dayLog in
           onEdit(dayLog)
         }
         .padding(.horizontal)
@@ -59,7 +59,7 @@ struct DayLogListView: View {
       .padding(.top)
 
       ForEach(dayLogListVM.memoDayLogCellViewModels.indices, id: \.self) { index in
-        DayLogCell(animation: animation, dayLogCellVM: dayLogListVM.memoDayLogCellViewModels[index]) { dayLog in
+        DayLogCell(dayLogCellVM: dayLogListVM.memoDayLogCellViewModels[index]) { dayLog in
           onEdit(dayLog)
         }
         .padding(.horizontal)
