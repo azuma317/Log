@@ -14,11 +14,13 @@ struct MonthlyLogCell: View {
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
-    HStack(alignment: .top) {
+    HStack(alignment: .top, spacing: 0) {
       VStack {
         Text("Mon")
-        Text("15")
+        Text(monthlyLogCellVM.dayLogs.key.suffix(2))
       }
+      .padding(.leading)
+
       VStack {
         ForEach(monthlyLogCellVM.dayLogs.value) { dayLogCellVM in
           DayLogCell(dayLogCellVM: dayLogCellVM)
@@ -27,6 +29,7 @@ struct MonthlyLogCell: View {
         }
       }
     }
+    .padding(.bottom)
   }
 }
 
