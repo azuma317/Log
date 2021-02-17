@@ -16,10 +16,10 @@ struct MonthlyLogCell: View {
   var body: some View {
     HStack(alignment: .top, spacing: 0) {
       VStack {
-        Text("Mon")
-        Text(monthlyLogCellVM.dayLogs.key.suffix(2))
+        Text(monthlyLogCellVM.dayLogs.key.weekdayName(.short))
+        Text(String(monthlyLogCellVM.dayLogs.key.day))
       }
-      .padding(.leading)
+      .padding([.leading, .top])
 
       VStack {
         ForEach(monthlyLogCellVM.dayLogs.value) { dayLogCellVM in

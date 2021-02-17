@@ -19,12 +19,13 @@ class MonthlyLogListViewModel: ObservableObject {
   init() {
     dayLogRepository.$dayLogs
       .map { dayLogs in
-        Dictionary(grouping: dayLogs) { (dayLog) -> String in
-          dayLog.logDate.dateValue().in(region: .current).toFormat("yyyy-MM-dd")
+        Dictionary(grouping: dayLogs) { (dayLog) -> DateInRegion in
+          dayLog.logDate.dateValue().in(region: .current).dateAtStartOf(.day)
         }
         .map {
           MonthlyLogCellViewModel(dayLogs: $0)
         }
+        .sorted(by: { $0.dayLogs.key < $1.dayLogs.key })
       }
       .assign(to: \.monthlyLogCellViewModels, on: self)
       .store(in: &cancellables)
