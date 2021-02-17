@@ -23,9 +23,11 @@ struct MonthlyLogCell: View {
 
       VStack {
         ForEach(monthlyLogCellVM.dayLogs.value) { dayLogCellVM in
-          DayLogCell(dayLogCellVM: dayLogCellVM)
-            .padding(.horizontal)
-            .padding(.top, 8.0)
+          DayLogCell(dayLogCellVM: dayLogCellVM){ dayLog in
+            onEdit(dayLog)
+          }
+          .padding(.horizontal)
+          .padding(.top, 8.0)
         }
       }
     }
