@@ -29,7 +29,7 @@ struct LogListView: View {
 
       VStack(alignment: .leading) {
         HStack {
-          VStack {
+          VStack(alignment: .leading) {
             Text(pickerItems[selectedIndex] + "Log")
               .font(.title)
               .fontWeight(.bold)
@@ -49,6 +49,7 @@ struct LogListView: View {
         }
 
         ZStack {
+          // DayLogListView or MonthlyLogListView
           switch pickerItems[selectedIndex] {
           case "Day":
             DayLogListView(animation: animation) { (dayLog) in
@@ -78,6 +79,7 @@ struct LogListView: View {
             EmptyView()
           }
 
+          // AddButton
           HStack {
             Spacer()
 
@@ -103,10 +105,12 @@ struct LogListView: View {
           .padding(.init(top: 0, leading: 0, bottom: 8.0, trailing: 16.0))
         }
 
+        // SegmentPicker
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
       }
       .opacity(presentAddTask && presentAddEvent ? 0 : 1)
 
+      // SelectLogView
       if presentSelectLog {
         SelectLogView(presentSelectLog: $presentSelectLog) { state in
           self.updateDayLog = nil
@@ -123,6 +127,7 @@ struct LogListView: View {
         }
       }
 
+      // AddTaskView
       if presentAddTask {
         AddTaskView(
           animation: animation,
@@ -133,6 +138,8 @@ struct LogListView: View {
           presentAddTask: $presentAddTask
         )
       }
+
+      // AddEventView
       if presentAddEvent {
         AddEventView(
           animation: animation,
@@ -143,6 +150,8 @@ struct LogListView: View {
           presentAddEvent: $presentAddEvent
         )
       }
+
+      // AddMemoView
       if presentAddMemo {
         AddMemoView(
           animation: animation,
