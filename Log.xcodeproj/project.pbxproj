@@ -54,6 +54,7 @@
 		F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */; };
 		F29AC40E25CC236500012379 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40D25CC236500012379 /* AddEventView.swift */; };
 		F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC41825D2D6FF00012379 /* DayLogCell.swift */; };
+		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 		F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationCell.swift; sourceTree = "<group>"; };
 		F29AC40D25CC236500012379 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		F29AC41825D2D6FF00012379 /* DayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogCell.swift; sourceTree = "<group>"; };
+		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 			children = (
 				F22EB1EB259F1ED6003FF8A9 /* EnvironmentKeys.swift */,
 				F22EB1F3259F204E003FF8A9 /* Publisher+Assign.swift */,
+				F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F24E173E25C523340090439B /* TextView.swift in Sources */,
 				F24E172125C50AE50090439B /* AddTaskView.swift in Sources */,
+				F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */,
 				F22EB1F4259F204E003FF8A9 /* Publisher+Assign.swift in Sources */,
 				F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */,
 				F22CC09825A2DFEB004DC9F1 /* DayLogListView.swift in Sources */,
