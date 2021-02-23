@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftDate
 
 struct SetNotificationCell: View {
   var body: some View {
@@ -15,12 +16,21 @@ struct SetNotificationCell: View {
         .padding(.vertical, 8.0)
         .padding(.trailing, 16.0)
 
-      Text("Add a notification")
+      Button(action: { self.setNotification() }, label: {
+        Text("Add a notification")
+      })
 
       Spacer()
     }
     .padding(.horizontal)
     .background(Color(.systemBackground))
+  }
+
+  func setNotification() {
+    let localNotificationManager = LocalNotificationManager()
+    localNotificationManager.requestPermission()
+    localNotificationManager.addNotification(title: "title", subtitle: "subtitle", body: "body")
+    localNotificationManager.scheduleNotification(date: Date()+1.minutes)
   }
 }
 

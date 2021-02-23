@@ -16,7 +16,7 @@ struct AddLogHeader: View {
   var body: some View {
     HStack {
       Button("Close") {
-        withAnimation(.spring()) {
+        withAnimation(.easeInOut) {
           presentToggle.toggle()
         }
       }
