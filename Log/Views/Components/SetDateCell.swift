@@ -34,6 +34,7 @@ struct SetDateCell: View {
             Button(action: {
               withAnimation {
                 self.showDateScreen.toggle()
+                self.showTimeScreen = false
               }
             }, label: {
               Text(date.in(region: .current).toString(.date(.medium)))
@@ -46,6 +47,7 @@ struct SetDateCell: View {
               Button(action: {
                 withAnimation {
                   self.showTimeScreen.toggle()
+                  self.showDateScreen = false
                 }
               }, label: {
                 Text(date.in(region: .current).toString(.time(.short)))
