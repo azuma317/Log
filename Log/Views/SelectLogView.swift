@@ -15,14 +15,14 @@ struct SelectLogView: View {
   var body: some View {
     ZStack {
       Color(.black)
-        .opacity(0.5)
+        .opacity(0.9)
         .frame(width: UIScreen.main.bounds.width)
         .ignoresSafeArea()
         .gesture(
           TapGesture(count: 1)
-            .onEnded({ _ in
+            .onEnded({
               withAnimation {
-                self.presentSelectLog.toggle()
+                presentSelectLog.toggle()
               }
             })
         )
@@ -30,7 +30,7 @@ struct SelectLogView: View {
           DragGesture()
             .onEnded({ _ in
               withAnimation {
-                self.presentSelectLog.toggle()
+                presentSelectLog.toggle()
               }
             })
         )

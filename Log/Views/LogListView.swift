@@ -35,9 +35,16 @@ struct LogListView: View {
               .fontWeight(.bold)
               .padding([.top, .leading])
 
-            Text(Date().in(region: .current).toString(.date(.medium)))
-              .fontWeight(.semibold)
-              .padding([.leading, .bottom])
+            switch pickerItems[selectedIndex] {
+            case "Day":
+              Text(Date().in(region: .current).toString(.date(.medium)))
+                .fontWeight(.semibold)
+                .padding([.leading, .bottom])
+            case "Monthly":
+              EmptyView()
+            default:
+              EmptyView()
+            }
           }
 
           Spacer()
@@ -49,8 +56,8 @@ struct LogListView: View {
         }
 
         ZStack {
-          // DayLogListView or MonthlyLogListView
           switch pickerItems[selectedIndex] {
+          // DayLogListView
           case "Day":
             DayLogListView(animation: animation) { (dayLog) in
               self.updateDayLog = dayLog
@@ -63,6 +70,9 @@ struct LogListView: View {
                 self.presentAddMemo.toggle()
               }
             }
+            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+
+          // MonthlyLogListView
           case "Monthly":
             MonthlyLogListView(animation: animation) { (dayLog) in
               self.updateDayLog = dayLog
@@ -75,6 +85,8 @@ struct LogListView: View {
                 self.presentAddMemo.toggle()
               }
             }
+            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
+
           default:
             EmptyView()
           }
@@ -108,13 +120,13 @@ struct LogListView: View {
         // SegmentPicker
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
       }
-      .opacity(presentAddTask && presentAddEvent ? 0 : 1)
+      .opacity(presentAddTask && presentAddEvent && presentAddMemo ? 0 : 1)
 
       // SelectLogView
       if presentSelectLog {
         SelectLogView(presentSelectLog: $presentSelectLog) { state in
           self.updateDayLog = nil
-          withAnimation {
+          withAnimation(.easeInOut) {
             switch state {
             case .task:
               self.presentAddTask.toggle()
@@ -125,6 +137,7 @@ struct LogListView: View {
             }
           }
         }
+        .transition(.opacity)
       }
 
       // AddTaskView
@@ -137,6 +150,7 @@ struct LogListView: View {
             DayLogCellViewModel.newDayLog(state: .task),
           presentAddTask: $presentAddTask
         )
+        .transition(.move(edge: .bottom))
       }
 
       // AddEventView
@@ -149,6 +163,7 @@ struct LogListView: View {
             DayLogCellViewModel.newDayLog(state: .event),
           presentAddEvent: $presentAddEvent
         )
+        .transition(.move(edge: .bottom))
       }
 
       // AddMemoView
@@ -161,6 +176,7 @@ struct LogListView: View {
             DayLogCellViewModel.newDayLog(state: .memo),
           presentAddMemo: $presentAddMemo
         )
+        .transition(.move(edge: .bottom))
       }
     }
     .sheet(isPresented: $showSettingsScreen) {
