@@ -54,6 +54,10 @@
 		F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */; };
 		F29AC40E25CC236500012379 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40D25CC236500012379 /* AddEventView.swift */; };
 		F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC41825D2D6FF00012379 /* DayLogCell.swift */; };
+		F2AFC9A525E69F57003F7D0A /* LogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9A425E69F57003F7D0A /* LogState.swift */; };
+		F2AFC9AD25E69F77003F7D0A /* LogSubState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9AC25E69F77003F7D0A /* LogSubState.swift */; };
+		F2AFC9B225E6A117003F7D0A /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9B125E6A117003F7D0A /* DateFormat.swift */; };
+		F2AFC9B725E6A31B003F7D0A /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */; };
 		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,10 @@
 		F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNotificationCell.swift; sourceTree = "<group>"; };
 		F29AC40D25CC236500012379 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
 		F29AC41825D2D6FF00012379 /* DayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogCell.swift; sourceTree = "<group>"; };
+		F2AFC9A425E69F57003F7D0A /* LogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogState.swift; sourceTree = "<group>"; };
+		F2AFC9AC25E69F77003F7D0A /* LogSubState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSubState.swift; sourceTree = "<group>"; };
+		F2AFC9B125E6A117003F7D0A /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
 		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -271,6 +279,7 @@
 			children = (
 				F22EB21D25A2BE72003FF8A9 /* App */,
 				F21B0234259ABFA500999C89 /* Models */,
+				F2AFC9A325E69F38003F7D0A /* Enum */,
 				F21B0235259ABFB200999C89 /* Repositories */,
 				F21B0236259ABFC000999C89 /* Services */,
 				F22EB1EA259F1EBF003FF8A9 /* Utilities */,
@@ -324,6 +333,17 @@
 				F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		F2AFC9A325E69F38003F7D0A /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				F2AFC9A425E69F57003F7D0A /* LogState.swift */,
+				F2AFC9AC25E69F77003F7D0A /* LogSubState.swift */,
+				F2AFC9B125E6A117003F7D0A /* DateFormat.swift */,
+				F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */,
+			);
+			path = Enum;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -490,7 +510,9 @@
 				F21B0255259EB03E00999C89 /* DayLogRepository.swift in Sources */,
 				F22EB20625A19BED003FF8A9 /* SettingsView.swift in Sources */,
 				F268971225736B3900D23FBE /* LogApp.swift in Sources */,
+				F2AFC9B225E6A117003F7D0A /* DateFormat.swift in Sources */,
 				F24E173425C50E580090439B /* SetDateCell.swift in Sources */,
+				F2AFC9B725E6A31B003F7D0A /* TimeFormat.swift in Sources */,
 				F22EB1EC259F1ED6003FF8A9 /* EnvironmentKeys.swift in Sources */,
 				F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */,
 				F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */,
@@ -498,6 +520,7 @@
 				F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */,
 				F22CC0C125A75161004DC9F1 /* SegmentedPicker.swift in Sources */,
 				F22EB20B25A19C58003FF8A9 /* SettingsViewModel.swift in Sources */,
+				F2AFC9A525E69F57003F7D0A /* LogState.swift in Sources */,
 				F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */,
 				F21C4FAE25D501B700C3CBFA /* AddMemoView.swift in Sources */,
 				F21C4FC125D791A300C3CBFA /* AddLogHeader.swift in Sources */,
@@ -509,6 +532,7 @@
 				F21C4FE925DAC87400C3CBFA /* MonthlyLogCell.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,
 				F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */,
+				F2AFC9AD25E69F77003F7D0A /* LogSubState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
