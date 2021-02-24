@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+enum TimeFormat: Int {
+  case time_meridiem
+  case time
+
+  var format: String {
+    switch self {
+    case .time_meridiem:
+      return "h:mm a"
+    case .time:
+      return "HH:mm"
+    }
+  }
+}
