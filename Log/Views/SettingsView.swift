@@ -15,27 +15,9 @@ struct SettingsView: View {
     NavigationView {
       VStack {
         Form {
-          Section {
-            HStack {
-              Image(systemName: "checkmark.circle")
-              Text("App Icon")
-              Spacer()
-              Text("Plain")
-            }
-          }
+          AppearanceSection()
 
-          Section {
-            HStack {
-              Image(systemName: "questionmark.circle")
-              Text("Help & Feedback")
-            }
-            NavigationLink(destination: Text("About!")) {
-              HStack {
-                Image(systemName: "info.circle")
-                Text("About")
-              }
-            }
-          }
+          CustomFormatSection()
 
           AccountSection(settingsViewModel: self.settingsViewModel)
         }
@@ -60,6 +42,53 @@ struct SettingsView_Previews: PreviewProvider {
       SettingsView()
         .environment(\.colorScheme, .dark)
     }
+  }
+}
+
+struct AppearanceSection: View {
+
+  var body: some View {
+    Section(header: header) {
+      HStack {
+        Image(systemName: "checkmark.circle")
+        Text("Theme")
+      }
+      HStack {
+        Image(systemName: "checkmark.circle")
+        Text("App Icon")
+      }
+    }
+  }
+
+  var header: some View {
+    Text("Appearance")
+  }
+}
+
+struct CustomFormatSection: View {
+
+  @State var dateFormat: DateFormat = .month_day
+  @State var timeFormat: TimeFormat = .time_meridiem
+
+  var body: some View {
+    Section(header: header) {
+      HStack {
+        Image(systemName: "checkmark.circle")
+        Text("Date Format")
+        Spacer()
+        Text(Date().in(region: .current).toString(.custom(dateFormat.format)))
+      }
+      HStack {
+        Image(systemName: "checkmark.circle")
+        Text("Time Format")
+        Spacer()
+        Text(Date().in(region: .current).toString(.custom(timeFormat.format)))
+      }
+    }
+  }
+
+  var header: some View {
+    Text("Format Settings")
   }
 }
 
