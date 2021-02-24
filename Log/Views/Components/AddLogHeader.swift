@@ -10,6 +10,7 @@ import SwiftUI
 struct AddLogHeader: View {
 
   @Binding var presentToggle: Bool
+  @Binding var saveIsEnabled: Bool
 
   var onSave: () -> Void = {}
 
@@ -26,11 +27,14 @@ struct AddLogHeader: View {
       Spacer()
 
       Button("Save") {
-        withAnimation {
-          presentToggle.toggle()
+        if saveIsEnabled {
+          withAnimation {
+            presentToggle.toggle()
+          }
+          self.onSave()
         }
-        self.onSave()
       }
+      .foregroundColor(saveIsEnabled ? Color.blue : Color(.secondaryLabel))
       .padding()
       .foregroundColor(Color(.systemBlue))
     }
@@ -39,7 +43,16 @@ struct AddLogHeader: View {
 
 struct AddLogHeader_Previews: PreviewProvider {
   static var previews: some View {
-    AddLogHeader(presentToggle: .constant(false))
-      .previewLayout(PreviewLayout.sizeThatFits)
+    Group {
+      AddLogHeader(presentToggle: .constant(false), saveIsEnabled: .constant(true))
+        .background(Color(.systemBackground))
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .environment(\.colorScheme, .light)
+
+      AddLogHeader(presentToggle: .constant(false), saveIsEnabled: .constant(false))
+        .background(Color(.systemBackground))
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .environment(\.colorScheme, .dark)
+    }
   }
 }

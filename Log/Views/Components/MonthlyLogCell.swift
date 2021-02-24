@@ -40,10 +40,12 @@ struct MonthlyLogCell_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       MonthlyLogListView(animation: animation)
+        .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
       MonthlyLogListView(animation: animation)
+        .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }

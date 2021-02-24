@@ -14,10 +14,11 @@ struct AddTaskView: View {
   @Binding var presentAddTask: Bool
 
   @State var loadContent = false
+  @State var saveIsEnabled = false
 
   var body: some View {
     VStack {
-      AddLogHeader(presentToggle: $presentAddTask) {
+      AddLogHeader(presentToggle: $presentAddTask, saveIsEnabled: $saveIsEnabled) {
         if dayLogCellVM.dayLog.id == nil {
           dayLogCellVM.dayLogRepository.addDayLog(dayLogCellVM.dayLog)
         } else {
@@ -50,6 +51,9 @@ struct AddTaskView: View {
 
       Spacer(minLength: 0)
     }
+    .onReceive(dayLogCellVM.$dayLog, perform: { dayLog in
+      saveIsEnabled = dayLog.log.count > 0
+    })
     .background(Color(.systemBackground))
     .onAppear {
       withAnimation(Animation.spring().delay(0.45)) {
