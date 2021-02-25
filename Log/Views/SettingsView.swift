@@ -48,20 +48,16 @@ struct SettingsView_Previews: PreviewProvider {
 struct AppearanceSection: View {
 
   var body: some View {
-    Section(header: header) {
+    Section {
       HStack {
         Image(systemName: "checkmark.circle")
-        Text("Theme")
+        Text("Appearance")
       }
       HStack {
         Image(systemName: "checkmark.circle")
         Text("App Icon")
       }
     }
-  }
-
-  var header: some View {
-    Text("Appearance")
   }
 }
 
@@ -71,12 +67,15 @@ struct CustomFormatSection: View {
   @State var timeFormat: TimeFormat = .time_meridiem
 
   var body: some View {
-    Section(header: header) {
+    Section {
       HStack {
         Image(systemName: "checkmark.circle")
         Text("Date Format")
         Spacer()
         Text(Date().in(region: .current).toString(.custom(dateFormat.format)))
+      }
+      .onTapGesture {
+        dateFormat = DateFormat(rawValue: dateFormat.rawValue + 1) ?? .month_day
       }
       HStack {
         Image(systemName: "checkmark.circle")
@@ -84,11 +83,10 @@ struct CustomFormatSection: View {
         Spacer()
         Text(Date().in(region: .current).toString(.custom(timeFormat.format)))
       }
+      .onTapGesture {
+        timeFormat = TimeFormat(rawValue: timeFormat.rawValue + 1) ?? .time_meridiem
+      }
     }
-  }
-
-  var header: some View {
-    Text("Format Settings")
   }
 }
 

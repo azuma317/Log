@@ -11,6 +11,7 @@ import SwiftDate
 enum DateFormat: Int {
   case month_day
   case day_month
+  case year_month
 
   var format: String {
     switch self {
@@ -18,6 +19,8 @@ enum DateFormat: Int {
       return "MMM dd yyyy"
     case .day_month:
       return "dd MMM yyyy"
+    case .year_month:
+      return "yyyy/MM/dd"
     }
   }
 
