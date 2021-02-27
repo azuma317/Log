@@ -58,6 +58,9 @@
 		F2AFC9AD25E69F77003F7D0A /* LogSubState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9AC25E69F77003F7D0A /* LogSubState.swift */; };
 		F2AFC9B225E6A117003F7D0A /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9B125E6A117003F7D0A /* DateFormat.swift */; };
 		F2AFC9B725E6A31B003F7D0A /* TimeFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */; };
+		F2AFC9BC25E7F697003F7D0A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */; };
+		F2AFC9D125E7F88D003F7D0A /* AppIconListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */; };
+		F2AFC9D925E7F8A6003F7D0A /* AppThemeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */; };
 		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -126,6 +129,9 @@
 		F2AFC9AC25E69F77003F7D0A /* LogSubState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogSubState.swift; sourceTree = "<group>"; };
 		F2AFC9B125E6A117003F7D0A /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFormat.swift; sourceTree = "<group>"; };
+		F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListView.swift; sourceTree = "<group>"; };
+		F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeListView.swift; sourceTree = "<group>"; };
 		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +184,8 @@
 				F29AC40D25CC236500012379 /* AddEventView.swift */,
 				F21C4FAD25D501B700C3CBFA /* AddMemoView.swift */,
 				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
+				F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */,
+				F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -340,6 +348,7 @@
 			children = (
 				F2AFC9A425E69F57003F7D0A /* LogState.swift */,
 				F2AFC9AC25E69F77003F7D0A /* LogSubState.swift */,
+				F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */,
 				F2AFC9B125E6A117003F7D0A /* DateFormat.swift */,
 				F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */,
 			);
@@ -500,6 +509,7 @@
 				F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */,
 				F21C4FE125DAACB800C3CBFA /* MonthlyLogCellViewModel.swift in Sources */,
 				F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */,
+				F2AFC9BC25E7F697003F7D0A /* AppTheme.swift in Sources */,
 				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F24E173E25C523340090439B /* TextView.swift in Sources */,
 				F24E172125C50AE50090439B /* AddTaskView.swift in Sources */,
@@ -526,8 +536,10 @@
 				F21C4FC125D791A300C3CBFA /* AddLogHeader.swift in Sources */,
 				F21C4FD625D7A96400C3CBFA /* MonthlyLogListViewModel.swift in Sources */,
 				F21C4FB625D781C700C3CBFA /* SelectLogView.swift in Sources */,
+				F2AFC9D125E7F88D003F7D0A /* AppIconListView.swift in Sources */,
 				F21C4FCB25D7A87C00C3CBFA /* MonthlyLogListView.swift in Sources */,
 				F29AC40E25CC236500012379 /* AddEventView.swift in Sources */,
+				F2AFC9D925E7F8A6003F7D0A /* AppThemeListView.swift in Sources */,
 				F21B0238259AC0AA00999C89 /* DayLog.swift in Sources */,
 				F21C4FE925DAC87400C3CBFA /* MonthlyLogCell.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,
