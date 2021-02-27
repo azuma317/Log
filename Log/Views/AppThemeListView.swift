@@ -8,13 +8,26 @@
 import SwiftUI
 
 struct AppThemeListView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  var body: some View {
+    Form {
+      Section {
+        ForEach(AppTheme.allCases, id: \.self) { theme in
+          Text(theme.description)
+        }
+      }
     }
+    .navigationBarTitle("AppTheme", displayMode: .inline)
+  }
 }
 
 struct AppThemeListView_Previews: PreviewProvider {
-    static var previews: some View {
-        AppThemeListView()
+  static var previews: some View {
+    Group {
+      AppThemeListView()
+        .environment(\.colorScheme, .light)
+
+      AppThemeListView()
+        .environment(\.colorScheme, .dark)
     }
+  }
 }

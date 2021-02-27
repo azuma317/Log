@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+enum AppTheme: Int, CustomStringConvertible, CaseIterable {
+  case light
+  case dark
+
+  var description: String {
+    switch self {
+    case .light:
+      return "light"
+    case .dark:
+      return "dark"
+    }
+  }
+}

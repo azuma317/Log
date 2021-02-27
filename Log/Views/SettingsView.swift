@@ -13,22 +13,20 @@ struct SettingsView: View {
 
   var body: some View {
     NavigationView {
-      VStack {
-        Form {
-          AppearanceSection()
+      Form {
+        AppearanceSection()
 
-          CustomFormatSection()
+        CustomFormatSection()
 
-          AccountSection(settingsViewModel: self.settingsViewModel)
-        }
-        .navigationBarTitle("Settings", displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-          self.presentationMode.wrappedValue.dismiss()
-        }, label: {
-          Text("Done")
-            .foregroundColor(Color(.systemBlue))
-        }))
+        AccountSection(settingsViewModel: self.settingsViewModel)
       }
+      .navigationBarTitle("Settings", displayMode: .inline)
+      .navigationBarItems(trailing: Button(action: {
+        self.presentationMode.wrappedValue.dismiss()
+      }, label: {
+        Text("Done")
+          .foregroundColor(Color(.systemBlue))
+      }))
     }
   }
 }
@@ -49,12 +47,10 @@ struct AppearanceSection: View {
 
   var body: some View {
     Section {
-      HStack {
-        Image(systemName: "checkmark.circle")
+      NavigationLink(destination: AppThemeListView()) {
         Text("Appearance")
       }
-      HStack {
-        Image(systemName: "checkmark.circle")
+      NavigationLink(destination: AppIconListView()) {
         Text("App Icon")
       }
     }
@@ -69,7 +65,6 @@ struct CustomFormatSection: View {
   var body: some View {
     Section {
       HStack {
-        Image(systemName: "checkmark.circle")
         Text("Date Format")
         Spacer()
         Text(Date().in(region: .current).toString(.custom(dateFormat.format)))
@@ -78,13 +73,17 @@ struct CustomFormatSection: View {
         dateFormat = DateFormat(rawValue: dateFormat.rawValue + 1) ?? .month_day
       }
       HStack {
-        Image(systemName: "checkmark.circle")
         Text("Time Format")
         Spacer()
         Text(Date().in(region: .current).toString(.custom(timeFormat.format)))
       }
       .onTapGesture {
         timeFormat = TimeFormat(rawValue: timeFormat.rawValue + 1) ?? .time_meridiem
+      }
+      HStack {
+        Toggle(isOn: .constant(true), label: {
+          Text("Auto Move Unfinished Task")
+        })
       }
     }
   }
