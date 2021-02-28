@@ -6,3 +6,11 @@
 //
 
 import Foundation
+import Combine
+
+class AppThemeListViewModel: ObservableObject {
+  @Published var selectedTheme: AppTheme = .light
+
+  init() {
+  }
+}
