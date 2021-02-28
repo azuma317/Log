@@ -64,6 +64,9 @@ struct CustomFormatSection: View {
 
   var body: some View {
     Section {
+      NavigationLink(destination: FontListView()) {
+        Text("Font")
+      }
       HStack {
         Text("Date Format")
         Spacer()

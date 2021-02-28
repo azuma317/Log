@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct AppThemeListView: View {
+  @ObservedObject var appThemeListViewModel = AppThemeListViewModel()
+
   var body: some View {
     Form {
       Section {
         ForEach(AppTheme.allCases, id: \.self) { theme in
-          Text(theme.description)
+          HStack {
+            Text(theme.description)
+            if appThemeListViewModel.selectedTheme == theme {
+              Spacer()
+              Image(systemName: "checkmark")
+            }
+          }
         }
       }
     }

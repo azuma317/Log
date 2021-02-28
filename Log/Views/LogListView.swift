@@ -191,7 +191,7 @@ struct LogListView_Previews: PreviewProvider {
       LogListView()
         .environment(\.colorScheme, .light)
 
-      LogListView()
+      LogListView(selectedIndex: 1)
         .environment(\.colorScheme, .dark)
     }
   }
