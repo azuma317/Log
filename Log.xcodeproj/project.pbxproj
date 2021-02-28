@@ -61,6 +61,10 @@
 		F2AFC9BC25E7F697003F7D0A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */; };
 		F2AFC9D125E7F88D003F7D0A /* AppIconListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */; };
 		F2AFC9D925E7F8A6003F7D0A /* AppThemeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */; };
+		F2AFC9E125EBD199003F7D0A /* FontListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9E025EBD199003F7D0A /* FontListView.swift */; };
+		F2AFC9E625EBD52D003F7D0A /* FontListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */; };
+		F2AFC9EB25EBD5DD003F7D0A /* AppThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */; };
+		F2AFC9F325EBD5FC003F7D0A /* AppIconListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */; };
 		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -132,6 +136,10 @@
 		F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListView.swift; sourceTree = "<group>"; };
 		F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeListView.swift; sourceTree = "<group>"; };
+		F2AFC9E025EBD199003F7D0A /* FontListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListView.swift; sourceTree = "<group>"; };
+		F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListViewModel.swift; sourceTree = "<group>"; };
+		F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeListViewModel.swift; sourceTree = "<group>"; };
+		F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListViewModel.swift; sourceTree = "<group>"; };
 		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,6 +194,7 @@
 				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
 				F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */,
 				F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */,
+				F2AFC9E025EBD199003F7D0A /* FontListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +207,9 @@
 				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
 				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
 				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
+				F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */,
+				F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */,
+				F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -508,13 +520,16 @@
 			files = (
 				F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */,
 				F21C4FE125DAACB800C3CBFA /* MonthlyLogCellViewModel.swift in Sources */,
+				F2AFC9E625EBD52D003F7D0A /* FontListViewModel.swift in Sources */,
 				F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */,
+				F2AFC9E125EBD199003F7D0A /* FontListView.swift in Sources */,
 				F2AFC9BC25E7F697003F7D0A /* AppTheme.swift in Sources */,
 				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F24E173E25C523340090439B /* TextView.swift in Sources */,
 				F24E172125C50AE50090439B /* AddTaskView.swift in Sources */,
 				F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */,
 				F22EB1F4259F204E003FF8A9 /* Publisher+Assign.swift in Sources */,
+				F2AFC9F325EBD5FC003F7D0A /* AppIconListViewModel.swift in Sources */,
 				F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */,
 				F22CC09825A2DFEB004DC9F1 /* DayLogListView.swift in Sources */,
 				F21B0255259EB03E00999C89 /* DayLogRepository.swift in Sources */,
@@ -530,6 +545,7 @@
 				F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */,
 				F22CC0C125A75161004DC9F1 /* SegmentedPicker.swift in Sources */,
 				F22EB20B25A19C58003FF8A9 /* SettingsViewModel.swift in Sources */,
+				F2AFC9EB25EBD5DD003F7D0A /* AppThemeListViewModel.swift in Sources */,
 				F2AFC9A525E69F57003F7D0A /* LogState.swift in Sources */,
 				F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */,
 				F21C4FAE25D501B700C3CBFA /* AddMemoView.swift in Sources */,
