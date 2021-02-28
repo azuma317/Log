@@ -65,6 +65,7 @@
 		F2AFC9E625EBD52D003F7D0A /* FontListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */; };
 		F2AFC9EB25EBD5DD003F7D0A /* AppThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */; };
 		F2AFC9F325EBD5FC003F7D0A /* AppIconListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */; };
+		F2AFC9FB25EBE971003F7D0A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */; };
 		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListViewModel.swift; sourceTree = "<group>"; };
+		F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -251,6 +253,7 @@
 				F22EB1EB259F1ED6003FF8A9 /* EnvironmentKeys.swift */,
 				F22EB1F3259F204E003FF8A9 /* Publisher+Assign.swift */,
 				F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */,
+				F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -556,6 +559,7 @@
 				F21C4FCB25D7A87C00C3CBFA /* MonthlyLogListView.swift in Sources */,
 				F29AC40E25CC236500012379 /* AddEventView.swift in Sources */,
 				F2AFC9D925E7F8A6003F7D0A /* AppThemeListView.swift in Sources */,
+				F2AFC9FB25EBE971003F7D0A /* UserDefaults+Helpers.swift in Sources */,
 				F21B0238259AC0AA00999C89 /* DayLog.swift in Sources */,
 				F21C4FE925DAC87400C3CBFA /* MonthlyLogCell.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,

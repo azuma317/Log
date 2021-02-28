@@ -21,6 +21,9 @@ struct AppThemeListView: View {
               Image(systemName: "checkmark")
             }
           }
+          .onTapGesture {
+            appThemeListViewModel.selectedTheme = theme
+          }
         }
       }
     }
