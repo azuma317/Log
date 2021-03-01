@@ -66,6 +66,7 @@
 		F2AFC9EB25EBD5DD003F7D0A /* AppThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */; };
 		F2AFC9F325EBD5FC003F7D0A /* AppIconListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */; };
 		F2AFC9FB25EBE971003F7D0A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */; };
+		F2AFCA0025ED1DAE003F7D0A /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9FF25ED1DAE003F7D0A /* AppIcon.swift */; };
 		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
+		F2AFC9FF25ED1DAE003F7D0A /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -364,6 +366,7 @@
 				F2AFC9A425E69F57003F7D0A /* LogState.swift */,
 				F2AFC9AC25E69F77003F7D0A /* LogSubState.swift */,
 				F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */,
+				F2AFC9FF25ED1DAE003F7D0A /* AppIcon.swift */,
 				F2AFC9B125E6A117003F7D0A /* DateFormat.swift */,
 				F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */,
 			);
@@ -541,6 +544,7 @@
 				F2AFC9B225E6A117003F7D0A /* DateFormat.swift in Sources */,
 				F24E173425C50E580090439B /* SetDateCell.swift in Sources */,
 				F2AFC9B725E6A31B003F7D0A /* TimeFormat.swift in Sources */,
+				F2AFCA0025ED1DAE003F7D0A /* AppIcon.swift in Sources */,
 				F22EB1EC259F1ED6003FF8A9 /* EnvironmentKeys.swift in Sources */,
 				F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */,
 				F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */,
