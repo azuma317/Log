@@ -9,6 +9,7 @@ import Foundation
 
 struct UserDefaultsKeys {
   static let appTheme = "apptheme"
+  static let appIcon = "appicon"
   static let dateFormat = "dateformat"
   static let timeFormat = "timeformat"
 }
@@ -20,6 +21,11 @@ extension UserDefaults {
   var appTheme: AppTheme {
     get { AppTheme(rawValue: integer(forKey: UserDefaultsKeys.appTheme)) ?? .light }
     set { set(newValue.rawValue, forKey: UserDefaultsKeys.appTheme) }
+  }
+
+  var appIcon: AppIcon {
+    get { AppIcon(rawValue: integer(forKey: UserDefaultsKeys.appIcon)) ?? .white }
+    set { set(newValue.rawValue, forKey: UserDefaultsKeys.appIcon) }
   }
 
   var dateFormat: DateFormat {
