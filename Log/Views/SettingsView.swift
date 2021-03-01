@@ -64,7 +64,7 @@ struct CustomFormatSection: View {
 
   var body: some View {
     Section {
-      NavigationLink(destination: FontListView()) {
+      NavigationLink(destination: Text("Font")) {
         Text("Font")
       }
       HStack {
