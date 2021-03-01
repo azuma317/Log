@@ -61,8 +61,6 @@
 		F2AFC9BC25E7F697003F7D0A /* AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */; };
 		F2AFC9D125E7F88D003F7D0A /* AppIconListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */; };
 		F2AFC9D925E7F8A6003F7D0A /* AppThemeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */; };
-		F2AFC9E125EBD199003F7D0A /* FontListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9E025EBD199003F7D0A /* FontListView.swift */; };
-		F2AFC9E625EBD52D003F7D0A /* FontListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */; };
 		F2AFC9EB25EBD5DD003F7D0A /* AppThemeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */; };
 		F2AFC9F325EBD5FC003F7D0A /* AppIconListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */; };
 		F2AFC9FB25EBE971003F7D0A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */; };
@@ -138,8 +136,6 @@
 		F2AFC9BB25E7F697003F7D0A /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListView.swift; sourceTree = "<group>"; };
 		F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeListView.swift; sourceTree = "<group>"; };
-		F2AFC9E025EBD199003F7D0A /* FontListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListView.swift; sourceTree = "<group>"; };
-		F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppThemeListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
@@ -198,7 +194,6 @@
 				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
 				F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */,
 				F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */,
-				F2AFC9E025EBD199003F7D0A /* FontListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -213,7 +208,6 @@
 				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
 				F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */,
 				F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */,
-				F2AFC9E525EBD52D003F7D0A /* FontListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -526,9 +520,7 @@
 			files = (
 				F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */,
 				F21C4FE125DAACB800C3CBFA /* MonthlyLogCellViewModel.swift in Sources */,
-				F2AFC9E625EBD52D003F7D0A /* FontListViewModel.swift in Sources */,
 				F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */,
-				F2AFC9E125EBD199003F7D0A /* FontListView.swift in Sources */,
 				F2AFC9BC25E7F697003F7D0A /* AppTheme.swift in Sources */,
 				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F24E173E25C523340090439B /* TextView.swift in Sources */,
