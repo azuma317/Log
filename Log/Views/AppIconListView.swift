@@ -34,9 +34,11 @@ struct AppIconListView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       AppIconListView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
       AppIconListView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }
   }

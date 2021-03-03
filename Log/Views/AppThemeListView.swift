@@ -35,9 +35,11 @@ struct AppThemeListView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       AppThemeListView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
       AppThemeListView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }
   }

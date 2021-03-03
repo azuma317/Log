@@ -35,9 +35,11 @@ struct SettingsView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       SettingsView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
       SettingsView()
+        .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }
   }
