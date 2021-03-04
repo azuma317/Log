@@ -65,6 +65,7 @@
 		F2AFC9F325EBD5FC003F7D0A /* AppIconListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */; };
 		F2AFC9FB25EBE971003F7D0A /* UserDefaults+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */; };
 		F2AFCA0025ED1DAE003F7D0A /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9FF25ED1DAE003F7D0A /* AppIcon.swift */; };
+		F2AFCA9825F12DE3003F7D0A /* GroupDayLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFCA9725F12DE3003F7D0A /* GroupDayLogViewModel.swift */; };
 		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -140,6 +141,7 @@
 		F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIconListViewModel.swift; sourceTree = "<group>"; };
 		F2AFC9FA25EBE971003F7D0A /* UserDefaults+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Helpers.swift"; sourceTree = "<group>"; };
 		F2AFC9FF25ED1DAE003F7D0A /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
+		F2AFCA9725F12DE3003F7D0A /* GroupDayLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDayLogViewModel.swift; sourceTree = "<group>"; };
 		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,6 +206,7 @@
 				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
 				F21C4FD525D7A96400C3CBFA /* MonthlyLogListViewModel.swift */,
 				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
+				F2AFCA9725F12DE3003F7D0A /* GroupDayLogViewModel.swift */,
 				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
 				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
 				F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */,
@@ -560,6 +563,7 @@
 				F21C4FE925DAC87400C3CBFA /* MonthlyLogCell.swift in Sources */,
 				F22EB1E6259F084A003FF8A9 /* AuthenticationService.swift in Sources */,
 				F22CC07F25A2DB73004DC9F1 /* DayLogCellViewModel.swift in Sources */,
+				F2AFCA9825F12DE3003F7D0A /* GroupDayLogViewModel.swift in Sources */,
 				F2AFC9AD25E69F77003F7D0A /* LogSubState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
