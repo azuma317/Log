@@ -205,11 +205,9 @@
 		F21B0233259ABF9800999C89 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				F2EAC83825F3426B00F28429 /* Components */,
 				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
-				F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */,
-				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
 				F2EAC83025F322B200F28429 /* MonthlyLogListViewModel.swift */,
-				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
 				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
 				F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */,
 				F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */,
@@ -371,6 +369,16 @@
 				F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		F2EAC83825F3426B00F28429 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
+				F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */,
+				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
