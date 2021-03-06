@@ -1,5 +1,5 @@
 //
-//  GroupDayLogViewModel.swift
+//  GroupDayLogCellViewModel.swift
 //  Log
 //
 //  Created by AzumaSato on 2021/03/05.
@@ -10,7 +10,7 @@ import Combine
 import Resolver
 import SwiftDate
 
-class GroupDayLogViewModel: ObservableObject, Identifiable {
+class GroupDayLogCellViewModel: ObservableObject, Identifiable {
   typealias GroupDayLog = (key: DateInRegion, value: [DayLog])
 
   @Published var targetDate: DateInRegion
@@ -28,3 +28,11 @@ class GroupDayLogViewModel: ObservableObject, Identifiable {
     }
   }
 }
+
+#if DEBUG
+let testGroupDayLogCellViewModels = [
+  GroupDayLogCellViewModel(groupDayLog: (key: (Date()-1.days).in(region: .current), value: testDayLogs)),
+  GroupDayLogCellViewModel(groupDayLog: (key: Date().in(region: .current), value: testDayLogs)),
+  GroupDayLogCellViewModel(groupDayLog: (key: (Date()+1.days).in(region: .current), value: testDayLogs)),
+]
+#endif

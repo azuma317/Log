@@ -6,15 +6,48 @@
 //
 
 import SwiftUI
+import SwiftDate
 
 struct GroupDayLogCell: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+  @ObservedObject var groupDayLogCellVM: GroupDayLogCellViewModel
+
+  var onEdit: (DayLog) -> Void = { _ in }
+
+  var body: some View {
+    HStack(alignment: .top, spacing: 0) {
+      VStack {
+        Text(groupDayLogCellVM.targetDate.weekdayName(.short))
+        Text(String(groupDayLogCellVM.targetDate.day))
+      }
+      .padding([.leading, .top])
+
+      VStack {
+        ForEach(groupDayLogCellVM.dayLogCellViewModels) { dayLogCellVM in
+          DayLogCell(dayLogCellVM: dayLogCellVM){ dayLog in
+            onEdit(dayLog)
+          }
+          .padding(.horizontal)
+          .padding(.top, 8.0)
+        }
+      }
     }
+    .padding(.bottom)
+  }
 }
 
 struct GroupDayLogCell_Previews: PreviewProvider {
-    static var previews: some View {
-        GroupDayLogCell()
+  static var previews: some View {
+    Group {
+      GroupDayLogCell(groupDayLogCellVM: testGroupDayLogCellViewModels[0])
+        .background(Color(.systemBackground))
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .environment(\.colorScheme, .light)
+
+      GroupDayLogCell(groupDayLogCellVM: testGroupDayLogCellViewModels[1])
+        .background(Color(.systemBackground))
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .environment(\.colorScheme, .dark)
     }
+  }
 }

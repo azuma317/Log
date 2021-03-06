@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftDate
 
 struct MonthlyLogCell: View {
 
@@ -14,24 +15,14 @@ struct MonthlyLogCell: View {
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
-    HStack(alignment: .top, spacing: 0) {
-      VStack {
-        Text(monthlyLogCellVM.dayLogs.key.weekdayName(.short))
-        Text(String(monthlyLogCellVM.dayLogs.key.day))
-      }
-      .padding([.leading, .top])
+    VStack(alignment: .leading) {
+      Text(monthlyLogCellVM.targetDate.toFormat("yyyy-MM"))
+        .padding()
 
-      VStack {
-        ForEach(monthlyLogCellVM.dayLogs.value) { dayLogCellVM in
-          DayLogCell(dayLogCellVM: dayLogCellVM){ dayLog in
-            onEdit(dayLog)
-          }
-          .padding(.horizontal)
-          .padding(.top, 8.0)
-        }
+      ForEach(monthlyLogCellVM.groupDayLogViewModels) { groupDayLogVM in
+        GroupDayLogCell(groupDayLogCellVM: groupDayLogVM)
       }
     }
-    .padding(.bottom)
   }
 }
 
@@ -39,12 +30,12 @@ struct MonthlyLogCell_Previews: PreviewProvider {
   @Namespace static var animation
   static var previews: some View {
     Group {
-      MonthlyLogListView(animation: animation)
+      MonthlyLogCell(monthlyLogCellVM: testMonthlyLogCellViewModels[0])
         .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
-      MonthlyLogListView(animation: animation)
+      MonthlyLogCell(monthlyLogCellVM: testMonthlyLogCellViewModels[1])
         .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)

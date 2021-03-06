@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import SwiftDate
+
+class MonthlyLogListViewModel: ObservableObject {
+  @Published var targetDate = Date().in(region: .current)
+  @Published var monthlyLogCellViewModels = [MonthlyLogCellViewModel]()
+
+  init() {
+    
+  }
+}

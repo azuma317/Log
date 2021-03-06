@@ -10,17 +10,17 @@ import SwiftUI
 struct MonthlyLogListView: View {
   var animation: Namespace.ID
 
-  @ObservedObject var monthlyLogListVM = MonthlyLogListViewModel()
+//  @ObservedObject var monthlyLogListVM = MonthlyLogListViewModel()
 
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
     ScrollView {
-      ForEach(monthlyLogListVM.monthlyLogCellViewModels) { monthlyLogCellVM in
-        MonthlyLogCell(monthlyLogCellVM: monthlyLogCellVM) { dayLog in
-          onEdit(dayLog)
-        }
-      }
+//      ForEach(monthlyLogListVM.monthlyLogCellViewModels) { monthlyLogCellVM in
+//        MonthlyLogCell(monthlyLogCellVM: monthlyLogCellVM) { dayLog in
+//          onEdit(dayLog)
+//        }
+//      }
     }
   }
 }
