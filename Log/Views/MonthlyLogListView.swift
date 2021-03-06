@@ -10,17 +10,17 @@ import SwiftUI
 struct MonthlyLogListView: View {
   var animation: Namespace.ID
 
-//  @ObservedObject var monthlyLogListVM = MonthlyLogListViewModel()
+  @ObservedObject var monthlyLogListVM = MonthlyLogListViewModel()
 
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
     ScrollView {
-//      ForEach(monthlyLogListVM.monthlyLogCellViewModels) { monthlyLogCellVM in
-//        MonthlyLogCell(monthlyLogCellVM: monthlyLogCellVM) { dayLog in
-//          onEdit(dayLog)
-//        }
-//      }
+      ForEach(monthlyLogListVM.monthlyLogCellViewModels) { monthlyLogCellVM in
+        MonthlyLogCell(monthlyLogCellVM: monthlyLogCellVM) { dayLog in
+          onEdit(dayLog)
+        }
+      }
     }
   }
 }
@@ -30,10 +30,12 @@ struct MonthlyLogListView_Previews: PreviewProvider {
   static var previews: some View {
     Group {
       MonthlyLogListView(animation: animation)
+        .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
       MonthlyLogListView(animation: animation)
+        .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }

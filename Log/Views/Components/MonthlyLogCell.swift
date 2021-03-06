@@ -17,10 +17,12 @@ struct MonthlyLogCell: View {
   var body: some View {
     VStack(alignment: .leading) {
       Text(monthlyLogCellVM.targetDate.toFormat("yyyy-MM"))
-        .padding()
+        .padding([.top, .leading])
 
       ForEach(monthlyLogCellVM.groupDayLogViewModels) { groupDayLogVM in
-        GroupDayLogCell(groupDayLogCellVM: groupDayLogVM)
+        GroupDayLogCell(groupDayLogCellVM: groupDayLogVM){ dayLog in
+          onEdit(dayLog)
+        }
       }
     }
   }
