@@ -56,9 +56,8 @@ struct LogListView: View {
         }
 
         ZStack {
-          switch pickerItems[selectedIndex] {
-          // DayLogListView
-          case "Day":
+          TabView(selection: $selectedIndex) {
+            // DayLogListView
             DayLogListView(animation: animation) { (dayLog) in
               self.updateDayLog = dayLog
               switch dayLog.state {
@@ -71,9 +70,9 @@ struct LogListView: View {
               }
             }
             .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
+            .tag(0)
 
-          // MonthlyLogListView
-          case "Monthly":
+            // MonthlyLogListView
             MonthlyLogListView(animation: animation) { (dayLog) in
               self.updateDayLog = dayLog
               switch dayLog.state {
@@ -86,10 +85,8 @@ struct LogListView: View {
               }
             }
             .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
-
-          default:
-            EmptyView()
-          }
+            .tag(1)
+          }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
           // AddButton
           HStack {
