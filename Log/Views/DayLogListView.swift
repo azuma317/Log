@@ -10,8 +10,6 @@ import FirebaseFirestore
 import SwiftDate
 
 struct DayLogListView: View {
-  var animation: Namespace.ID
-
   @ObservedObject var dayLogListVM = DayLogListViewModel()
 
   var onEdit: (DayLog) -> Void = { _ in }
@@ -71,14 +69,13 @@ struct DayLogListView: View {
 }
 
 struct DayLogListView_Previews: PreviewProvider {
-  @Namespace static var animation
   static var previews: some View {
     Group {
-      DayLogListView(animation: animation)
+      DayLogListView()
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
-      DayLogListView(animation: animation)
+      DayLogListView()
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }

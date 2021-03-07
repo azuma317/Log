@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AddTaskView: View {
-  var animation: Namespace.ID
-
   @ObservedObject var dayLogCellVM: DayLogCellViewModel
   @Binding var presentAddTask: Bool
 
@@ -64,10 +62,8 @@ struct AddTaskView: View {
 }
 
 struct AddTaskView_Previews: PreviewProvider {
-  @Namespace static var animation
   static var previews: some View {
     AddTaskView(
-      animation: animation,
       dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[0]),
       presentAddTask: .constant(true)
     )
@@ -75,7 +71,6 @@ struct AddTaskView_Previews: PreviewProvider {
     .environment(\.colorScheme, .light)
 
     AddTaskView(
-      animation: animation,
       dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[1]),
       presentAddTask: .constant(true)
     )

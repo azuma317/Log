@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct AddEventView: View {
-  var animation: Namespace.ID
-
   @ObservedObject var dayLogCellVM: DayLogCellViewModel
   @Binding var presentAddEvent: Bool
 
@@ -30,7 +28,6 @@ struct AddEventView: View {
         .font(.title)
         .padding()
         .padding(.leading, 32.0)
-        .matchedGeometryEffect(id: "title", in: animation)
 
       ScrollView {
         Divider()
@@ -65,10 +62,8 @@ struct AddEventView: View {
 }
 
 struct AddEventView_Previews: PreviewProvider {
-  @Namespace static var animation
   static var previews: some View {
     AddEventView(
-      animation: animation,
       dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[0]),
       presentAddEvent: .constant(true)
     )
@@ -76,7 +71,6 @@ struct AddEventView_Previews: PreviewProvider {
     .environment(\.colorScheme, .light)
 
     AddEventView(
-      animation: animation,
       dayLogCellVM: DayLogCellViewModel(dayLog: testDayLogs[1]),
       presentAddEvent: .constant(true)
     )

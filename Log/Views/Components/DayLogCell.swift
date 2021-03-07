@@ -30,7 +30,6 @@ struct DayLogCell: View {
 
         Text(dayLogCellVM.dayLog.log)
           .font(.headline)
-          .id(dayLogCellVM.dayLog.id)
 
         Spacer()
 
@@ -86,11 +85,11 @@ struct DayLogCell_Previews: PreviewProvider {
   @Namespace static var animation
   static var previews: some View {
     Group {
-      DayLogListView(animation: animation)
+      DayLogListView()
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
-      DayLogListView(animation: animation)
+      DayLogListView()
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)
     }

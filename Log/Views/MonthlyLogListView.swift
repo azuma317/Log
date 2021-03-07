@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct MonthlyLogListView: View {
-  var animation: Namespace.ID
-
   @ObservedObject var monthlyLogListVM = MonthlyLogListViewModel()
 
   var onEdit: (DayLog) -> Void = { _ in }
@@ -26,15 +24,14 @@ struct MonthlyLogListView: View {
 }
 
 struct MonthlyLogListView_Previews: PreviewProvider {
-  @Namespace static var animation
   static var previews: some View {
     Group {
-      MonthlyLogListView(animation: animation)
+      MonthlyLogListView()
         .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .light)
 
-      MonthlyLogListView(animation: animation)
+      MonthlyLogListView()
         .background(Color(.systemBackground))
         .previewLayout(PreviewLayout.sizeThatFits)
         .environment(\.colorScheme, .dark)

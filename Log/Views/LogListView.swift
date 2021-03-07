@@ -18,7 +18,6 @@ struct LogListView: View {
   @State var showSettingsScreen = false
   @State var selectedIndex = 0
   @State var updateDayLog: DayLog?
-  @Namespace var animation
 
   private let pickerItems = ["Day", "Monthly"]
 
@@ -58,7 +57,7 @@ struct LogListView: View {
         ZStack {
           TabView(selection: $selectedIndex) {
             // DayLogListView
-            DayLogListView(animation: animation) { (dayLog) in
+            DayLogListView() { (dayLog) in
               self.updateDayLog = dayLog
               switch dayLog.state {
               case .task:
@@ -69,11 +68,10 @@ struct LogListView: View {
                 self.presentAddMemo.toggle()
               }
             }
-            .transition(.asymmetric(insertion: .move(edge: .leading), removal: .move(edge: .trailing)))
             .tag(0)
 
             // MonthlyLogListView
-            MonthlyLogListView(animation: animation) { (dayLog) in
+            MonthlyLogListView() { (dayLog) in
               self.updateDayLog = dayLog
               switch dayLog.state {
               case .task:
@@ -84,7 +82,6 @@ struct LogListView: View {
                 self.presentAddMemo.toggle()
               }
             }
-            .transition(.asymmetric(insertion: .move(edge: .trailing), removal: .move(edge: .leading)))
             .tag(1)
           }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
 
@@ -140,7 +137,6 @@ struct LogListView: View {
       // AddTaskView
       if presentAddTask {
         AddTaskView(
-          animation: animation,
           dayLogCellVM:
             (updateDayLog != nil) ?
             DayLogCellViewModel(dayLog: updateDayLog!) :
@@ -153,7 +149,6 @@ struct LogListView: View {
       // AddEventView
       if presentAddEvent {
         AddEventView(
-          animation: animation,
           dayLogCellVM:
             (updateDayLog != nil) ?
             DayLogCellViewModel(dayLog: updateDayLog!) :
@@ -166,7 +161,6 @@ struct LogListView: View {
       // AddMemoView
       if presentAddMemo {
         AddMemoView(
-          animation: animation,
           dayLogCellVM:
             (updateDayLog != nil) ?
             DayLogCellViewModel(dayLog: updateDayLog!) :
