@@ -28,23 +28,10 @@ struct LogListView: View {
 
       VStack(alignment: .leading) {
         HStack {
-          VStack(alignment: .leading) {
-            Text(pickerItems[selectedIndex] + "Log")
-              .font(.title)
-              .fontWeight(.bold)
-              .padding([.top, .leading])
-
-            switch pickerItems[selectedIndex] {
-            case "Day":
-              Text(Date().in(region: .current).toString(.date(.medium)))
-                .fontWeight(.semibold)
-                .padding([.leading, .bottom])
-            case "Monthly":
-              EmptyView()
-            default:
-              EmptyView()
-            }
-          }
+          Text(pickerItems[selectedIndex] + "Log")
+            .font(.title)
+            .fontWeight(.bold)
+            .padding([.top, .leading])
 
           Spacer()
 

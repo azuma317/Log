@@ -17,6 +17,7 @@ struct MonthlyLogCell: View {
   var body: some View {
     VStack(alignment: .leading) {
       Text(monthlyLogCellVM.targetDate.toFormat("yyyy-MM"))
+        .fontWeight(.semibold)
         .padding([.top, .leading])
 
       ForEach(monthlyLogCellVM.groupDayLogViewModels) { groupDayLogVM in
