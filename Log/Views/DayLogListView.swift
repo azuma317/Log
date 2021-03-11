@@ -29,7 +29,6 @@ struct DayLogListView: View {
           onEdit(dayLog)
         }
         .padding(.horizontal)
-        .padding(.top, 8.0)
       }
 
       HStack {
@@ -45,7 +44,6 @@ struct DayLogListView: View {
           onEdit(dayLog)
         }
         .padding(.horizontal)
-        .padding(.top, 8.0)
       }
 
       HStack {
@@ -61,7 +59,6 @@ struct DayLogListView: View {
           onEdit(dayLog)
         }
         .padding(.horizontal)
-        .padding(.top, 8.0)
       }
     }
     .background(Color(.systemBackground))

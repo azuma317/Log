@@ -28,7 +28,6 @@ struct GroupDayLogCell: View {
             onEdit(dayLog)
           }
           .padding(.horizontal)
-          .padding(.top, 8.0)
         }
       }
     }

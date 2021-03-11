@@ -61,8 +61,8 @@ struct AppearanceSection: View {
 
 struct CustomFormatSection: View {
 
-  @State var dateFormat: DateFormat = .month_day
-  @State var timeFormat: TimeFormat = .time_meridiem
+  @State var dateFormat = UserDefaults.standard.dateFormat
+  @State var timeFormat = UserDefaults.standard.timeFormat
 
   var body: some View {
     Section {
@@ -72,7 +72,8 @@ struct CustomFormatSection: View {
         Text(Date().in(region: .current).toString(.custom(dateFormat.format)))
       }
       .onTapGesture {
-        dateFormat = DateFormat(rawValue: dateFormat.rawValue + 1) ?? .month_day
+        dateFormat = dateFormat.next
+        UserDefaults.standard.dateFormat = dateFormat
       }
       HStack {
         Text("Time Format")
@@ -80,7 +81,8 @@ struct CustomFormatSection: View {
         Text(Date().in(region: .current).toString(.custom(timeFormat.format)))
       }
       .onTapGesture {
-        timeFormat = TimeFormat(rawValue: timeFormat.rawValue + 1) ?? .time_meridiem
+        timeFormat = timeFormat.next
+        UserDefaults.standard.timeFormat = timeFormat
       }
       HStack {
         Toggle(isOn: .constant(true), label: {

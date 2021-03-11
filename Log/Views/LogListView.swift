@@ -27,7 +27,7 @@ struct LogListView: View {
         .edgesIgnoringSafeArea(.all)
 
       VStack(alignment: .leading) {
-        HStack {
+        HStack(alignment: .bottom) {
           Text(pickerItems[selectedIndex] + "Log")
             .font(.title)
             .fontWeight(.bold)
@@ -38,7 +38,7 @@ struct LogListView: View {
           Button(action: { self.showSettingsScreen.toggle() }, label: {
             Image(systemName: "gear")
           })
-          .padding(.trailing)
+          .padding([.top, .trailing])
         }
 
         ZStack {
