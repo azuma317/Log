@@ -20,7 +20,7 @@ struct GroupDayLogCell: View {
         Text(groupDayLogCellVM.targetDate.weekdayName(.short))
         Text(String(groupDayLogCellVM.targetDate.day))
       }
-      .padding([.leading, .top])
+      .padding(.leading)
 
       VStack {
         ForEach(groupDayLogCellVM.dayLogCellViewModels) { dayLogCellVM in
@@ -31,7 +31,7 @@ struct GroupDayLogCell: View {
         }
       }
     }
-    .padding(.bottom)
+    .padding(.top)
   }
 }
 
