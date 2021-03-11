@@ -19,4 +19,22 @@ enum TimeFormat: Int {
       return "HH:mm"
     }
   }
+
+  var next: TimeFormat {
+    switch self {
+    case .time_meridiem:
+      return .time
+    case .time:
+      return .time_meridiem
+    }
+  }
+
+  var prev: TimeFormat {
+    switch self {
+    case .time_meridiem:
+      return .time
+    case .time:
+      return .time_meridiem
+    }
+  }
 }
