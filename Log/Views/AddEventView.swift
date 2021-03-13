@@ -32,7 +32,7 @@ struct AddEventView: View {
       ScrollView {
         Divider()
 
-        SetDateCell()
+        SetDateCell(timestamp: $dayLogCellVM.dayLog.logDate)
           .padding(.vertical)
 
         SetNotificationCell()

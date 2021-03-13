@@ -7,10 +7,12 @@
 
 import SwiftUI
 import SwiftDate
+import FirebaseFirestore
 
 struct SetDateCell: View {
+  @Binding var timestamp: Timestamp
+
   @State var isAllDay = true
-  @State var date = Date()
   @State var showDateScreen = false
   @State var showTimeScreen = false
 
@@ -32,12 +34,12 @@ struct SetDateCell: View {
 
           HStack {
             Button(action: {
-              withAnimation {
+              withAnimation(.easeIn) {
                 self.showDateScreen.toggle()
                 self.showTimeScreen = false
               }
             }, label: {
-              Text(date.in(region: .current).toString(.date(.medium)))
+              Text(timestamp.dateValue().in(region: .current).toString(.date(.medium)))
                 .foregroundColor(Color(.label))
             })
 
@@ -45,12 +47,12 @@ struct SetDateCell: View {
 
             if !isAllDay {
               Button(action: {
-                withAnimation {
+                withAnimation(.easeIn) {
                   self.showTimeScreen.toggle()
                   self.showDateScreen = false
                 }
               }, label: {
-                Text(date.in(region: .current).toString(.time(.short)))
+                Text(timestamp.dateValue().in(region: .current).toString(.time(.short)))
                   .foregroundColor(Color(.label))
               })
             }
@@ -62,7 +64,10 @@ struct SetDateCell: View {
       if showDateScreen {
         DatePicker(
           "Start Date",
-          selection: $date,
+          selection: Binding<Date>(
+            get: { self.timestamp.dateValue() },
+            set: { self.timestamp = Timestamp(date: $0) }
+          ),
           displayedComponents: [.date]
         )
         .datePickerStyle(GraphicalDatePickerStyle())
@@ -72,7 +77,10 @@ struct SetDateCell: View {
       if showTimeScreen {
         DatePicker(
           "",
-          selection: $date,
+          selection: Binding<Date>(
+            get: { self.timestamp.dateValue() },
+            set: { self.timestamp = Timestamp(date: $0) }
+          ),
           displayedComponents: [.hourAndMinute]
         )
         .datePickerStyle(WheelDatePickerStyle())
@@ -86,11 +94,11 @@ struct SetDateCell: View {
 
 struct SetDateCell_Previews: PreviewProvider {
   static var previews: some View {
-    SetDateCell()
+    SetDateCell(timestamp: .constant(Timestamp(date: Date())))
       .previewLayout(PreviewLayout.sizeThatFits)
       .environment(\.colorScheme, .light)
 
-    SetDateCell()
+    SetDateCell(timestamp: .constant(Timestamp(date: Date())))
       .previewLayout(PreviewLayout.sizeThatFits)
       .environment(\.colorScheme, .dark)
   }

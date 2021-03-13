@@ -84,11 +84,6 @@ struct CustomFormatSection: View {
         timeFormat = timeFormat.next
         UserDefaults.standard.timeFormat = timeFormat
       }
-      HStack {
-        Toggle(isOn: .constant(true), label: {
-          Text("Auto Move Unfinished Task")
-        })
-      }
     }
   }
 }

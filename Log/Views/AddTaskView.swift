@@ -36,7 +36,7 @@ struct AddTaskView: View {
 
         Divider()
 
-        SetDateCell()
+        SetDateCell(timestamp: $dayLogCellVM.dayLog.logDate)
           .padding(.vertical)
 
         SetNotificationCell()
