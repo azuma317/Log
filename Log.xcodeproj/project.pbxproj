@@ -37,7 +37,6 @@
 		F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */; };
 		F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22A25A2C67B003FF8A9 /* Zebra.swift */; };
 		F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B8A25AC381700C36011 /* SwiftDateStatic */; };
-		F2343B9125ADE6F700C36011 /* Hero in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B9025ADE6F700C36011 /* Hero */; };
 		F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2343B9525B59D3D00C36011 /* LogListView.swift */; };
 		F24E172125C50AE50090439B /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E172025C50AE50090439B /* AddTaskView.swift */; };
 		F24E173425C50E580090439B /* SetDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E173325C50E580090439B /* SetDateCell.swift */; };
@@ -49,7 +48,6 @@
 		F268972425736B3B00D23FBE /* LogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268972325736B3B00D23FBE /* LogTests.swift */; };
 		F268972F25736B3B00D23FBE /* LogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F268972E25736B3B00D23FBE /* LogUITests.swift */; };
 		F268974025736C0D00D23FBE /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = F268973F25736C0D00D23FBE /* README.md */; };
-		F268974F2573785C00D23FBE /* DynamicColor in Frameworks */ = {isa = PBXBuildFile; productRef = F268974E2573785C00D23FBE /* DynamicColor */; };
 		F29AC40325CC1C9F00012379 /* SetNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */; };
 		F29AC40E25CC236500012379 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC40D25CC236500012379 /* AddEventView.swift */; };
 		F29AC41925D2D6FF00012379 /* DayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F29AC41825D2D6FF00012379 /* DayLogCell.swift */; };
@@ -158,9 +156,7 @@
 				F22EB1E1259F076F003FF8A9 /* Resolver in Frameworks */,
 				F21B025B259EC1B100999C89 /* Disk in Frameworks */,
 				F21B0241259EAC7300999C89 /* FirebaseAnalytics in Frameworks */,
-				F268974F2573785C00D23FBE /* DynamicColor in Frameworks */,
 				F21B0247259EAC7300999C89 /* FirebaseFirestore in Frameworks */,
-				F2343B9125ADE6F700C36011 /* Hero in Frameworks */,
 				F21B0245259EAC7300999C89 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,7 +394,6 @@
 			);
 			name = Log;
 			packageProductDependencies = (
-				F268974E2573785C00D23FBE /* DynamicColor */,
 				F21B0240259EAC7300999C89 /* FirebaseAnalytics */,
 				F21B0242259EAC7300999C89 /* FirebaseFirestoreSwift-Beta */,
 				F21B0244259EAC7300999C89 /* FirebaseAuth */,
@@ -407,7 +402,6 @@
 				F21B0263259ED70100999C89 /* FirebaseFunctions */,
 				F22EB1E0259F076F003FF8A9 /* Resolver */,
 				F2343B8A25AC381700C36011 /* SwiftDateStatic */,
-				F2343B9025ADE6F700C36011 /* Hero */,
 			);
 			productName = Log;
 			productReference = F268970E25736B3900D23FBE /* Log.app */;
@@ -481,12 +475,10 @@
 			);
 			mainGroup = F268970525736B3900D23FBE;
 			packageReferences = (
-				F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */,
 				F21B023F259EAC7300999C89 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F21B0259259EC1B100999C89 /* XCRemoteSwiftPackageReference "Disk" */,
 				F22EB1DF259F076F003FF8A9 /* XCRemoteSwiftPackageReference "Resolver" */,
 				F2343B8925AC381700C36011 /* XCRemoteSwiftPackageReference "SwiftDate" */,
-				F2343B8F25ADE6F700C36011 /* XCRemoteSwiftPackageReference "Hero" */,
 			);
 			productRefGroup = F268970F25736B3900D23FBE /* Products */;
 			projectDirPath = "";
@@ -934,22 +926,6 @@
 				minimumVersion = 6.3.1;
 			};
 		};
-		F2343B8F25ADE6F700C36011 /* XCRemoteSwiftPackageReference "Hero" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:HeroTransitions/Hero.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.5.0;
-			};
-		};
-		F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/yannickl/DynamicColor";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -992,16 +968,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F2343B8925AC381700C36011 /* XCRemoteSwiftPackageReference "SwiftDate" */;
 			productName = SwiftDateStatic;
-		};
-		F2343B9025ADE6F700C36011 /* Hero */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F2343B8F25ADE6F700C36011 /* XCRemoteSwiftPackageReference "Hero" */;
-			productName = Hero;
-		};
-		F268974E2573785C00D23FBE /* DynamicColor */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F268974D2573785C00D23FBE /* XCRemoteSwiftPackageReference "DynamicColor" */;
-			productName = DynamicColor;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
