@@ -16,7 +16,7 @@ struct SettingsView: View {
       Form {
         AppearanceSection()
 
-        CustomFormatSection()
+        CustomFormatSection(settingsViewModel: self.settingsViewModel)
 
         AccountSection(settingsViewModel: self.settingsViewModel)
       }
@@ -60,29 +60,25 @@ struct AppearanceSection: View {
 }
 
 struct CustomFormatSection: View {
-
-  @State var dateFormat = UserDefaults.standard.dateFormat
-  @State var timeFormat = UserDefaults.standard.timeFormat
+  @ObservedObject var settingsViewModel: SettingsViewModel
 
   var body: some View {
     Section {
       HStack {
         Text("Date Format")
         Spacer()
-        Text(Date().in(region: .current).toString(.custom(dateFormat.format)))
+        Text(Date().in(region: .current).toString(.custom(self.settingsViewModel.dateFormat)))
       }
       .onTapGesture {
-        dateFormat = dateFormat.next
-        UserDefaults.standard.dateFormat = dateFormat
+        self.settingsViewModel.changeDateFormat()
       }
       HStack {
         Text("Time Format")
         Spacer()
-        Text(Date().in(region: .current).toString(.custom(timeFormat.format)))
+        Text(Date().in(region: .current).toString(.custom(self.settingsViewModel.timeFormat)))
       }
       .onTapGesture {
-        timeFormat = timeFormat.next
-        UserDefaults.standard.timeFormat = timeFormat
+        self.settingsViewModel.changeTimeFormat()
       }
     }
   }

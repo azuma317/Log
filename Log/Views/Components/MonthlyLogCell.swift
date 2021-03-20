@@ -16,7 +16,7 @@ struct MonthlyLogCell: View {
 
   var body: some View {
     VStack(alignment: .leading) {
-      Text(monthlyLogCellVM.targetDate.toFormat("yyyy-MM"))
+      Text(monthlyLogCellVM.targetDate.toFormat(monthlyLogCellVM.monthFormat))
         .fontWeight(.semibold)
         .padding([.top, .leading])
 

@@ -24,6 +24,17 @@ enum DateFormat: Int {
     }
   }
 
+  var monthFormat: String {
+    switch self {
+    case .month_day:
+      return "MMM yyyy"
+    case .day_month:
+      return "MMM yyyy"
+    case .year_month:
+      return "yyyy/M"
+    }
+  }
+
   var next: DateFormat {
     switch self {
     case .month_day:

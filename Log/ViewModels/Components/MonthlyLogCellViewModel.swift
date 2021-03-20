@@ -15,6 +15,9 @@ class MonthlyLogCellViewModel: ObservableObject, Identifiable {
 
   @Published var targetDate: DateInRegion
   @Published var groupDayLogViewModels = [GroupDayLogCellViewModel]()
+  @Published var monthFormat: String = ""
+
+  @Published private var settingsService: SettingsService = Resolver.resolve()
 
   var id: String = ""
 
@@ -30,6 +33,11 @@ class MonthlyLogCellViewModel: ObservableObject, Identifiable {
     })
     .map { GroupDayLogCellViewModel(groupDayLog: $0) }
     .sorted(by: { $0.id < $1.id })
+
+    settingsService.$dateFormat
+      .map { $0.monthFormat }
+      .assign(to: \.monthFormat, on: self)
+      .store(in: &cancellables)
   }
 }
 
