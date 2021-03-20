@@ -11,7 +11,6 @@ struct DayLogCell: View {
 
   @ObservedObject var dayLogCellVM: DayLogCellViewModel
   @State var isTapping = false
-  @GestureState var isDragging = false
 
   var onEdit: (DayLog) -> Void = { _ in }
 

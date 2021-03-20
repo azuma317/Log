@@ -18,6 +18,7 @@ extension Resolver: ResolverRegistering {
 
     // register application components
     register { AuthenticationService() }.scope(application)
+    register { SettingsService() }.scope(application)
     register { FirestoreDayLogRepository() as DayLogRepository }.scope(application)
   }
 }

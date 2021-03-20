@@ -64,6 +64,7 @@
 		F2AFCA0025ED1DAE003F7D0A /* AppIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFC9FF25ED1DAE003F7D0A /* AppIcon.swift */; };
 		F2AFCA9825F12DE3003F7D0A /* GroupDayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */; };
 		F2AFCAA325F31856003F7D0A /* GroupDayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2AFCAA225F31856003F7D0A /* GroupDayLogCell.swift */; };
+		F2C276AE25FE637900E2DEB9 /* SettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2C276AD25FE637900E2DEB9 /* SettingsService.swift */; };
 		F2D68AAB25E1F36D00DFA58C /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */; };
 		F2EAC83125F322B200F28429 /* MonthlyLogListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EAC83025F322B200F28429 /* MonthlyLogListViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -141,6 +142,7 @@
 		F2AFC9FF25ED1DAE003F7D0A /* AppIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcon.swift; sourceTree = "<group>"; };
 		F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDayLogCellViewModel.swift; sourceTree = "<group>"; };
 		F2AFCAA225F31856003F7D0A /* GroupDayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDayLogCell.swift; sourceTree = "<group>"; };
+		F2C276AD25FE637900E2DEB9 /* SettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsService.swift; sourceTree = "<group>"; };
 		F2D68AAA25E1F36D00DFA58C /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		F2EAC83025F322B200F28429 /* MonthlyLogListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyLogListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				F22EB1E5259F084A003FF8A9 /* AuthenticationService.swift */,
+				F2C276AD25FE637900E2DEB9 /* SettingsService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				F2AFC9B225E6A117003F7D0A /* DateFormat.swift in Sources */,
 				F24E173425C50E580090439B /* SetDateCell.swift in Sources */,
 				F2AFC9B725E6A31B003F7D0A /* TimeFormat.swift in Sources */,
+				F2C276AE25FE637900E2DEB9 /* SettingsService.swift in Sources */,
 				F2AFCA0025ED1DAE003F7D0A /* AppIcon.swift in Sources */,
 				F22EB1EC259F1ED6003FF8A9 /* EnvironmentKeys.swift in Sources */,
 				F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */,
