@@ -16,49 +16,8 @@ struct DayLogListView: View {
 
   var body: some View {
     ScrollView {
-      HStack {
-        Text("Task")
-          .padding(.leading)
-
-        Spacer()
-      }
-      .padding(.top)
-
-      ForEach(dayLogListVM.taskDayLogCellViewModels.indices, id: \.self) { index in
-        DayLogCell(dayLogCellVM: dayLogListVM.taskDayLogCellViewModels[index]) { dayLog in
-          onEdit(dayLog)
-        }
-        .padding(.horizontal)
-      }
-
-      HStack {
-        Text("Event")
-          .padding(.leading)
-
-        Spacer()
-      }
-      .padding(.top)
-
-      ForEach(dayLogListVM.eventDayLogCellViewModels.indices, id: \.self) { index in
-        DayLogCell(dayLogCellVM: dayLogListVM.eventDayLogCellViewModels[index]) { dayLog in
-          onEdit(dayLog)
-        }
-        .padding(.horizontal)
-      }
-
-      HStack {
-        Text("Memo")
-          .padding(.leading)
-
-        Spacer()
-      }
-      .padding(.top)
-
-      ForEach(dayLogListVM.memoDayLogCellViewModels.indices, id: \.self) { index in
-        DayLogCell(dayLogCellVM: dayLogListVM.memoDayLogCellViewModels[index]) { dayLog in
-          onEdit(dayLog)
-        }
-        .padding(.horizontal)
+      ForEach(dayLogListVM.stateDayLogCellViewModels) { stateDayLogCellVM in
+        StateDayLogCell(stateDayLogCellVM: stateDayLogCellVM)
       }
     }
     .background(Color(.systemBackground))

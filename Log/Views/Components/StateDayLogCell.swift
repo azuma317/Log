@@ -8,13 +8,42 @@
 import SwiftUI
 
 struct StateDayLogCell: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  @ObservedObject var stateDayLogCellVM: StateDayLogCellViewModel
+
+  var onEdit: (DayLog) -> Void = { _ in }
+
+  var body: some View {
+    VStack {
+      HStack {
+        Text(stateDayLogCellVM.state.description)
+          .padding(.leading)
+
+        Spacer()
+      }
+      .padding(.top)
+
+      ForEach(stateDayLogCellVM.dayLogViewModels) { dayLogVM in
+        DayLogCell(dayLogCellVM: dayLogVM) { dayLog in
+          onEdit(dayLog)
+        }
+        .padding(.horizontal)
+      }
     }
+  }
 }
 
 struct StateDayLogCell_Previews: PreviewProvider {
-    static var previews: some View {
-        StateDayLogCell()
+  static var previews: some View {
+    Group {
+      StateDayLogCell(stateDayLogCellVM: testStateDayLogCellViewModels[0])
+        .background(Color(.systemBackground))
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .environment(\.colorScheme, .light)
+
+      StateDayLogCell(stateDayLogCellVM: testStateDayLogCellViewModels[1])
+        .background(Color(.systemBackground))
+        .previewLayout(PreviewLayout.sizeThatFits)
+        .environment(\.colorScheme, .dark)
     }
+  }
 }

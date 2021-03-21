@@ -13,48 +13,16 @@ import SwiftDate
 
 class DayLogListViewModel: ObservableObject {
   @Published var dayLogRepository: DayLogRepository = Resolver.resolve()
-  @Published var taskDayLogCellViewModels = [DayLogCellViewModel]()
-  @Published var eventDayLogCellViewModels = [DayLogCellViewModel]()
-  @Published var memoDayLogCellViewModels = [DayLogCellViewModel]()
+  @Published var stateDayLogCellViewModels = [StateDayLogCellViewModel]()
 
   private var cancellables = Set<AnyCancellable>()
 
   init() {
-    dayLogRepository.$dayLogs
-      .map { dayLogs in
-        dayLogs.filter { dayLog in
-          dayLog.state == .task
-        }
-        .map { dayLog in
-          DayLogCellViewModel(dayLog: dayLog)
-        }
-      }
-      .assign(to: \.taskDayLogCellViewModels, on: self)
-      .store(in: &cancellables)
-
-    dayLogRepository.$dayLogs
-      .map { dayLogs in
-        dayLogs.filter { dayLog in
-          dayLog.state == .event
-        }
-        .map { dayLog in
-          DayLogCellViewModel(dayLog: dayLog)
-        }
-      }
-      .assign(to: \.eventDayLogCellViewModels, on: self)
-      .store(in: &cancellables)
-
-    dayLogRepository.$dayLogs
-      .map { dayLogs in
-        dayLogs.filter { dayLog in
-          dayLog.state == .memo
-        }
-        .map { dayLog in
-          DayLogCellViewModel(dayLog: dayLog)
-        }
-      }
-      .assign(to: \.memoDayLogCellViewModels, on: self)
-      .store(in: &cancellables)
+    self.stateDayLogCellViewModels = Dictionary(grouping: dayLogRepository.dayLogs, by: { (dayLog) -> LogState in
+      dayLog.state
+    })
+    .map { StateDayLogCellViewModel(stateDayLog: $0) }
+    .sorted(by: { $0.id < $1.id })
   }
 
   func addDayLog(dayLog: DayLog) {
