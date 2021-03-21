@@ -38,6 +38,8 @@
 		F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22A25A2C67B003FF8A9 /* Zebra.swift */; };
 		F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B8A25AC381700C36011 /* SwiftDateStatic */; };
 		F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2343B9525B59D3D00C36011 /* LogListView.swift */; };
+		F2359B772605EDF900A4A781 /* StateDayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2359B762605EDF900A4A781 /* StateDayLogCell.swift */; };
+		F2359B7C2605EECA00A4A781 /* StateDayLogCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2359B7B2605EECA00A4A781 /* StateDayLogCellViewModel.swift */; };
 		F24E172125C50AE50090439B /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E172025C50AE50090439B /* AddTaskView.swift */; };
 		F24E173425C50E580090439B /* SetDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E173325C50E580090439B /* SetDateCell.swift */; };
 		F24E173925C51CD50090439B /* SetDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F24E173825C51CD50090439B /* SetDetailCell.swift */; };
@@ -110,6 +112,8 @@
 		F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogApp+Injection.swift"; sourceTree = "<group>"; };
 		F22EB22A25A2C67B003FF8A9 /* Zebra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zebra.swift; sourceTree = "<group>"; };
 		F2343B9525B59D3D00C36011 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
+		F2359B762605EDF900A4A781 /* StateDayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDayLogCell.swift; sourceTree = "<group>"; };
+		F2359B7B2605EECA00A4A781 /* StateDayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDayLogCellViewModel.swift; sourceTree = "<group>"; };
 		F24E172025C50AE50090439B /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 		F24E173325C50E580090439B /* SetDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDateCell.swift; sourceTree = "<group>"; };
 		F24E173825C51CD50090439B /* SetDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetDetailCell.swift; sourceTree = "<group>"; };
@@ -350,6 +354,7 @@
 				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
 				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
 				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
+				F2359B762605EDF900A4A781 /* StateDayLogCell.swift */,
 				F2AFCAA225F31856003F7D0A /* GroupDayLogCell.swift */,
 				F21C4FE825DAC87400C3CBFA /* MonthlyLogCell.swift */,
 				F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */,
@@ -373,9 +378,10 @@
 		F2EAC83825F3426B00F28429 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
-				F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */,
 				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
+				F2359B7B2605EECA00A4A781 /* StateDayLogCellViewModel.swift */,
+				F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */,
+				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -527,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2359B772605EDF900A4A781 /* StateDayLogCell.swift in Sources */,
 				F2EAC83125F322B200F28429 /* MonthlyLogListViewModel.swift in Sources */,
 				F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */,
 				F21C4FE125DAACB800C3CBFA /* MonthlyLogCellViewModel.swift in Sources */,
@@ -548,6 +555,7 @@
 				F24E173425C50E580090439B /* SetDateCell.swift in Sources */,
 				F2AFC9B725E6A31B003F7D0A /* TimeFormat.swift in Sources */,
 				F2C276AE25FE637900E2DEB9 /* SettingsService.swift in Sources */,
+				F2359B7C2605EECA00A4A781 /* StateDayLogCellViewModel.swift in Sources */,
 				F2AFCA0025ED1DAE003F7D0A /* AppIcon.swift in Sources */,
 				F22EB1EC259F1ED6003FF8A9 /* EnvironmentKeys.swift in Sources */,
 				F22CC09025A2DE29004DC9F1 /* DayLogListViewModel.swift in Sources */,
