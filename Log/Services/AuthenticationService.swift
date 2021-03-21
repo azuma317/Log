@@ -5,10 +5,10 @@
 //  Created by AzumaSato on 2021/01/01.
 //
 
-import Foundation
-import Firebase
 import AuthenticationServices
 import CryptoKit
+import Firebase
+import Foundation
 import Resolver
 
 class AuthenticationService: ObservableObject {
@@ -36,7 +36,9 @@ class AuthenticationService: ObservableObject {
     }
   }
 
-  func updateDisplayName(displayName: String, completionHandler: @escaping (Result<User, Error>) -> Void) {
+  func updateDisplayName(
+    displayName: String, completionHandler: @escaping (Result<User, Error>) -> Void
+  ) {
     if let user = Auth.auth().currentUser {
       let changeRequest = user.createProfileChangeRequest()
       changeRequest.displayName = displayName
@@ -45,7 +47,9 @@ class AuthenticationService: ObservableObject {
           completionHandler(.failure(error))
         } else {
           if let updatedUser = Auth.auth().currentUser {
-            print("Successfully updated display name for user [\(user.uid)] to [\(updatedUser.displayName ?? "(empty)")]")
+            print(
+              "Successfully updated display name for user [\(user.uid)] to [\(updatedUser.displayName ?? "(empty)")]"
+            )
             // force update the local user to trigger the publisher
             self.user = updatedUser
             completionHandler(.success(updatedUser))
@@ -65,7 +69,9 @@ class AuthenticationService: ObservableObject {
 
       if let user = user {
         let anonymous = user.isAnonymous ? "anonymously" : ""
-        print("User signed in \(anonymous)with user ID \(user.uid). Email: \(user.email ?? "(empty)"), display name: [\(user.displayName ?? "(empty)")]")
+        print(
+          "User signed in \(anonymous)with user ID \(user.uid). Email: \(user.email ?? "(empty)"), display name: [\(user.displayName ?? "(empty)")]"
+        )
       } else {
         print("User signed out.")
         self.signIn()
@@ -130,7 +136,10 @@ class SignInWithAppleCoordinator: NSObject {
 }
 
 extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
-  func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+  func authorizationController(
+    controller: ASAuthorizationController,
+    didCompleteWithAuthorization authorization: ASAuthorization
+  ) {
     if let appleIDCredential = authorization.credential as? ASAuthorizationAppleIDCredential {
       guard let nonce = currentNonce else {
         fatalError("Invalid state: A login callback was received, but no login request was sent.")
@@ -143,12 +152,14 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
         print("Unable to serialise token string from data: \(appleIDToken.debugDescription)")
         return
       }
-      guard let stateRaw = appleIDCredential.state, let state = SignInState(rawValue: stateRaw) else {
+      guard let stateRaw = appleIDCredential.state, let state = SignInState(rawValue: stateRaw)
+      else {
         print("Invalid state: request must be started with one of the SignInStates")
         return
       }
 
-      let credential = OAuthProvider.credential(withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
+      let credential = OAuthProvider.credential(
+        withProviderID: "apple.com", idToken: idTokenString, rawNonce: nonce)
 
       switch state {
       case .signIn:
@@ -166,16 +177,24 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
       case .link:
         if let currentUser = Auth.auth().currentUser {
           currentUser.link(with: credential) { (result, error) in
-            if let error = error, (error as NSError).code == AuthErrorCode.credentialAlreadyInUse.rawValue {
-              print("The user you're signing in with has already been linked, signing in to the new user and migrating the anonymous users [\(currentUser.uid)] tasks.")
+            if let error = error,
+              (error as NSError).code == AuthErrorCode.credentialAlreadyInUse.rawValue
+            {
+              print(
+                "The user you're signing in with has already been linked, signing in to the new user and migrating the anonymous users [\(currentUser.uid)] tasks."
+              )
 
-              if let updatedCredential = (error as NSError).userInfo[AuthErrorUserInfoUpdatedCredentialKey] as? OAuthCredential {
+              if let updatedCredential =
+                (error as NSError).userInfo[AuthErrorUserInfoUpdatedCredentialKey]
+                as? OAuthCredential
+              {
                 print("Signing in using the updated credentials")
                 Auth.auth().signIn(with: updatedCredential) { (result, error) in
                   if let user = result?.user {
                     currentUser.getIDToken { (token, error) in
                       if let idToken = token {
-                        (self.dayLogRepository as? FirestoreDayLogRepository)?.migrateDayLogs(from: idToken)
+                        (self.dayLogRepository as? FirestoreDayLogRepository)?.migrateDayLogs(
+                          from: idToken)
                         self.doSignIn(appleIDCredential: appleIDCredential, user: user)
                       }
                     }
@@ -192,15 +211,17 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
           }
         }
       case .reauth:
-        Auth.auth().currentUser?.reauthenticate(with: credential, completion: { (result, error) in
-          if let error = error {
-            print("Error authenticating: \(error.localizedDescription)")
-            return
-          }
-          if let user = result?.user {
-            self.doSignIn(appleIDCredential: appleIDCredential, user: user)
-          }
-        })
+        Auth.auth().currentUser?.reauthenticate(
+          with: credential,
+          completion: { (result, error) in
+            if let error = error {
+              print("Error authenticating: \(error.localizedDescription)")
+              return
+            }
+            if let user = result?.user {
+              self.doSignIn(appleIDCredential: appleIDCredential, user: user)
+            }
+          })
       }
     }
   }
@@ -212,7 +233,9 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
         self.authenticationService.updateDisplayName(displayName: displayName) { (result) in
           switch result {
           case .success(let user):
-            print("Successfully update the user's display name: \(String(describing: user.displayName))")
+            print(
+              "Successfully update the user's display name: \(String(describing: user.displayName))"
+            )
           case .failure(let error):
             print("Error when trying to update the display name: \(error.localizedDescription)")
           }
@@ -230,7 +253,9 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerDelegate {
     }
   }
 
-  func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+  func authorizationController(
+    controller: ASAuthorizationController, didCompleteWithError error: Error
+  ) {
     print("Sign in with Apple errored: \(error.localizedDescription)")
   }
 
@@ -245,7 +270,8 @@ extension SignInWithAppleCoordinator: ASAuthorizationControllerPresentationConte
 // Adapted from https://auth0.com/docs/api-auth/tutorials/nonce#generate-a-cryptographically-random-nonce
 private func randomNonceString(length: Int = 32) -> String {
   precondition(length > 0)
-  let charset: Array<Character> = Array("0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
+  let charset: [Character] = Array(
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._")
   var result = ""
   var remainingLength = length
 

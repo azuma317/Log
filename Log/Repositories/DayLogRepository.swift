@@ -5,14 +5,12 @@
 //  Created by AzumaSato on 2021/01/01.
 //
 
-import Foundation
+import Combine
 import Disk
-
 import Firebase
 import FirebaseFirestoreSwift
 import FirebaseFunctions
-
-import Combine
+import Foundation
 import Resolver
 
 class BaseDayLogRepository {
@@ -74,7 +72,9 @@ class LocalDayLogRepository: BaseDayLogRepository, DayLogRepository, ObservableO
   }
 
   private func loadData() {
-    if let retrievedDayLogs = try? Disk.retrieve("dayLogs.json", from: .documents, as: [DayLog].self) {
+    if let retrievedDayLogs = try? Disk.retrieve(
+      "dayLogs.json", from: .documents, as: [DayLog].self)
+    {
       self.dayLogs = retrievedDayLogs
     }
   }
@@ -83,7 +83,8 @@ class LocalDayLogRepository: BaseDayLogRepository, DayLogRepository, ObservableO
     do {
       try Disk.save(self.dayLogs, to: .documents, as: "dayLogs.json")
     } catch let error as NSError {
-      fatalError("""
+      fatalError(
+        """
         Domain: \(error.domain)
         Code: \(error.code)
         Description: \(error.localizedDescription)

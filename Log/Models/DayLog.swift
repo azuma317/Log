@@ -5,9 +5,9 @@
 //  Created by AzumaSato on 2020/12/29.
 //
 
-import Foundation
 import FirebaseFirestore
 import FirebaseFirestoreSwift
+import Foundation
 
 struct DayLog: Codable, Identifiable {
   // ID
@@ -33,10 +33,15 @@ struct DayLog: Codable, Identifiable {
 }
 
 #if DEBUG
-let testDayLogs = [
-  DayLog(userId: "uuid12345", log: "Implement UI", state: .task, subState: .none, logDate: Timestamp()),
-  DayLog(userId: "uuid23456", log: "Connect to Firebase", state: .task, subState: .none, logDate: Timestamp()),
-  DayLog(userId: "uuid34567", log: "Sample!!!!!", state: .task, subState: .none, logDate: Timestamp()),
-  DayLog(userId: "uuid45678", log: "?????????", state: .task, subState: .none, logDate: Timestamp()),
-]
+  let testDayLogs = [
+    DayLog(
+      userId: "uuid12345", log: "Implement UI", state: .task, subState: .none, logDate: Timestamp()),
+    DayLog(
+      userId: "uuid23456", log: "Connect to Firebase", state: .task, subState: .none,
+      logDate: Timestamp()),
+    DayLog(
+      userId: "uuid34567", log: "Sample!!!!!", state: .task, subState: .none, logDate: Timestamp()),
+    DayLog(
+      userId: "uuid45678", log: "?????????", state: .task, subState: .none, logDate: Timestamp()),
+  ]
 #endif

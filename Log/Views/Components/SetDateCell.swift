@@ -5,9 +5,9 @@
 //  Created by AzumaSato on 2021/01/30.
 //
 
-import SwiftUI
-import SwiftDate
 import FirebaseFirestore
+import SwiftDate
+import SwiftUI
 
 struct SetDateCell: View {
   @Binding var timestamp: Timestamp
@@ -33,32 +33,36 @@ struct SetDateCell: View {
           .toggleStyle(SwitchToggleStyle())
 
           HStack {
-            Button(action: {
-              withAnimation(.easeIn) {
-                self.showDateScreen.toggle()
-                self.showTimeScreen = false
-              }
-            }, label: {
-              Text(timestamp.dateValue().in(region: .current).toString(.date(.medium)))
-                .foregroundColor(Color(.label))
-            })
+            Button(
+              action: {
+                withAnimation(.easeIn) {
+                  self.showDateScreen.toggle()
+                  self.showTimeScreen = false
+                }
+              },
+              label: {
+                Text(timestamp.dateValue().in(region: .current).toString(.date(.medium)))
+                  .foregroundColor(Color(.label))
+              })
 
             Spacer()
 
             if !isAllDay {
-              Button(action: {
-                withAnimation(.easeIn) {
-                  self.showTimeScreen.toggle()
-                  self.showDateScreen = false
-                }
-              }, label: {
-                Text(timestamp.dateValue().in(region: .current).toString(.time(.short)))
-                  .foregroundColor(Color(.label))
-              })
+              Button(
+                action: {
+                  withAnimation(.easeIn) {
+                    self.showTimeScreen.toggle()
+                    self.showDateScreen = false
+                  }
+                },
+                label: {
+                  Text(timestamp.dateValue().in(region: .current).toString(.time(.short)))
+                    .foregroundColor(Color(.label))
+                })
             }
           }
         }
-        
+
       }
 
       if showDateScreen {

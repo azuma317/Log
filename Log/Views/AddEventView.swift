@@ -49,9 +49,12 @@ struct AddEventView: View {
 
       Spacer(minLength: 0)
     }
-    .onReceive(dayLogCellVM.$dayLog, perform: { dayLog in
-      saveIsEnabled = dayLog.log.count > 0
-    })
+    .onReceive(
+      dayLogCellVM.$dayLog,
+      perform: { dayLog in
+        saveIsEnabled = dayLog.log.count > 0
+      }
+    )
     .background(Color(.systemBackground))
     .onAppear {
       withAnimation(Animation.spring().delay(0.45)) {

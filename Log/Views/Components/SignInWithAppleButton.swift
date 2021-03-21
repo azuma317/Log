@@ -5,8 +5,8 @@
 //  Created by AzumaSato on 2021/01/02.
 //
 
-import SwiftUI
 import AuthenticationServices
+import SwiftUI
 
 struct SignInWithAppleButton: View {
   @Environment(\.colorScheme) var colorScheme: ColorScheme
@@ -18,7 +18,7 @@ struct SignInWithAppleButton: View {
   }
 }
 
-fileprivate struct SignInWithAppleButtonInternal: UIViewRepresentable {
+private struct SignInWithAppleButtonInternal: UIViewRepresentable {
   var colorScheme: ColorScheme
 
   func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {

@@ -5,10 +5,10 @@
 //  Created by AzumaSato on 2021/01/03.
 //
 
-import Foundation
 import Combine
-import Resolver
 import Firebase
+import Foundation
+import Resolver
 
 class SettingsViewModel: ObservableObject {
   @Published var user: User?

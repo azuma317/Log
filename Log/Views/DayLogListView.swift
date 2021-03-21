@@ -5,9 +5,9 @@
 //  Created by AzumaSato on 2021/01/04.
 //
 
-import SwiftUI
 import FirebaseFirestore
 import SwiftDate
+import SwiftUI
 
 struct DayLogListView: View {
   @ObservedObject var dayLogListVM = DayLogListViewModel()

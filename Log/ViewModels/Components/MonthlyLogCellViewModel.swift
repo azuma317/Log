@@ -5,8 +5,8 @@
 //  Created by AzumaSato on 2021/02/15.
 //
 
-import Foundation
 import Combine
+import Foundation
 import Resolver
 import SwiftDate
 
@@ -25,12 +25,15 @@ class MonthlyLogCellViewModel: ObservableObject, Identifiable {
 
   init(monthlyLog: MonthlyLog) {
     self.id = monthlyLog.key.toFormat("yyyy-MM")
-    
+
     self.targetDate = monthlyLog.key
 
-    self.groupDayLogViewModels = Dictionary(grouping: monthlyLog.value, by: { (dayLog) -> DateInRegion in
-      dayLog.logDate.dateValue().in(region: .current).dateAtStartOf(.day)
-    })
+    self.groupDayLogViewModels = Dictionary(
+      grouping: monthlyLog.value,
+      by: { (dayLog) -> DateInRegion in
+        dayLog.logDate.dateValue().in(region: .current).dateAtStartOf(.day)
+      }
+    )
     .map { GroupDayLogCellViewModel(groupDayLog: $0) }
     .sorted(by: { $0.id < $1.id })
 
@@ -42,9 +45,11 @@ class MonthlyLogCellViewModel: ObservableObject, Identifiable {
 }
 
 #if DEBUG
-let testMonthlyLogCellViewModels = [
-  MonthlyLogCellViewModel(monthlyLog: (key: (Date()-1.months).in(region: .current), value: testDayLogs)),
-  MonthlyLogCellViewModel(monthlyLog: (key: Date().in(region: .current), value: testDayLogs)),
-  MonthlyLogCellViewModel(monthlyLog: (key: (Date()+1.months).in(region: .current), value: testDayLogs)),
-]
+  let testMonthlyLogCellViewModels = [
+    MonthlyLogCellViewModel(
+      monthlyLog: (key: (Date() - 1.months).in(region: .current), value: testDayLogs)),
+    MonthlyLogCellViewModel(monthlyLog: (key: Date().in(region: .current), value: testDayLogs)),
+    MonthlyLogCellViewModel(
+      monthlyLog: (key: (Date() + 1.months).in(region: .current), value: testDayLogs)),
+  ]
 #endif

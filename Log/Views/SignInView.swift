@@ -5,10 +5,10 @@
 //  Created by AzumaSato on 2021/01/02.
 //
 
-import SwiftUI
-import Firebase
 import AuthenticationServices
 import CryptoKit
+import Firebase
+import SwiftUI
 
 struct SignInView: View {
   @Environment(\.window) var window: UIWindow?

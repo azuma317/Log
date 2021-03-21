@@ -5,9 +5,9 @@
 //  Created by AzumaSato on 2020/11/29.
 //
 
-import SwiftUI
-import Resolver
 import Firebase
+import Resolver
+import SwiftUI
 
 @main
 struct LogApp: App {

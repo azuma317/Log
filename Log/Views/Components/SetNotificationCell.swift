@@ -5,8 +5,8 @@
 //  Created by AzumaSato on 2021/02/04.
 //
 
-import SwiftUI
 import SwiftDate
+import SwiftUI
 
 struct SetNotificationCell: View {
   var body: some View {
@@ -16,9 +16,11 @@ struct SetNotificationCell: View {
         .padding(.vertical, 8.0)
         .padding(.trailing, 16.0)
 
-      Button(action: { self.setNotification() }, label: {
-        Text("Add a notification")
-      })
+      Button(
+        action: { self.setNotification() },
+        label: {
+          Text("Add a notification")
+        })
 
       Spacer()
     }
@@ -30,7 +32,7 @@ struct SetNotificationCell: View {
     let localNotificationManager = LocalNotificationManager()
     localNotificationManager.requestPermission()
     localNotificationManager.addNotification(title: "title", subtitle: "subtitle", body: "body")
-    localNotificationManager.scheduleNotification(date: Date()+1.minutes)
+    localNotificationManager.scheduleNotification(date: Date() + 1.minutes)
   }
 }
 

@@ -62,23 +62,26 @@ struct DayLogCell: View {
       }
     }
     .contextMenu(menuItems: {
-      Button(action: {
-        onEdit(dayLogCellVM.dayLog)
-      }, label: {
-        Text("Edit")
-        Image(systemName: "pencil")
-      })
+      Button(
+        action: {
+          onEdit(dayLogCellVM.dayLog)
+        },
+        label: {
+          Text("Edit")
+          Image(systemName: "pencil")
+        })
 
-      Button(action: {
-        dayLogCellVM.removeDayLog(dayLog: dayLogCellVM.dayLog)
-      }, label: {
-        Text("Delete")
-        Image(systemName: "trash")
-      })
+      Button(
+        action: {
+          dayLogCellVM.removeDayLog(dayLog: dayLogCellVM.dayLog)
+        },
+        label: {
+          Text("Delete")
+          Image(systemName: "trash")
+        })
     })
   }
 }
-
 
 struct DayLogCell_Previews: PreviewProvider {
   @Namespace static var animation

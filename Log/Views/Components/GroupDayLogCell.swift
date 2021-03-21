@@ -5,8 +5,8 @@
 //  Created by AzumaSato on 2021/03/06.
 //
 
-import SwiftUI
 import SwiftDate
+import SwiftUI
 
 struct GroupDayLogCell: View {
 
@@ -24,7 +24,7 @@ struct GroupDayLogCell: View {
 
       VStack {
         ForEach(groupDayLogCellVM.dayLogCellViewModels) { dayLogCellVM in
-          DayLogCell(dayLogCellVM: dayLogCellVM){ dayLog in
+          DayLogCell(dayLogCellVM: dayLogCellVM) { dayLog in
             onEdit(dayLog)
           }
           .padding(.horizontal)

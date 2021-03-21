@@ -5,10 +5,10 @@
 //  Created by AzumaSato on 2021/01/04.
 //
 
-import UIKit
 import Combine
-import Resolver
 import FirebaseFirestore
+import Resolver
+import UIKit
 
 class DayLogCellViewModel: ObservableObject, Identifiable {
   @Injected var dayLogRepository: DayLogRepository
@@ -22,7 +22,8 @@ class DayLogCellViewModel: ObservableObject, Identifiable {
   private var cancellables = Set<AnyCancellable>()
 
   static func newDayLog(state: LogState) -> DayLogCellViewModel {
-    DayLogCellViewModel(dayLog: DayLog(log: "", state: state, subState: .none, logDate: Timestamp()))
+    DayLogCellViewModel(
+      dayLog: DayLog(log: "", state: state, subState: .none, logDate: Timestamp()))
   }
 
   init(dayLog: DayLog) {

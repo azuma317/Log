@@ -21,12 +21,15 @@ struct SettingsView: View {
         AccountSection(settingsViewModel: self.settingsViewModel)
       }
       .navigationBarTitle("Settings", displayMode: .inline)
-      .navigationBarItems(trailing: Button(action: {
-        self.presentationMode.wrappedValue.dismiss()
-      }, label: {
-        Text("Done")
-          .foregroundColor(Color(.systemBlue))
-      }))
+      .navigationBarItems(
+        trailing: Button(
+          action: {
+            self.presentationMode.wrappedValue.dismiss()
+          },
+          label: {
+            Text("Done")
+              .foregroundColor(Color(.systemBlue))
+          }))
     }
   }
 }
@@ -112,26 +115,32 @@ struct AccountSection: View {
   var button: some View {
     VStack {
       if settingsViewModel.isAnonymous {
-        Button(action: { self.login() }, label: {
-          HStack {
-            Spacer()
-            Text("Login")
-            Spacer()
-          }
-        })
+        Button(
+          action: { self.login() },
+          label: {
+            HStack {
+              Spacer()
+              Text("Login")
+              Spacer()
+            }
+          })
       } else {
-        Button(action: { self.logout() }, label: {
-          HStack {
-            Spacer()
-            Text("Logout")
-            Spacer()
-          }
-        })
+        Button(
+          action: { self.logout() },
+          label: {
+            HStack {
+              Spacer()
+              Text("Logout")
+              Spacer()
+            }
+          })
       }
     }
-    .sheet(isPresented: self.$showSignInView, content: {
-      SignInView()
-    })
+    .sheet(
+      isPresented: self.$showSignInView,
+      content: {
+        SignInView()
+      })
   }
 
   func login() {

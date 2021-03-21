@@ -5,9 +5,9 @@
 //  Created by AzumaSato on 2021/01/18.
 //
 
-import SwiftUI
 import FirebaseFirestore
 import SwiftDate
+import SwiftUI
 
 struct LogListView: View {
 
@@ -35,16 +35,19 @@ struct LogListView: View {
 
           Spacer()
 
-          Button(action: { self.showSettingsScreen.toggle() }, label: {
-            Image(systemName: "gear")
-          })
+          Button(
+            action: { self.showSettingsScreen.toggle() },
+            label: {
+              Image(systemName: "gear")
+            }
+          )
           .padding([.top, .trailing])
         }
 
         ZStack {
           TabView(selection: $selectedIndex) {
             // DayLogListView
-            DayLogListView() { (dayLog) in
+            DayLogListView { (dayLog) in
               self.updateDayLog = dayLog
               switch dayLog.state {
               case .task:
@@ -58,7 +61,7 @@ struct LogListView: View {
             .tag(0)
 
             // MonthlyLogListView
-            MonthlyLogListView() { (dayLog) in
+            MonthlyLogListView { (dayLog) in
               self.updateDayLog = dayLog
               switch dayLog.state {
               case .task:
@@ -79,18 +82,21 @@ struct LogListView: View {
             VStack {
               Spacer()
 
-              Button(action: {
-                withAnimation {
-                  self.presentSelectLog.toggle()
+              Button(
+                action: {
+                  withAnimation {
+                    self.presentSelectLog.toggle()
+                  }
+                },
+                label: {
+                  HStack {
+                    Image(systemName: "plus.circle.fill")
+                      .resizable()
+                      .frame(width: 56.0, height: 56.0)
+                      .background(Color(.secondarySystemBackground))
+                  }
                 }
-              }, label: {
-                HStack {
-                  Image(systemName: "plus.circle.fill")
-                    .resizable()
-                    .frame(width: 56.0, height: 56.0)
-                    .background(Color(.secondarySystemBackground))
-                }
-              })
+              )
               .accentColor(Color(UIColor.systemRed))
               .cornerRadius(28.0)
             }
@@ -124,10 +130,9 @@ struct LogListView: View {
       // AddTaskView
       if presentAddTask {
         AddTaskView(
-          dayLogCellVM:
-            (updateDayLog != nil) ?
-            DayLogCellViewModel(dayLog: updateDayLog!) :
-            DayLogCellViewModel.newDayLog(state: .task),
+          dayLogCellVM: (updateDayLog != nil)
+            ? DayLogCellViewModel(dayLog: updateDayLog!)
+            : DayLogCellViewModel.newDayLog(state: .task),
           presentAddTask: $presentAddTask
         )
         .transition(.move(edge: .bottom))
@@ -136,10 +141,9 @@ struct LogListView: View {
       // AddEventView
       if presentAddEvent {
         AddEventView(
-          dayLogCellVM:
-            (updateDayLog != nil) ?
-            DayLogCellViewModel(dayLog: updateDayLog!) :
-            DayLogCellViewModel.newDayLog(state: .event),
+          dayLogCellVM: (updateDayLog != nil)
+            ? DayLogCellViewModel(dayLog: updateDayLog!)
+            : DayLogCellViewModel.newDayLog(state: .event),
           presentAddEvent: $presentAddEvent
         )
         .transition(.move(edge: .bottom))
@@ -148,10 +152,9 @@ struct LogListView: View {
       // AddMemoView
       if presentAddMemo {
         AddMemoView(
-          dayLogCellVM:
-            (updateDayLog != nil) ?
-            DayLogCellViewModel(dayLog: updateDayLog!) :
-            DayLogCellViewModel.newDayLog(state: .memo),
+          dayLogCellVM: (updateDayLog != nil)
+            ? DayLogCellViewModel(dayLog: updateDayLog!)
+            : DayLogCellViewModel.newDayLog(state: .memo),
           presentAddMemo: $presentAddMemo
         )
         .transition(.move(edge: .bottom))

@@ -5,8 +5,8 @@
 //  Created by AzumaSato on 2021/02/16.
 //
 
-import SwiftUI
 import SwiftDate
+import SwiftUI
 
 struct MonthlyLogCell: View {
 
@@ -21,7 +21,7 @@ struct MonthlyLogCell: View {
         .padding([.top, .leading])
 
       ForEach(monthlyLogCellVM.groupDayLogViewModels) { groupDayLogVM in
-        GroupDayLogCell(groupDayLogCellVM: groupDayLogVM){ dayLog in
+        GroupDayLogCell(groupDayLogCellVM: groupDayLogVM) { dayLog in
           onEdit(dayLog)
         }
       }

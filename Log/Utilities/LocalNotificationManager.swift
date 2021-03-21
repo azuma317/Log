@@ -5,8 +5,8 @@
 //  Created by AzumaSato on 2021/02/21.
 //
 
-import UserNotifications
 import SwiftDate
+import UserNotifications
 
 struct Notification {
   var id: String
@@ -18,7 +18,7 @@ struct Notification {
 class LocalNotificationManager {
   var notifications = [Notification]()
 
-  func requestPermission() -> Void {
+  func requestPermission() {
     UNUserNotificationCenter.current()
       .requestAuthorization(options: [.alert, .badge]) { (granted, error) in
         if granted && error == nil {
@@ -26,11 +26,12 @@ class LocalNotificationManager {
       }
   }
 
-  func addNotification(title: String, subtitle: String?, body: String) -> Void {
-    notifications.append(Notification(id: UUID().uuidString, title: title, subtitle: subtitle, body: body))
+  func addNotification(title: String, subtitle: String?, body: String) {
+    notifications.append(
+      Notification(id: UUID().uuidString, title: title, subtitle: subtitle, body: body))
   }
 
-  func scheduleNotification(date: Date) -> Void {
+  func scheduleNotification(date: Date) {
     for notification in notifications {
       let content = UNMutableNotificationContent()
       content.title = notification.title
@@ -41,10 +42,14 @@ class LocalNotificationManager {
       print(date.in(region: .current).dateComponents)
 
       let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
-      let request = UNNotificationRequest(identifier: notification.id, content: content, trigger: trigger)
+      let request = UNNotificationRequest(
+        identifier: notification.id, content: content, trigger: trigger)
 
       UNUserNotificationCenter.current().add(request) { (error) in
-        guard error == nil else { print(error!); return }
+        guard error == nil else {
+          print(error!)
+          return
+        }
       }
     }
   }

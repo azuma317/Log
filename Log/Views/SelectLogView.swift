@@ -40,20 +40,22 @@ struct SelectLogView: View {
 
         HStack {
           ForEach(LogState.allCases, id: \.self) { state in
-            Button(action: {
-              self.presentSelectLog.toggle()
-              self.onSelect(state)
-            }, label: {
-              VStack(alignment: .center) {
-                Image(systemName: state.imageName)
-                  .resizable()
-                  .frame(width: 24.0, height: 24.0)
-                  .padding()
+            Button(
+              action: {
+                self.presentSelectLog.toggle()
+                self.onSelect(state)
+              },
+              label: {
+                VStack(alignment: .center) {
+                  Image(systemName: state.imageName)
+                    .resizable()
+                    .frame(width: 24.0, height: 24.0)
+                    .padding()
 
-                Text(state.description)
-              }
-              .foregroundColor(Color(.label))
-            })
+                  Text(state.description)
+                }
+                .foregroundColor(Color(.label))
+              })
           }
           .padding()
           .background(Color(.systemBackground))

@@ -27,9 +27,9 @@ class StateDayLogCellViewModel: ObservableObject, Identifiable {
 }
 
 #if DEBUG
-let testStateDayLogCellViewModels = [
-  StateDayLogCellViewModel(stateDayLog: (key: LogState.task, value: testDayLogs)),
-  StateDayLogCellViewModel(stateDayLog: (key: LogState.event, value: testDayLogs)),
-  StateDayLogCellViewModel(stateDayLog: (key: LogState.memo, value: testDayLogs)),
-]
+  let testStateDayLogCellViewModels = [
+    StateDayLogCellViewModel(stateDayLog: (key: LogState.task, value: testDayLogs)),
+    StateDayLogCellViewModel(stateDayLog: (key: LogState.event, value: testDayLogs)),
+    StateDayLogCellViewModel(stateDayLog: (key: LogState.memo, value: testDayLogs)),
+  ]
 #endif

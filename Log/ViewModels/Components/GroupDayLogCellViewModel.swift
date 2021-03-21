@@ -5,8 +5,8 @@
 //  Created by AzumaSato on 2021/03/05.
 //
 
-import Foundation
 import Combine
+import Foundation
 import Resolver
 import SwiftDate
 
@@ -30,9 +30,11 @@ class GroupDayLogCellViewModel: ObservableObject, Identifiable {
 }
 
 #if DEBUG
-let testGroupDayLogCellViewModels = [
-  GroupDayLogCellViewModel(groupDayLog: (key: (Date()-1.days).in(region: .current), value: testDayLogs)),
-  GroupDayLogCellViewModel(groupDayLog: (key: Date().in(region: .current), value: testDayLogs)),
-  GroupDayLogCellViewModel(groupDayLog: (key: (Date()+1.days).in(region: .current), value: testDayLogs)),
-]
+  let testGroupDayLogCellViewModels = [
+    GroupDayLogCellViewModel(
+      groupDayLog: (key: (Date() - 1.days).in(region: .current), value: testDayLogs)),
+    GroupDayLogCellViewModel(groupDayLog: (key: Date().in(region: .current), value: testDayLogs)),
+    GroupDayLogCellViewModel(
+      groupDayLog: (key: (Date() + 1.days).in(region: .current), value: testDayLogs)),
+  ]
 #endif

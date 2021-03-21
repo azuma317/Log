@@ -41,11 +41,13 @@ struct SizeAwareViewModifier: ViewModifier {
   func body(content: Content) -> some View {
     content
       .background(BackgroundGeometryReader())
-      .onPreferenceChange(SizePreferenceKey.self, perform: { value in
-        if self.viewSize != value {
-          self.viewSize = value
-        }
-      })
+      .onPreferenceChange(
+        SizePreferenceKey.self,
+        perform: { value in
+          if self.viewSize != value {
+            self.viewSize = value
+          }
+        })
   }
 }
 
@@ -119,16 +121,16 @@ struct SegmentedPicker: View {
 
     return VStack {
       Text(self.items[index])
-      .foregroundColor(
-        isSelected
-          ? SegmentedPicker.SelectedTextColor
-          : SegmentedPicker.TextColor
-      )
-      .lineLimit(1)
-      .padding(.vertical, SegmentedPicker.SegmentYPadding)
-      .padding(.horizontal, SegmentedPicker.SegmentXPadding)
-      .frame(minWidth: 0, maxWidth: .infinity)
-      .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
+        .foregroundColor(
+          isSelected
+            ? SegmentedPicker.SelectedTextColor
+            : SegmentedPicker.TextColor
+        )
+        .lineLimit(1)
+        .padding(.vertical, SegmentedPicker.SegmentYPadding)
+        .padding(.horizontal, SegmentedPicker.SegmentXPadding)
+        .frame(minWidth: 0, maxWidth: .infinity)
+        .modifier(SizeAwareViewModifier(viewSize: self.$segmentSize))
     }
     .contentShape(Rectangle())
     .onTapGesture { self.onItemTap(index: index) }
