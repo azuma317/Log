@@ -396,6 +396,7 @@
 				F268970A25736B3900D23FBE /* Sources */,
 				F268970B25736B3900D23FBE /* Frameworks */,
 				F268970C25736B3900D23FBE /* Resources */,
+				F2359B8E2607885200A4A781 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -527,6 +528,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F2359B8E2607885200A4A781 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swift-format >/dev/null; then\n  swift-format --mode lint --recursive Log/ || true\nelse\n  echo \"warning: swift-format not installed\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F268970A25736B3900D23FBE /* Sources */ = {
