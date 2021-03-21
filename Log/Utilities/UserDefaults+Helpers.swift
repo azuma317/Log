@@ -30,12 +30,12 @@ extension UserDefaults {
   }
 
   var dateFormat: DateFormat {
-    get { DateFormat(rawValue: integer(forKey: UserDefaultsKeys.dateFormat)) ?? .month_day }
+    get { DateFormat(rawValue: integer(forKey: UserDefaultsKeys.dateFormat)) ?? .monthDay }
     set { set(newValue.rawValue, forKey: UserDefaultsKeys.dateFormat) }
   }
 
   var timeFormat: TimeFormat {
-    get { TimeFormat(rawValue: integer(forKey: UserDefaultsKeys.timeFormat)) ?? .time_meridiem }
+    get { TimeFormat(rawValue: integer(forKey: UserDefaultsKeys.timeFormat)) ?? .timeMeridiem }
     set { set(newValue.rawValue, forKey: UserDefaultsKeys.timeFormat) }
   }
 }

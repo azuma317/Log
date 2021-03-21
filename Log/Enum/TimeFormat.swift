@@ -8,12 +8,12 @@
 import Foundation
 
 enum TimeFormat: Int {
-  case time_meridiem
+  case timeMeridiem
   case time
 
   var format: String {
     switch self {
-    case .time_meridiem:
+    case .timeMeridiem:
       return "h:mm a"
     case .time:
       return "HH:mm"
@@ -22,19 +22,19 @@ enum TimeFormat: Int {
 
   var next: TimeFormat {
     switch self {
-    case .time_meridiem:
+    case .timeMeridiem:
       return .time
     case .time:
-      return .time_meridiem
+      return .timeMeridiem
     }
   }
 
   var prev: TimeFormat {
     switch self {
-    case .time_meridiem:
+    case .timeMeridiem:
       return .time
     case .time:
-      return .time_meridiem
+      return .timeMeridiem
     }
   }
 }

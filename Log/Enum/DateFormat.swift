@@ -9,51 +9,51 @@ import Foundation
 import SwiftDate
 
 enum DateFormat: Int {
-  case month_day
-  case day_month
-  case year_month
+  case monthDay
+  case dayMonth
+  case yearMonth
 
   var format: String {
     switch self {
-    case .month_day:
+    case .monthDay:
       return "MMM d yyyy"
-    case .day_month:
+    case .dayMonth:
       return "d MMM yyyy"
-    case .year_month:
+    case .yearMonth:
       return "yyyy/M/d"
     }
   }
 
   var monthFormat: String {
     switch self {
-    case .month_day:
+    case .monthDay:
       return "MMM yyyy"
-    case .day_month:
+    case .dayMonth:
       return "MMM yyyy"
-    case .year_month:
+    case .yearMonth:
       return "yyyy/M"
     }
   }
 
   var next: DateFormat {
     switch self {
-    case .month_day:
-      return .day_month
-    case .day_month:
-      return .year_month
-    case .year_month:
-      return .month_day
+    case .monthDay:
+      return .dayMonth
+    case .dayMonth:
+      return .yearMonth
+    case .yearMonth:
+      return .monthDay
     }
   }
 
   var prev: DateFormat {
     switch self {
-    case .month_day:
-      return .year_month
-    case .day_month:
-      return .month_day
-    case .year_month:
-      return .day_month
+    case .monthDay:
+      return .yearMonth
+    case .dayMonth:
+      return .monthDay
+    case .yearMonth:
+      return .dayMonth
     }
   }
 }
