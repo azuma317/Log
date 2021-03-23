@@ -84,7 +84,7 @@ struct LogListView: View {
 
               Button(
                 action: {
-                  withAnimation {
+                  withAnimation(.easeOut(duration: 0.2)) {
                     self.presentSelectLog.toggle()
                   }
                 },
@@ -116,7 +116,7 @@ struct LogListView: View {
         .gesture(
           TapGesture(count: 1)
             .onEnded({
-              withAnimation {
+              withAnimation(.easeOut(duration: 0.2)) {
                 self.presentSelectLog.toggle()
               }
             })
@@ -124,7 +124,7 @@ struct LogListView: View {
         .gesture(
           DragGesture()
             .onEnded({ _ in
-              withAnimation {
+              withAnimation(.easeOut(duration: 0.2)) {
                 self.presentSelectLog.toggle()
               }
             })

@@ -57,7 +57,7 @@ struct DayLogCell: View {
     .shadow(color: Color.black.opacity(0.2), radius: 4, x: 4, y: 4)
     .shadow(color: Color.black.opacity(0.2), radius: 4, x: -4, y: -4)
     .onTapGesture {
-      withAnimation {
+      withAnimation(.easeOut(duration: 0.2)) {
         self.isTapping.toggle()
       }
     }

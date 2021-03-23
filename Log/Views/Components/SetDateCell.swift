@@ -35,7 +35,7 @@ struct SetDateCell: View {
           HStack {
             Button(
               action: {
-                withAnimation(.easeIn) {
+                withAnimation(.easeOut(duration: 0.2)) {
                   self.showDateScreen.toggle()
                   self.showTimeScreen = false
                 }
@@ -50,7 +50,7 @@ struct SetDateCell: View {
             if !isAllDay {
               Button(
                 action: {
-                  withAnimation(.easeIn) {
+                  withAnimation(.easeOut(duration: 0.2)) {
                     self.showTimeScreen.toggle()
                     self.showDateScreen = false
                   }

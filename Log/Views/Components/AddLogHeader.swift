@@ -17,7 +17,7 @@ struct AddLogHeader: View {
   var body: some View {
     HStack {
       Button("Close") {
-        withAnimation(.easeInOut) {
+        withAnimation(.easeOut(duration: 0.2)) {
           presentToggle.toggle()
         }
       }
@@ -28,7 +28,7 @@ struct AddLogHeader: View {
 
       Button("Save") {
         if saveIsEnabled {
-          withAnimation {
+          withAnimation(.easeOut(duration: 0.2)) {
             presentToggle.toggle()
           }
           self.onSave()

@@ -139,7 +139,7 @@ struct SegmentedPicker: View {
 
   private func onItemTap(index: Int) {
     guard index < self.items.count else { return }
-    withAnimation(.easeInOut) {
+    withAnimation(.easeOut(duration: 0.2)) {
       self.selection = index
     }
   }
