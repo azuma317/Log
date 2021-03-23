@@ -15,9 +15,20 @@ struct DayLogListView: View {
   var onEdit: (DayLog) -> Void = { _ in }
 
   var body: some View {
-    ScrollView {
-      ForEach(dayLogListVM.stateDayLogCellViewModels) { stateDayLogCellVM in
-        StateDayLogCell(stateDayLogCellVM: stateDayLogCellVM)
+    VStack(spacing: 0) {
+      HStack {
+        Text(dayLogListVM.dateDescription)
+          .fontWeight(.semibold)
+          .padding(.leading)
+
+        Spacer()
+      }
+      .padding(.bottom, 4.0)
+
+      ScrollView {
+        ForEach(dayLogListVM.stateDayLogCellViewModels) { stateDayLogCellVM in
+          StateDayLogCell(stateDayLogCellVM: stateDayLogCellVM)
+        }
       }
     }
     .background(Color(.systemBackground))

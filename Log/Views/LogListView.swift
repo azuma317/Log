@@ -26,7 +26,7 @@ struct LogListView: View {
       Color(.systemBackground)
         .edgesIgnoringSafeArea(.all)
 
-      VStack(alignment: .leading) {
+      VStack(alignment: .leading, spacing: 0) {
         HStack(alignment: .bottom) {
           Text(pickerItems[selectedIndex] + "Log")
             .font(.title)

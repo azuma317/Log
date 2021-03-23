@@ -12,12 +12,17 @@ import Resolver
 import SwiftDate
 
 class DayLogListViewModel: ObservableObject {
-  @Published var dayLogRepository: DayLogRepository = Resolver.resolve()
+  @Published var dateDescription = ""
   @Published var stateDayLogCellViewModels = [StateDayLogCellViewModel]()
+
+  @Published private var dayLogRepository: DayLogRepository = Resolver.resolve()
+  @Published private var settingsService: SettingsService = Resolver.resolve()
 
   private var cancellables = Set<AnyCancellable>()
 
   init() {
+    self.dateDescription = Date().in(region: .current).toFormat(settingsService.dateFormat.format)
+
     self.stateDayLogCellViewModels = Dictionary(
       grouping: dayLogRepository.dayLogs,
       by: { (dayLog) -> LogState in
