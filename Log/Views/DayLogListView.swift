@@ -17,7 +17,7 @@ struct DayLogListView: View {
   var body: some View {
     VStack(spacing: 0) {
       HStack {
-        Text(dayLogListVM.dateDescription)
+        Text(Date().in(region: .current).toFormat(dayLogListVM.dateFormat))
           .fontWeight(.semibold)
           .padding(.leading)
 

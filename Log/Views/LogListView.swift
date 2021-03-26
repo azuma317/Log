@@ -107,7 +107,6 @@ struct LogListView: View {
         // SegmentPicker
         SegmentedPicker(items: pickerItems, selection: $selectedIndex)
       }
-      .opacity(presentAddTask && presentAddEvent && presentAddMemo ? 0 : 1)
 
       Color(.black)
         .opacity(presentSelectLog ? 0.9 : 0)
@@ -131,20 +130,22 @@ struct LogListView: View {
         )
 
       // SelectLogView
-      SelectLogView(presentSelectLog: $presentSelectLog) { state in
-        self.updateDayLog = nil
-        withAnimation(.easeInOut) {
-          switch state {
-          case .task:
-            self.presentAddTask.toggle()
-          case .event:
-            self.presentAddEvent.toggle()
-          case .memo:
-            self.presentAddMemo.toggle()
+      if presentSelectLog {
+        SelectLogView(presentSelectLog: $presentSelectLog) { state in
+          self.updateDayLog = nil
+          withAnimation(.easeInOut) {
+            switch state {
+            case .task:
+              self.presentAddTask.toggle()
+            case .event:
+              self.presentAddEvent.toggle()
+            case .memo:
+              self.presentAddMemo.toggle()
+            }
           }
         }
+        .transition(.move(edge: .bottom))
       }
-      .offset(y: presentSelectLog ? 0 : 500)
 
       // AddTaskView
       if presentAddTask {
