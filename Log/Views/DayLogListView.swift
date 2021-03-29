@@ -27,7 +27,9 @@ struct DayLogListView: View {
 
       ScrollView {
         ForEach(dayLogListVM.stateDayLogCellViewModels) { stateDayLogCellVM in
-          StateDayLogCell(stateDayLogCellVM: stateDayLogCellVM)
+          StateDayLogCell(stateDayLogCellVM: stateDayLogCellVM) { dayLog in
+            onEdit(dayLog)
+          }
         }
       }
     }
