@@ -2,34 +2,40 @@
 //  DayLog.swift
 //  Log
 //
-//  Created by AzumaSato on 2020/12/29.
+//  Created by AzumaSato on 2021/03/30.
 //
 
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 import Foundation
 
-struct DayLog: Codable, Identifiable {
+public struct DayLog: Codable, Identifiable {
   // ID
-  @DocumentID var id: String?
+  @DocumentID public var id: String?
   // UserID
-  var userId: String?
+  public var userId: String?
   // log の内容
-  var log: String
+  public var log: String
   // 詳細説明
-  var description: String = ""
+  public var description: String = ""
   // LogState: 初期値Task
-  var state: LogState
+  public var state: LogState
   // LogSubState: 初期値None
-  var subState: LogSubState
+  public var subState: LogSubState
   // DayLog の日にち
-  var logDate: Timestamp
+  public var logDate: Timestamp
   // DayLog の作成日
-  @ServerTimestamp var createdAt: Timestamp!
+  @ServerTimestamp public var createdAt: Timestamp!
   // DayLog の更新日
-  @ServerTimestamp var updatedAt: Timestamp!
+  @ServerTimestamp public var updatedAt: Timestamp!
   // DayLog の完了日
-  var completedAt: Timestamp?
+  public var completedAt: Timestamp?
+}
+
+extension DayLog: Equatable {
+  public static func == (lhs: DayLog, rhs: DayLog) -> Bool {
+    return lhs.id == rhs.id
+  }
 }
 
 #if DEBUG

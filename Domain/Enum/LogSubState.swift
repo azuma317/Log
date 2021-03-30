@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum LogSubState: Int, Codable, CustomStringConvertible {
+public enum LogSubState: Int, Codable, CustomStringConvertible {
   case none
   case priority
   case idea
 
-  var description: String {
+  public var description: String {
     switch self {
     case .none:
       return "None"

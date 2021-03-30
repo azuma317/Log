@@ -7,12 +7,12 @@
 
 import Foundation
 
-enum LogState: Int, Codable, CaseIterable, CustomStringConvertible {
+public enum LogState: Int, Codable, CaseIterable, CustomStringConvertible {
   case task
   case event
   case memo
 
-  var description: String {
+  public var description: String {
     switch self {
     case .task:
       return "Task"
@@ -23,7 +23,7 @@ enum LogState: Int, Codable, CaseIterable, CustomStringConvertible {
     }
   }
 
-  var imageName: String {
+  public var imageName: String {
     switch self {
     case .task:
       return "flag"
@@ -34,7 +34,7 @@ enum LogState: Int, Codable, CaseIterable, CustomStringConvertible {
     }
   }
 
-  var circleImageName: String {
+  public var circleImageName: String {
     switch self {
     case .task:
       return "flag.circle"
@@ -45,7 +45,7 @@ enum LogState: Int, Codable, CaseIterable, CustomStringConvertible {
     }
   }
 
-  var circleFillImageName: String {
+  public var circleFillImageName: String {
     switch self {
     case .task:
       return "flag.circle.fill"
