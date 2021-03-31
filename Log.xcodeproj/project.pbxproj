@@ -422,13 +422,13 @@
 				F29DF36B2614C42F0046BB84 /* StateDayLogCell */,
 				F29DF36C2614C4460046BB84 /* GroupDayLogCell */,
 				F29DF36D2614C4670046BB84 /* MonthlyLogCell */,
-				F24E173D25C523340090439B /* TextView.swift */,
-				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
-				F24E173325C50E580090439B /* SetDateCell.swift */,
-				F24E173825C51CD50090439B /* SetDetailCell.swift */,
-				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
-				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
-				F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */,
+				F29DF3722614C9BA0046BB84 /* TextView */,
+				F29DF3732614C9C60046BB84 /* SignInWithAppleButton */,
+				F29DF3742614C9E20046BB84 /* SetDateCell */,
+				F29DF3752614C9ED0046BB84 /* SetDetailCell */,
+				F29DF3762614C9F90046BB84 /* SetNotificationCell */,
+				F29DF3772614CA030046BB84 /* SegmentedPicker */,
+				F29DF3782614CA0D0046BB84 /* AddLogHeader */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -560,6 +560,62 @@
 				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
 			);
 			path = MonthlyLogCell;
+			sourceTree = "<group>";
+		};
+		F29DF3722614C9BA0046BB84 /* TextView */ = {
+			isa = PBXGroup;
+			children = (
+				F24E173D25C523340090439B /* TextView.swift */,
+			);
+			path = TextView;
+			sourceTree = "<group>";
+		};
+		F29DF3732614C9C60046BB84 /* SignInWithAppleButton */ = {
+			isa = PBXGroup;
+			children = (
+				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
+			);
+			path = SignInWithAppleButton;
+			sourceTree = "<group>";
+		};
+		F29DF3742614C9E20046BB84 /* SetDateCell */ = {
+			isa = PBXGroup;
+			children = (
+				F24E173325C50E580090439B /* SetDateCell.swift */,
+			);
+			path = SetDateCell;
+			sourceTree = "<group>";
+		};
+		F29DF3752614C9ED0046BB84 /* SetDetailCell */ = {
+			isa = PBXGroup;
+			children = (
+				F24E173825C51CD50090439B /* SetDetailCell.swift */,
+			);
+			path = SetDetailCell;
+			sourceTree = "<group>";
+		};
+		F29DF3762614C9F90046BB84 /* SetNotificationCell */ = {
+			isa = PBXGroup;
+			children = (
+				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
+			);
+			path = SetNotificationCell;
+			sourceTree = "<group>";
+		};
+		F29DF3772614CA030046BB84 /* SegmentedPicker */ = {
+			isa = PBXGroup;
+			children = (
+				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
+			);
+			path = SegmentedPicker;
+			sourceTree = "<group>";
+		};
+		F29DF3782614CA0D0046BB84 /* AddLogHeader */ = {
+			isa = PBXGroup;
+			children = (
+				F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */,
+			);
+			path = AddLogHeader;
 			sourceTree = "<group>";
 		};
 		F2AFC9A325E69F38003F7D0A /* Enum */ = {
