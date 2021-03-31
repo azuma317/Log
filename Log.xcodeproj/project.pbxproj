@@ -34,7 +34,6 @@
 		F22EB20B25A19C58003FF8A9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */; };
 		F22EB21925A2BDD4003FF8A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */; };
 		F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */; };
-		F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22A25A2C67B003FF8A9 /* Zebra.swift */; };
 		F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B8A25AC381700C36011 /* SwiftDateStatic */; };
 		F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2343B9525B59D3D00C36011 /* LogListView.swift */; };
 		F2359B772605EDF900A4A781 /* StateDayLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2359B762605EDF900A4A781 /* StateDayLogCell.swift */; };
@@ -149,7 +148,6 @@
 		F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogApp+Injection.swift"; sourceTree = "<group>"; };
-		F22EB22A25A2C67B003FF8A9 /* Zebra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Zebra.swift; sourceTree = "<group>"; };
 		F2343B9525B59D3D00C36011 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
 		F2359B762605EDF900A4A781 /* StateDayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDayLogCell.swift; sourceTree = "<group>"; };
 		F2359B7B2605EECA00A4A781 /* StateDayLogCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDayLogCellViewModel.swift; sourceTree = "<group>"; };
@@ -247,39 +245,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F21B0232259ABF8800999C89 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				F22EB22925A2C456003FF8A9 /* AppIcon */,
-				F29AC41D25D4FA7B00012379 /* Components */,
-				F22EB1FD25A019AC003FF8A9 /* SignInView.swift */,
-				F2343B9525B59D3D00C36011 /* LogListView.swift */,
-				F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */,
-				F21C4FCA25D7A87C00C3CBFA /* MonthlyLogListView.swift */,
-				F21C4FB525D781C700C3CBFA /* SelectLogView.swift */,
-				F24E172025C50AE50090439B /* AddTaskView.swift */,
-				F29AC40D25CC236500012379 /* AddEventView.swift */,
-				F21C4FAD25D501B700C3CBFA /* AddMemoView.swift */,
-				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
-				F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */,
-				F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		F21B0233259ABF9800999C89 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				F2EAC83825F3426B00F28429 /* Components */,
-				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
-				F2EAC83025F322B200F28429 /* MonthlyLogListViewModel.swift */,
-				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
-				F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */,
-				F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		F21B0235259ABFB200999C89 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,14 +290,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		F22EB22925A2C456003FF8A9 /* AppIcon */ = {
-			isa = PBXGroup;
-			children = (
-				F22EB22A25A2C67B003FF8A9 /* Zebra.swift */,
-			);
-			path = AppIcon;
-			sourceTree = "<group>";
-		};
 		F268970525736B3900D23FBE = {
 			isa = PBXGroup;
 			children = (
@@ -367,8 +324,8 @@
 				F21B0235259ABFB200999C89 /* Repositories */,
 				F21B0236259ABFC000999C89 /* Services */,
 				F22EB1EA259F1EBF003FF8A9 /* Utilities */,
-				F21B0233259ABF9800999C89 /* ViewModels */,
-				F21B0232259ABF8800999C89 /* Views */,
+				F29DF35C2614C22A0046BB84 /* Scenes */,
+				F29DF35D2614C2460046BB84 /* Components */,
 				F268971525736B3B00D23FBE /* Assets.xcassets */,
 				F268971A25736B3B00D23FBE /* Info.plist */,
 				F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */,
@@ -401,24 +358,6 @@
 				F268973025736B3B00D23FBE /* Info.plist */,
 			);
 			path = LogUITests;
-			sourceTree = "<group>";
-		};
-		F29AC41D25D4FA7B00012379 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F24E173D25C523340090439B /* TextView.swift */,
-				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
-				F24E173325C50E580090439B /* SetDateCell.swift */,
-				F24E173825C51CD50090439B /* SetDetailCell.swift */,
-				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
-				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
-				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
-				F2359B762605EDF900A4A781 /* StateDayLogCell.swift */,
-				F2AFCAA225F31856003F7D0A /* GroupDayLogCell.swift */,
-				F21C4FE825DAC87400C3CBFA /* MonthlyLogCell.swift */,
-				F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		F29DF2B0261226CC0046BB84 /* Entries */ = {
@@ -458,6 +397,171 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		F29DF35C2614C22A0046BB84 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F29DF35E2614C2550046BB84 /* SignInView */,
+				F29DF35F2614C2680046BB84 /* LogListView */,
+				F29DF3602614C27B0046BB84 /* DayLogListView */,
+				F29DF3612614C2860046BB84 /* MonthlyLogListView */,
+				F29DF3632614C2D20046BB84 /* SelectLogView */,
+				F29DF3642614C3270046BB84 /* AddTaskView */,
+				F29DF3652614C3300046BB84 /* AddEventView */,
+				F29DF3662614C3380046BB84 /* AddMemoView */,
+				F29DF3672614C33F0046BB84 /* SettingsView */,
+				F29DF3682614C3490046BB84 /* AppThemeListView */,
+				F29DF3692614C3550046BB84 /* AddIconListView */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F29DF35D2614C2460046BB84 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F29DF36A2614C4120046BB84 /* DayLogCell */,
+				F29DF36B2614C42F0046BB84 /* StateDayLogCell */,
+				F29DF36C2614C4460046BB84 /* GroupDayLogCell */,
+				F29DF36D2614C4670046BB84 /* MonthlyLogCell */,
+				F24E173D25C523340090439B /* TextView.swift */,
+				F22EB1F825A0099E003FF8A9 /* SignInWithAppleButton.swift */,
+				F24E173325C50E580090439B /* SetDateCell.swift */,
+				F24E173825C51CD50090439B /* SetDetailCell.swift */,
+				F29AC40225CC1C9F00012379 /* SetNotificationCell.swift */,
+				F22CC0C025A75161004DC9F1 /* SegmentedPicker.swift */,
+				F21C4FC025D791A300C3CBFA /* AddLogHeader.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F29DF35E2614C2550046BB84 /* SignInView */ = {
+			isa = PBXGroup;
+			children = (
+				F22EB1FD25A019AC003FF8A9 /* SignInView.swift */,
+			);
+			path = SignInView;
+			sourceTree = "<group>";
+		};
+		F29DF35F2614C2680046BB84 /* LogListView */ = {
+			isa = PBXGroup;
+			children = (
+				F2343B9525B59D3D00C36011 /* LogListView.swift */,
+			);
+			path = LogListView;
+			sourceTree = "<group>";
+		};
+		F29DF3602614C27B0046BB84 /* DayLogListView */ = {
+			isa = PBXGroup;
+			children = (
+				F22CC09725A2DFEB004DC9F1 /* DayLogListView.swift */,
+				F22CC08F25A2DE29004DC9F1 /* DayLogListViewModel.swift */,
+			);
+			path = DayLogListView;
+			sourceTree = "<group>";
+		};
+		F29DF3612614C2860046BB84 /* MonthlyLogListView */ = {
+			isa = PBXGroup;
+			children = (
+				F21C4FCA25D7A87C00C3CBFA /* MonthlyLogListView.swift */,
+				F2EAC83025F322B200F28429 /* MonthlyLogListViewModel.swift */,
+			);
+			path = MonthlyLogListView;
+			sourceTree = "<group>";
+		};
+		F29DF3632614C2D20046BB84 /* SelectLogView */ = {
+			isa = PBXGroup;
+			children = (
+				F21C4FB525D781C700C3CBFA /* SelectLogView.swift */,
+			);
+			path = SelectLogView;
+			sourceTree = "<group>";
+		};
+		F29DF3642614C3270046BB84 /* AddTaskView */ = {
+			isa = PBXGroup;
+			children = (
+				F24E172025C50AE50090439B /* AddTaskView.swift */,
+			);
+			path = AddTaskView;
+			sourceTree = "<group>";
+		};
+		F29DF3652614C3300046BB84 /* AddEventView */ = {
+			isa = PBXGroup;
+			children = (
+				F29AC40D25CC236500012379 /* AddEventView.swift */,
+			);
+			path = AddEventView;
+			sourceTree = "<group>";
+		};
+		F29DF3662614C3380046BB84 /* AddMemoView */ = {
+			isa = PBXGroup;
+			children = (
+				F21C4FAD25D501B700C3CBFA /* AddMemoView.swift */,
+			);
+			path = AddMemoView;
+			sourceTree = "<group>";
+		};
+		F29DF3672614C33F0046BB84 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				F22EB20525A19BED003FF8A9 /* SettingsView.swift */,
+				F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		F29DF3682614C3490046BB84 /* AppThemeListView */ = {
+			isa = PBXGroup;
+			children = (
+				F2AFC9D825E7F8A6003F7D0A /* AppThemeListView.swift */,
+				F2AFC9EA25EBD5DD003F7D0A /* AppThemeListViewModel.swift */,
+			);
+			path = AppThemeListView;
+			sourceTree = "<group>";
+		};
+		F29DF3692614C3550046BB84 /* AddIconListView */ = {
+			isa = PBXGroup;
+			children = (
+				F2AFC9D025E7F88D003F7D0A /* AppIconListView.swift */,
+				F2AFC9F225EBD5FC003F7D0A /* AppIconListViewModel.swift */,
+			);
+			path = AddIconListView;
+			sourceTree = "<group>";
+		};
+		F29DF36A2614C4120046BB84 /* DayLogCell */ = {
+			isa = PBXGroup;
+			children = (
+				F29AC41825D2D6FF00012379 /* DayLogCell.swift */,
+				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
+			);
+			path = DayLogCell;
+			sourceTree = "<group>";
+		};
+		F29DF36B2614C42F0046BB84 /* StateDayLogCell */ = {
+			isa = PBXGroup;
+			children = (
+				F2359B762605EDF900A4A781 /* StateDayLogCell.swift */,
+				F2359B7B2605EECA00A4A781 /* StateDayLogCellViewModel.swift */,
+			);
+			path = StateDayLogCell;
+			sourceTree = "<group>";
+		};
+		F29DF36C2614C4460046BB84 /* GroupDayLogCell */ = {
+			isa = PBXGroup;
+			children = (
+				F2AFCAA225F31856003F7D0A /* GroupDayLogCell.swift */,
+				F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */,
+			);
+			path = GroupDayLogCell;
+			sourceTree = "<group>";
+		};
+		F29DF36D2614C4670046BB84 /* MonthlyLogCell */ = {
+			isa = PBXGroup;
+			children = (
+				F21C4FE825DAC87400C3CBFA /* MonthlyLogCell.swift */,
+				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
+			);
+			path = MonthlyLogCell;
+			sourceTree = "<group>";
+		};
 		F2AFC9A325E69F38003F7D0A /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,17 +571,6 @@
 				F2AFC9B625E6A31B003F7D0A /* TimeFormat.swift */,
 			);
 			path = Enum;
-			sourceTree = "<group>";
-		};
-		F2EAC83825F3426B00F28429 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				F22CC07E25A2DB73004DC9F1 /* DayLogCellViewModel.swift */,
-				F2359B7B2605EECA00A4A781 /* StateDayLogCellViewModel.swift */,
-				F2AFCA9725F12DE3003F7D0A /* GroupDayLogCellViewModel.swift */,
-				F21C4FE025DAACB800C3CBFA /* MonthlyLogCellViewModel.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -725,7 +818,6 @@
 				F2EAC83125F322B200F28429 /* MonthlyLogListViewModel.swift in Sources */,
 				F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */,
 				F21C4FE125DAACB800C3CBFA /* MonthlyLogCellViewModel.swift in Sources */,
-				F22EB22B25A2C67B003FF8A9 /* Zebra.swift in Sources */,
 				F2AFC9BC25E7F697003F7D0A /* AppTheme.swift in Sources */,
 				F22EB1F925A0099E003FF8A9 /* SignInWithAppleButton.swift in Sources */,
 				F24E173E25C523340090439B /* TextView.swift in Sources */,
