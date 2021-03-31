@@ -35,12 +35,4 @@ class DayLogListViewModel: ObservableObject {
       .assign(to: \.dateFormat, on: self)
       .store(in: &cancellables)
   }
-
-  func addDayLog(dayLog: DayLog) {
-    dayLogRepository.addDayLog(dayLog)
-  }
-
-  func removeDayLog(dayLog: DayLog) {
-    dayLogRepository.removeDayLog(dayLog)
-  }
 }
