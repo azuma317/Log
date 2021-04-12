@@ -1,4 +1,9 @@
 # Zebra
 
-## 概要
-バレットジャーナルを使ったタスク管理アプリ.
+## Overview
+
+Task management app using bullet journal.
+
+| DayLog                         | MonthlyLog                             | SelectLog                            | AddTask                          |
+| ------------------------------ | -------------------------------------- | ------------------------------------ | -------------------------------- |
+| ![DayLog](./Assets/DayLog.PNG) | ![MonthlyLog](./Assets/MonthlyLog.PNG) | ![SelectLog](./Assets/SelectLog.PNG) | ![AddTask](./Assets/AddTask.PNG) |

@@ -32,7 +32,6 @@
 		F22EB1FE25A019AC003FF8A9 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB1FD25A019AC003FF8A9 /* SignInView.swift */; };
 		F22EB20625A19BED003FF8A9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB20525A19BED003FF8A9 /* SettingsView.swift */; };
 		F22EB20B25A19C58003FF8A9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */; };
-		F22EB21925A2BDD4003FF8A9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */; };
 		F22EB22225A2BEAB003FF8A9 /* LogApp+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */; };
 		F2343B8B25AC381700C36011 /* SwiftDateStatic in Frameworks */ = {isa = PBXBuildFile; productRef = F2343B8A25AC381700C36011 /* SwiftDateStatic */; };
 		F2343B9625B59D3D00C36011 /* LogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2343B9525B59D3D00C36011 /* LogListView.swift */; };
@@ -146,7 +145,6 @@
 		F22EB1FD25A019AC003FF8A9 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		F22EB20525A19BED003FF8A9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F22EB20A25A19C58003FF8A9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
-		F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
 		F22EB22125A2BEAB003FF8A9 /* LogApp+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LogApp+Injection.swift"; sourceTree = "<group>"; };
 		F2343B9525B59D3D00C36011 /* LogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogListView.swift; sourceTree = "<group>"; };
 		F2359B762605EDF900A4A781 /* StateDayLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateDayLogCell.swift; sourceTree = "<group>"; };
@@ -328,7 +326,6 @@
 				F29DF35D2614C2460046BB84 /* Components */,
 				F268971525736B3B00D23FBE /* Assets.xcassets */,
 				F268971A25736B3B00D23FBE /* Info.plist */,
-				F22EB21825A2BDD4003FF8A9 /* GoogleService-Info.plist */,
 				F268971725736B3B00D23FBE /* Preview Content */,
 			);
 			path = Log;
@@ -809,7 +806,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F268974025736C0D00D23FBE /* README.md in Resources */,
-				F22EB21925A2BDD4003FF8A9 /* GoogleService-Info.plist in Resources */,
 				F268971925736B3B00D23FBE /* Preview Assets.xcassets in Resources */,
 				F268971625736B3B00D23FBE /* Assets.xcassets in Resources */,
 			);
